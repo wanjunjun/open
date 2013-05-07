@@ -53,6 +53,26 @@ public abstract class CommonService {
 		}
 
 	}
+	
+	public void saveBean(List<Object> beans) {
+		Session session = null;
+		Transaction tx = null;
+		try {
+			session = getSession();
+			tx = session.getTransaction();
+			session.beginTransaction();	
+			for(Object bean: beans){
+				session.saveOrUpdate(bean);
+			}			
+			tx.commit();
+		} catch (HibernateException e) {
+			tx.rollback();
+			e.printStackTrace();
+		} finally {
+			closeSession(session);
+		}
+
+	}
 
 	private void closeSession(Session session) {
 		if (null != session) {

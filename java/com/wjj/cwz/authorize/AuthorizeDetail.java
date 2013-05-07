@@ -10,4 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
  * 
  */
 public interface AuthorizeDetail extends UserDetails{
+	public Long getId();
+	public String getUsername();
 }

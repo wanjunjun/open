@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.google.common.collect.Lists;
 import com.wjj.cwz.core.util.Constants;
 import com.wjj.cwz.core.util.SpringUtil;
 import com.wjj.cwz.dao.SimpleHibernateDao;
@@ -82,17 +83,17 @@ public class FlowTaskService extends CommonService{
 		}
 	}
 	
-	public void mergeJbpmTask(List<JbpmVo> jbpmVos, FlowProcess fp, Map<String, Object> param){
+	public void mergeJbpmTask(List<JbpmVo> jbpmVos, FlowProcess fp){
 		jts = new JbpmTaskService();
 		TaskVo taskVo = null;
 		FlowTask taskDb = null;
-		FlowTaskDao flowTaskDao = (FlowTaskDao)SpringUtil.getInstance().getBean("flowTaskDao");
-		Transaction tx = flowTaskDao.getSession().beginTransaction();
+		List<Object> beans = Lists.newArrayList();
+		beans.add(fp);
 		for(JbpmVo jbpm : jbpmVos) {
 			convertTask(jbpm, taskDb, taskVo, fp);	
-			flowTaskDao.save(taskDb);
-		}
-		tx.commit();
+			beans.add(taskDb);
+		}	
+		saveBean(beans);
 	}
 	
 	public FlowTask getFlowTask(Integer sessionId,Long processId,Long workItemId){

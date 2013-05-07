@@ -28,6 +28,8 @@ public class FlowProcess extends BaseBean {
 	private Date completeTime;
 	private String processStatus;
 	private User user;			//申请人
+	private Flow flow;			//流程类型
+	private String uuid;		//唯一标识
 	
 	public FlowProcess() {
 	}	
@@ -77,5 +79,24 @@ public class FlowProcess extends BaseBean {
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "flow_id")
+	public Flow getFlow() {
+		return flow;
+	}
+
+	public void setFlow(Flow flow) {
+		this.flow = flow;
+	}
+
+	@Column(name = "uuid", length = 30)
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 }

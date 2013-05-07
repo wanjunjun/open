@@ -26,6 +26,7 @@ public class Flow extends BaseBean {
 	private String name;	
 	private String code;
 	private String description;
+	private String applyForm;
 		
 	@Column(name = "name", length = 30)
 	public String getName() {
@@ -51,6 +52,13 @@ public class Flow extends BaseBean {
 		this.description = description;
 	}
 		
+	@Column(name = "apply_form", length = 15)
+	public String getApplyForm() {
+		return applyForm;
+	}
+	public void setApplyForm(String applyForm) {
+		this.applyForm = applyForm;
+	}
 	//以下临时方法构造角色树时用到,请勿随便更改
 	@Transient
 	public Long getId(){

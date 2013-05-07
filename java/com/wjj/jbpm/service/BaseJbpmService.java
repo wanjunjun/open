@@ -78,13 +78,9 @@ public abstract class BaseJbpmService extends JbpmEnvironment {
 			try {
 				Thread.sleep(1500);
 			} catch (InterruptedException e1) {
-				e1.printStackTrace();
+				logger.error("flow apply error", e1);
 			}
-
-//			List<TaskSummary> tasks = taskClientWrapper.getTasksAssignedAsPotentialOwner(itcode, "en-UK", null);
-//			TaskSummary task = getTaskByProcessId(processInstanceId, tasks);
-////			logger.debug(itcode + " executing task " + task.getName() + "(" + task.getId() + ": "
-////					+ task.getDescription() + ")");
+			
 			JbpmTaskService jbpmTaskManager = new JbpmTaskService();
 			TaskVo taskVo = jbpmTaskManager.getApplyTask(itcode, processInstanceId);
 			if(taskVo == null){
