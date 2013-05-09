@@ -59,19 +59,5 @@ public class Flow extends BaseBean {
 	public void setApplyForm(String applyForm) {
 		this.applyForm = applyForm;
 	}
-	//以下临时方法构造角色树时用到,请勿随便更改
-	@Transient
-	public Long getId(){
-		return super.getId();
-	}
 	
-	@Transient
-	public String getText() {
-		return name;
-	}
-	
-	@Transient
-	public String getValue(){
-		return String.valueOf(getId());
-	}
 }

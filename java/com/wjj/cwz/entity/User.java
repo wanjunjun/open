@@ -34,8 +34,6 @@ public class User extends BaseBean {
 	private String userName;
 	private Set<UserRole> userRoles = new HashSet<UserRole>(0);
 	
-	private String ids; // ajax del 传过来的id
-
 	public User() {
 	}
 		
@@ -73,15 +71,6 @@ public class User extends BaseBean {
 
 	public void setUserRoles(Set<UserRole> userRoles) {
 		this.userRoles = userRoles;
-	}
-
-	@Transient
-	public String getIds() {
-		return ids;
-	}
-
-	public void setIds(String ids) {
-		this.ids = ids;
 	}
 
 }

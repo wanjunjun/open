@@ -1,0 +1,50 @@
+<%@ page language="java" pageEncoding="UTF-8" %>
+<%@ page import="com.beyondsoft.bpm.core.util.SpringSecurityUtils" %>
+<%@ page import="com.beyondsoft.ldap.LdapUserDetailsImpl"%>
+<%@ include file="/common/taglibs.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
+<%
+	//String active
+	LdapUserDetailsImpl user = SpringSecurityUtils.getCurrentUser();
+%>
+<div id="desktopHeader">
+		<div id="desktopTitlebarWrapper">
+			<div id="desktopTitlebar">
+				<a href="${ctx}/account/index.do"><img src="${ctx}/images/logo.gif"/></a>
+				<h1 class="applicationTitle">BPM</h1>
+				<h2 class="tagline">Beyondsoft's <span class="taglineEm">BPM</span></h2>
+				<div id="topNav">
+					<ul class="menu-right">
+						<li>您好，<%=user==null?"":user.getNameCn()%>!</li>
+						<li><a href="${ctx }/j_spring_security_logout" >Sign Out </a></li>
+					</ul>
+				</div>
+			</div>
+		</div>	
+		<div id="desktopNavbar">
+		<!--	
+			<ul id="miniflex">
+				<li><a href="${ctx }/account/index.do?active=home" class='<c:if test="${active=='home' }">active</c:if>'>Home</a></li>
+				<li><a href="${ctx}/bflow/employeeFlow/index.do?active=workflow" class='<c:if test="${active=='workflow' }">active</c:if>'>工作流</a></li>
+				<li><a href="${ctx}/bflow/employeeFlow/index.do?active=wait" class='<c:if test="${active=='wait' }">active</c:if>'>待办工作</a></li>
+				<li><a href="${ctx}/bflow/employeeFlow/index.do?active=done" class='<c:if test="${active=='done' }">active</c:if>'>已办工作</a></li>
+				<li><a href="${ctx}/bflow/employeeFlow/index.do?active=draft" class='<c:if test="${active=='draft' }">active</c:if>'>草稿箱</a></li>
+				<li><a href="#">统计</a></li>
+				<li><a href="${ctx}/bflow/type/index.do?active=flowManage" class='<c:if test="${active=='flowManage' }">active</c:if>'>流程管理</a></li>
+				<li><a href="${ctx }/account/user/index.do" class='<c:if test="${active=='user' }">active</c:if>'>员工管理</a></li>
+				<li><a href="${ctx }/account/module/index.do?active=module" class='<c:if test="${active=='module' }">active</c:if>'>菜单管理</a></li>
+				<li><a href="${ctx }/role/index.do?active=role" class='<c:if test="${active=='role' }">active</c:if>'>角色管理</a></li>
+				<li><a href="${ctx }/set/index.do?active=set" class='<c:if test="${active=='set' }">active</c:if>'>设置</a></li>
+			</ul>-->
+			
+			<!--  角色权限菜单	-->
+			<ul id="miniflex">
+			<li><a href="${ctx }/account/index.do?active=home" class='<c:if test="${active=='home' }">active</c:if>'>Home</a></li>
+			<c:set value="active=${active}" var="tag" />
+			<c:forEach items="${moduleFunctions}" var="moduleFunction">		
+						
+				<li><a href="${ctx}/${moduleFunction.url}&moduleId=${moduleFunction.id}" class='<c:if test="${fn:contains(moduleFunction.url, tag)}">active</c:if>'>${moduleFunction.nameCn}</a></li>
+			</c:forEach>
+			</ul>
+		</div><!-- desktopNavbar end -->
+	</div><!-- desktopHeader end -->
