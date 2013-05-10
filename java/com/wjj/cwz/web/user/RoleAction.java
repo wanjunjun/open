@@ -36,8 +36,8 @@ public class RoleAction {
 	
 	@RequestMapping(value="/role/getTree")
 	public String getTree(Model model){
-		model.addAttribute("roleTree", roleService.getRoleTree());
-		return "base/role/tree";
+		model.addAttribute("treeData", roleService.getRoleTree());
+		return "base/tree/treeData";
 	}
 	
 	@RequestMapping(value="/role/crud")

@@ -88,7 +88,6 @@
 			$("#r_name").val("");
 			$("#r_security").val("");
 			$("#r_description").val("");
-			$("#sjr").attr("disabled",true);
 		}
 		$("#role").dialog("open");
 	}	

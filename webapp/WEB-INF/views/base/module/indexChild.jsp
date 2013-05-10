@@ -22,7 +22,7 @@
 				colModel:[
 					   		{name:'id', width:55},
 					   		{name:'name', width:100,editable:true},
-					   		{name:'url', width:150,editable:true,editoptions:{size:20}},
+					   		{name:'url', width:150,editable:true,editoptions:{size:30}},
 					   		{name:'sortNum', width:50,editable:true}	   			
 					   	],
 				editurl:"${ctx}/module/crud.do?parent.id=${moduleId}",	

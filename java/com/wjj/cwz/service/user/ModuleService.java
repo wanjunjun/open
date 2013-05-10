@@ -29,7 +29,7 @@ import com.wjj.cwz.service.CommonService;
 @Transactional
 public class ModuleService extends CommonService{
 
-	private static Logger logger = LoggerFactory.getLogger(ModuleService.class);
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@Autowired
 	private ModuleDao moduleDao;

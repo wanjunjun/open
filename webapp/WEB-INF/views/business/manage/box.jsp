@@ -22,27 +22,17 @@
 	<script type="text/javascript">
 	jQuery(document).ready(function(){	
 		var setting = {
-				url:"${ctx}/flow/getPage.do",
-				colNames:['id','流程代码','流程名称','流程表单','流程描述','操作'],
+				url:"${ctx}/box/getPage.do",
+				colNames:['id','芯片ID','类型','位置'],
 				colModel:[
 					   		{name:'id', width:55},
-					   		{name:'code', width:100,editable:true},
-					   		{name:'name', width:150,editable:true},
-					   		{name:'applyForm', width:150,editable:true},
-					   		{name:'description', width:150,editable:true},
-					   		{name:'operation', align:"center"}
+					   		{name:'boxId', width:100,editable:true},
+					   		{name:'type', width:150,editable:true},
+					   		{name:'address', width:150,editable:true}
 					   	],				
-				editurl:"${ctx}/flow/crud.do",
+				editurl:"${ctx}/box/crud.do",
 				toolbar: [true,"top"],
-			    caption:"流程管理",
-			    gridComplete:function(){
-			    	var ids=jQuery("#list").jqGrid('getDataIDs');
-			    	for(var i=0; i<ids.length; i++){
-			    		var id=ids[i];
-			    		var action = "<a href='#' style='color:#f60' onclick='startFow(" + id + ")'>发起流程</a>"; 
-			    		jQuery("#list").jqGrid('setRowData', ids[i], { operation: action});
-			    	}			    	
-			    }
+			    caption:"芯片管理"
 		}
 		Common.grid("list","pager",setting);
 		$('#t_list').append("<input type='button' id='add' value='新建'/>");
@@ -52,17 +42,12 @@
 		$("#add").bind("click",function(){Common.g_add("list");});
 		$("#edit").bind("click",function(){Common.g_edit("list");});
 		$("#del").bind("click",function(){Common.g_del("list");});	
-		//initDialogSearch();
+		initDialogSearch();
 	});
-	function startFow(id){
-		var applyForm = $("#list").getCell(id.toString(),'applyForm');
-		window.location.href = "${ctx}/page.do?page="+applyForm;
-	}
 	function initDialogSearch(){
 		var p = $("#advanced").position();
 		$("#advanced").dialog({autoOpen: false,width:500,show:"blind",hide:"blind",position:[p.left,p.top]});
 	}
-	
 	function _search(){
 		var bean = new Object();
 		var searchField = $("#searchField");
@@ -92,13 +77,11 @@
 	</script>
 </head>
 <body >
-	<!-- 	
 		<form id="search" name="search" class="clearfix">
             <div id="search-select" class="select">
-                <input id="searchField" type="text" code="userName" value="用户名称" readonly="readonly" name="type">
+                <input id="searchField" type="text" code="boxName" value="芯片ID" readonly="readonly" name="type">
                 <ul>
-                    <li code="userCode">用户账号</li>
-                    <li code="userName">用户名称</li>
+                    <li code="boxId">芯片ID</li>
                 </ul>
             </div>
             <label for="keyword">
@@ -108,20 +91,19 @@
             <a href="#" class="search-option" onclick="openAdvanceSearch()">高级搜索</a>
         </form>
         
-        <div id="advanced" title="合同查询">
+        <div id="advanced" title="芯片查询">
 	         <table>
 		    	<tr>
-		    		<td>用户账号</td>
-		    		<td><input id="userCode" type="text" value=""/></td>
-		    		<td> 用户名称</td>
-		    		<td><input id="userName" type="text" value=""/></td>
+		    		<td>类型</td>
+		    		<td><input id="type" type="text" value=""/></td>
+		    		<td> 位置</td>
+		    		<td><input id="address" type="text" value=""/></td>
 		    	</tr>
 		    </table>
 		    <div style="position:absolute;bottom:5px;right:10px"><img type="button"  onclick="advanceSearch()" value="检索" src="${ctx}/images/search.jpg"></img></div>		    
 		 
 		</div>
 	<br/>
-	-->
 	<table id="list"></table>
 	<div id="pager"></div>
 
