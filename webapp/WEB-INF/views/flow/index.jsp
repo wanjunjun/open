@@ -56,7 +56,7 @@
 	});
 	function startFow(id){
 		var applyForm = $("#list").getCell(id.toString(),'applyForm');
-		window.location.href = "${ctx}/page.do?page="+applyForm;
+		window.location.href = "${ctx}/page.do?page=business/apply/"+applyForm+"&flowId="+id;
 	}
 	function initDialogSearch(){
 		var p = $("#advanced").position();

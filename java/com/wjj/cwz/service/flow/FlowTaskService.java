@@ -47,8 +47,8 @@ public class FlowTaskService extends CommonService{
 		return flowTaskDao;
 	}	
 	
-	private void convertTask(JbpmVo jbpm, FlowTask taskDb, TaskVo taskVo, FlowProcess fp){
-		taskDb = getFlowTask(jbpm.getSessionId(),jbpm.getProcessId(),jbpm.getWorkitemId());
+	private void convertTask(JbpmVo jbpm, List<Object> tasks, TaskVo taskVo, FlowProcess fp){
+		FlowTask taskDb = getFlowTask(jbpm.getSessionId(),jbpm.getProcessId(),jbpm.getWorkitemId());
 		taskVo = jts.getTaskByWorkItemId(jbpm.getWorkitemId(), jbpm.getProcessId());
 		if(null == taskDb){
 			taskDb = new FlowTask();
@@ -81,17 +81,16 @@ public class FlowTaskService extends CommonService{
 		if (StringUtils.equalsIgnoreCase(Constants.BPM_REJECT,jbpm.getStatus()) || StringUtils.equalsIgnoreCase("Completed",jbpm.getStatus())) {
 			taskDb.setTaskStatus(jbpm.getStatus());
 		}
+		tasks.add(taskDb);
 	}
 	
 	public void mergeJbpmTask(List<JbpmVo> jbpmVos, FlowProcess fp){
 		jts = new JbpmTaskService();
 		TaskVo taskVo = null;
-		FlowTask taskDb = null;
 		List<Object> beans = Lists.newArrayList();
 		beans.add(fp);
 		for(JbpmVo jbpm : jbpmVos) {
-			convertTask(jbpm, taskDb, taskVo, fp);	
-			beans.add(taskDb);
+			convertTask(jbpm, beans, taskVo, fp);	
 		}	
 		saveBean(beans);
 	}

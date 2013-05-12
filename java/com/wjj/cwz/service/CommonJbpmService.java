@@ -3,6 +3,7 @@ package com.wjj.cwz.service;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -43,23 +44,12 @@ public abstract class CommonJbpmService extends CommonService{
 	
 	public abstract BaseJbpmService getJbpmService();
 	
-	public void applyFlow(AuthorizeDetail user, Flow flow, Map<String, Object> param){
+	public void applyFlow(String applyUser, FlowProcess fp, Map<String, Object> variables){
 		BaseJbpmService jbpmService = getJbpmService();
-		Map<String, List<JbpmVo>> jbpmMap = jbpmService.apply(user.getUsername());
-		String uuid = null;
-		List<JbpmVo> jbpmVos = null;
-		for (Map.Entry<String, List<JbpmVo>> entry : jbpmMap.entrySet()) {
-			uuid = entry.getKey();
-			jbpmVos = entry.getValue();
-		}
-		Map<String, Object> variables = Maps.newHashMap();
 		jbpmService.setParams(variables);
-		
-		FlowProcess fp = new FlowProcess();
-		User applyUser = new User();
-		applyUser.setId(user.getId());
-		fp.setUser(applyUser);
-		fp.setFlow(flow);
+		String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+		List<JbpmVo> jbpmVos = jbpmService.apply(applyUser, uuid);		
+
 		fp.setCreateTime(new Date());
 		fp.setUuid(uuid);
 		flowTaskService.mergeJbpmTask(jbpmVos, fp);

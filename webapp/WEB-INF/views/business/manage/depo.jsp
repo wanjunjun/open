@@ -130,8 +130,7 @@
 		Common.ajax("${ctx}/depo/crud.do?",bean,loadDepoTree);
 	}
 	function cancel(){
-		closeDialog('depo');
-		$("#depo").hide();
+		$("#depo").dialog("close");
 	}
 	</script>
 </head>

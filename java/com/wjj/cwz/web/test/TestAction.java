@@ -2,6 +2,7 @@ package com.wjj.cwz.web.test;
 
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +30,8 @@ public class TestAction {
 		params.put("node1", "peter");
 		params.put("node2", "cwz");
 		testFlowService.setParams(params);
-		Map<String, List<JbpmVo>> jbpmMap = testFlowService.apply("peter");
+		String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+		List<JbpmVo> jbpmMap = testFlowService.apply("peter" , uuid);
 		System.out.println(jbpmMap);
 		
 		return "test success";

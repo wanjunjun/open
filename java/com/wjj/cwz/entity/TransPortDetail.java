@@ -24,7 +24,7 @@ public class TransPortDetail extends BaseBean{
 	private String state;
 	private String remark;
 	
-	@ManyToOne(cascade=CascadeType.MERGE, fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "trans_port")
 	public TransPort getTransPort() {
 		return transPort;

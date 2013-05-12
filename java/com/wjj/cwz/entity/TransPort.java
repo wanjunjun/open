@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -26,6 +27,11 @@ public class TransPort extends BaseBean{
 
 	private FlowProcess FlowProcess;
 	private String name;
+	private String driver;
+	private String carNo;
+	private Depo depo;
+	private String remark;
+	
 	private Set<TransPortDetail> details = new BpmSet<TransPortDetail>(0, TransPortDetail.class); 
 
 	@OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
@@ -47,7 +53,44 @@ public class TransPort extends BaseBean{
 		this.name = name;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "transPort")
+	@Column(name = "driver", length = 50)
+	public String getDriver() {
+		return driver;
+	}
+
+	public void setDriver(String driver) {
+		this.driver = driver;
+	}
+
+	@Column(name = "car_no", length = 50)
+	public String getCarNo() {
+		return carNo;
+	}
+
+	public void setCarNo(String carNo) {
+		this.carNo = carNo;
+	}
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "depo")
+	public Depo getDepo() {
+		return depo;
+	}
+
+	public void setDepo(Depo depo) {
+		this.depo = depo;
+	}
+
+	@Column(name = "remark", length = 100)
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "transPort")
 	public Set<TransPortDetail> getDetails() {
 		return details;
 	}

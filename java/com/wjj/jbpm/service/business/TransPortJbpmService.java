@@ -13,12 +13,12 @@ public class TransPortJbpmService extends BaseJbpmService{
 
 	@Override
 	protected String[] getProcessPaths() {
-		return new String[]{"flow/transport/main.bpmn"};
+		return new String[]{"flow/transport.bpmn"};
 	}
 
 	@Override
 	protected String getBPMN() {
-		return "com.wbpm.transport";
+		return "wbpm.transport";
 	}
 
 }

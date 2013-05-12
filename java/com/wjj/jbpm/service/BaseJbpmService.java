@@ -53,7 +53,7 @@ public abstract class BaseJbpmService extends JbpmEnvironment {
 	}
 
 	//流程申请
-	public Map<String, List<JbpmVo>> apply(String itcode) {
+	public List<JbpmVo> apply(String itcode, String uuid) {
 		StatefulKnowledgeSession ksession = null;
 		try {	
 			sleepRandom();
@@ -66,8 +66,7 @@ public abstract class BaseJbpmService extends JbpmEnvironment {
 			humanTaskHandler.setClient(taskClientWrapper.getTaskClient());
 			humanTaskHandler.setSessionId(ksession.getId());
 			ksession.getWorkItemManager().registerWorkItemHandler("Human Task", humanTaskHandler);
-			humanTaskHandler.connect();
-			String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+			humanTaskHandler.connect();			
 			getParams().put("uuid", uuid); //生产uuid，标示唯一
 			getParams().put("sessionId", ksession.getId());
 			ProcessInstance process = ksession.createProcessInstance(getBPMN(), getParams());
@@ -89,15 +88,13 @@ public abstract class BaseJbpmService extends JbpmEnvironment {
 			}
 			taskClientWrapper.start(taskVo.getTaskId(), itcode);
 			taskClientWrapper.complete(taskVo.getTaskId(), itcode, null);
-
-			Map<String, List<JbpmVo>> map = Maps.newHashMap();
+			
 			List<JbpmVo> jbpms = humanTaskHandler.jbpms;
 			for(JbpmVo jbpmVo : jbpms){
 				jbpmVo.setIsApply(Constants.APPLY_YES);
 				break;
 			}	
-			map.put(uuid, humanTaskHandler.jbpms);
-			return map;
+			return humanTaskHandler.jbpms;
 
 		} finally {
 			if (null != ksession) {

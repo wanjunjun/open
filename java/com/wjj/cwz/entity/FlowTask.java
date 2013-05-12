@@ -87,7 +87,7 @@ public class FlowTask extends BaseBean {
 		this.completeTime = completeTime;
 	}
 
-	@Column(name = "node_name", length = 10)
+	@Column(name = "node_name", length = 50)
 	public String getNodeName() {
 		return nodeName;
 	}
