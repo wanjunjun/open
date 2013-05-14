@@ -1,5 +1,7 @@
 package com.wjj.cwz.service.business;
 
+import static java.util.Locale.ENGLISH;
+
 import java.util.Date;
 import java.util.List;
 
@@ -7,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.wjj.cwz.core.config.FlowForm;
 import com.wjj.cwz.dao.SimpleHibernateDao;
 import com.wjj.cwz.dao.business.TransPortDao;
 import com.wjj.cwz.entity.FlowProcess;
@@ -43,6 +46,12 @@ public class TransPortService extends CommonJbpmService{
 		return transPortDao;
 	}
 	
+	@Override
+	public String getServiceBeanId() {
+		String cn = getClass().getSimpleName();
+		return cn.substring(0, 1).toLowerCase(ENGLISH) + cn.substring(1);
+	}
+	
 	public BaseJbpmService getJbpmService(){
 		return new TransPortJbpmService();
 	}
@@ -59,8 +68,23 @@ public class TransPortService extends CommonJbpmService{
 	
 	public void saveFlow(FlowProcess fp, TransPortVo tpv, TransPort tp){
 		fp.setCompleteTime(new Date());
+		fp.setFlowForm(getFlowForm().getCode());
 		tp.setFlowProcess(fp);
 		flowProcessService.merge(fp);
 		merge(tp);
+	}
+	
+	public TransPort getFormData(Long flowProcessid){
+		TransPort tp = null;
+		String hql = "from TransPort tp where tp.flowProcess.id = ?";
+		List<TransPort> list = getDao().find(hql, flowProcessid);
+		if(list.size() == 0){
+			return null;
+		}
+		tp = list.get(0);
+		if(tp.getDetails().size() == 0){
+			tp.setDetails(tp.getDetails());
+		}
+		return tp;
 	}
 }

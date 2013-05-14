@@ -25,7 +25,7 @@ import com.wjj.cwz.core.collection.BpmSet;
 @Table(name = "c_transport", catalog = "cwz")
 public class TransPort extends BaseBean{
 
-	private FlowProcess FlowProcess;
+	private FlowProcess flowProcess;
 	private String name;
 	private String driver;
 	private String carNo;
@@ -34,14 +34,14 @@ public class TransPort extends BaseBean{
 	
 	private Set<TransPortDetail> details = new BpmSet<TransPortDetail>(0, TransPortDetail.class); 
 
-	@OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "flow_process")
 	public FlowProcess getFlowProcess() {
-		return FlowProcess;
+		return flowProcess;
 	}
 
 	public void setFlowProcess(FlowProcess flowProcess) {
-		FlowProcess = flowProcess;
+		this.flowProcess = flowProcess;
 	}
 
 	@Column(name = "name", length = 50)

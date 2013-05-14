@@ -93,10 +93,21 @@ public class FlowTaskService extends CommonService{
 			convertTask(jbpm, beans, taskVo, fp);	
 		}	
 		saveBean(beans);
+		
 	}
 	
 	public FlowTask getFlowTask(Integer sessionId,Long processId,Long workItemId){
 		String hql = "from FlowTask where sessionId=? and processId=? and workitemId = ?";
 		return (FlowTask)getDao().findUnique(hql, sessionId,processId,workItemId);
+	}
+	
+	public FlowTask getWaitTask(Long flowProcessId, String actor){
+		String hql = "from FlowTask where flowProcessId=? and actor=? and taskStatus in('Ready','Reserved')";
+		return (FlowTask)getDao().findUnique(hql, flowProcessId,actor);
+	}
+	
+	public FlowTask getMainProcessId(Integer sessionId){
+		String hql = "from FlowTask where sessionId = ? and isApply = 'Yes' ";
+		return (FlowTask)getDao().findUnique(hql, sessionId);
 	}
 }

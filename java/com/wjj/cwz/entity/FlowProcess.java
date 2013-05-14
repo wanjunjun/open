@@ -29,6 +29,7 @@ public class FlowProcess extends BaseBean {
 	private String processStatus;
 	private User user;			//申请人
 	private Flow flow;			//流程类型
+	private String flowForm;	//流程表单
 	private String uuid;		//唯一标识
 	
 	public FlowProcess() {
@@ -63,7 +64,7 @@ public class FlowProcess extends BaseBean {
 		this.completeTime = completeTime;
 	}
 	
-	@Column(name = "process_status")
+	@Column(name = "process_status", length = 30)
 	public String getProcessStatus() {
 		return processStatus;
 	}
@@ -89,6 +90,15 @@ public class FlowProcess extends BaseBean {
 
 	public void setFlow(Flow flow) {
 		this.flow = flow;
+	}
+
+	@Column(name = "flow_form", length = 30)
+	public String getFlowForm() {
+		return flowForm;
+	}
+
+	public void setFlowForm(String flowForm) {
+		this.flowForm = flowForm;
 	}
 
 	@Column(name = "uuid", length = 30)

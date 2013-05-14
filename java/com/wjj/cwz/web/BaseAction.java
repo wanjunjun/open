@@ -2,7 +2,9 @@ package com.wjj.cwz.web;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.wjj.cwz.authorize.AuthorizeDetailImpl;
 import com.wjj.cwz.core.frame.Page;
+import com.wjj.cwz.core.util.SpringSecurityUtils;
 
 /** 
  *
@@ -18,5 +20,10 @@ public class BaseAction {
 		String rows = request.getParameter("rows");
 		page.setPageNo(Integer.parseInt(pageNo));
 		page.setPageSize(Integer.parseInt(rows));
+	}
+	
+	public AuthorizeDetailImpl getCurrentUser(){
+		AuthorizeDetailImpl user = SpringSecurityUtils.getCurrentUser();
+		return user;
 	}
 }

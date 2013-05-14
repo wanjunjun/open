@@ -32,15 +32,19 @@ public abstract class CommonService {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public Session getSession() {
+	public Session openSession() {
 		return sessionFactory.openSession();
+	}
+	
+	public Session getSession() {
+		return sessionFactory.getCurrentSession();
 	}
 	
 	public void saveBean(Object bean) {
 		Session session = null;
 		Transaction tx = null;
 		try {
-			session = getSession();
+			session = openSession();
 			tx = session.getTransaction();
 			session.beginTransaction();			
 			session.saveOrUpdate(bean);
@@ -56,22 +60,15 @@ public abstract class CommonService {
 	
 	public void saveBean(List<Object> beans) {
 		Session session = null;
-		Transaction tx = null;
 		try {
 			session = getSession();
-			tx = session.getTransaction();
 			session.beginTransaction();	
 			for(Object bean: beans){
 				session.saveOrUpdate(bean);
 			}			
-			tx.commit();
 		} catch (HibernateException e) {
-			tx.rollback();
 			e.printStackTrace();
-		} finally {
-			closeSession(session);
 		}
-
 	}
 
 	private void closeSession(Session session) {
@@ -153,19 +150,16 @@ public abstract class CommonService {
 	//集合查询
 	public <T> List<T> getList(String hql, Object... values){
 		Session session = null;
-		try {
-			session = getSession();
-			Query query = createQuery(session, hql, values);
-			return query.list();
-		} finally{
-			closeSession(session);
-		}		
+	
+		session = getSession();
+		Query query = createQuery(session, hql, values);
+		return query.list();				
 	}
 	
 	public <T> List<T> getList(String hql, Map<String, ?> values){
 		Session session = null;
 		try {
-			session = getSession();
+			session = openSession();
 			Query query = createQuery(session, hql, values);
 			return query.list();
 		} finally{
@@ -177,7 +171,7 @@ public abstract class CommonService {
 	public <T> Page<T> getPage(String hql, Page<T> page, Map<String, ?> values){
 		Session session = null;
 		try {
-			session = getSession();
+			session = openSession();
 			Query query = createQuery(session, hql, values);
 			long totalCount = countHqlResult(session, hql, values);
 			page.setTotalCount(totalCount);
@@ -218,7 +212,7 @@ public abstract class CommonService {
 		Session session = null;
 		Transaction tx = null;
 		try {
-			session = getSession();
+			session = openSession();
 			tx = session.beginTransaction();
 			Query query = createQuery(session, hql, values);
 			query.executeUpdate();
@@ -235,7 +229,7 @@ public abstract class CommonService {
 		Session session = null;
 		Transaction tx = null;
 		try {
-			session = getSession();
+			session = openSession();
 			tx = session.beginTransaction();
 			Query query = createQuery(session, hql, values);
 			query.executeUpdate();
