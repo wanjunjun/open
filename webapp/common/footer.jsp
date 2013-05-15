@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <div id="desktopFooterWrapper">
 		<div id="desktopFooter">			
-			&copy; 2011 <a target="_blank" href="#">Beyondsoft</a> - <a id="licenseLink" href="#">Arena PSA 
+			&copy; 2013 <a target="_blank" href="#">xxx</a> - <a id="licenseLink" href="#">wbpm 
 </a>
 		</div>
 </div>

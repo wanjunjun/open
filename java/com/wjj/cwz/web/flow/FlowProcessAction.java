@@ -48,7 +48,7 @@ public class FlowProcessAction extends BaseAction{
 		pageHandle(request, page);
 		Map<String, Object> map = Maps.newHashMap();
 		map.put("actor", getCurrentUser().getUsername());
-		page = flowProcessService.getWait(page, map);
+		page = flowProcessService.getApproved(page, map);
 		return JsonUtils.getPageGrid(page);
 	}
 	

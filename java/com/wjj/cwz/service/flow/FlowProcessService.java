@@ -49,6 +49,16 @@ public class FlowProcessService extends CommonService{
 		StringBuilder hql = new StringBuilder();
 		hql.append("from FlowProcess fp where fp.id in (");
 		hql.append(" select distinct flowProcessId from FlowTask ft");
+		hql.append(" where ft.taskStatus in ('Ready','Reserved') and ft.actor = :actor");
+		hql.append(")");
+		return getPage(hql.toString(), page, map);
+	}
+	
+	//待办流程查询
+	public Page<FlowProcess> getApproved(Page<FlowProcess> page, Map<String, Object> map){
+		StringBuilder hql = new StringBuilder();
+		hql.append("from FlowProcess fp where fp.id in (");
+		hql.append(" select distinct flowProcessId from FlowTask ft");
 		hql.append(" where ft.taskStatus = 'Completed' and ft.actor = :actor");
 		hql.append(")");
 		return getPage(hql.toString(), page, map);

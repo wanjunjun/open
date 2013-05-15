@@ -1,0 +1,543 @@
+/*
+    ------------------------------------------------------
+        Anthor:xiongsongsong
+        Ali WangWang:xiong_song
+        Email:xiongsongsong@outlook.com
+    ------------------------------------------------------
+*/
+
+/*主体内容*/
+#main-container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/*主栏*/
+#content {
+    width: 976px;
+    float: right;
+}
+
+h2 {
+    /*border-bottom: solid 2px #e3e3e3;*/
+    margin-top: 16px;
+    font-size: 18px;
+    padding-bottom: 6px;
+}
+
+h2 span {
+    -webkit-text-size-adjust: none;
+    font-size: 8px;
+    color: #666;
+}
+
+#news-trends {
+    width: 540px;
+    float: left;
+}
+
+#news-trends ul {
+    font-size: 12px;
+    line-height: 31px;
+}
+
+#news-trends li {
+    padding-left: 9px;
+    vertical-align: top;
+    position: relative;
+    zoom: 1;
+}
+
+#news-trends ul a {
+    font-family: Simsun, sans-serif;
+}
+
+#news-trends li s {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #c2c2c2;
+    left: 0;
+    top: 13px;
+    overflow: hidden;
+}
+
+/*图片新闻*/
+#photo {
+    width: 406px;
+    float: right;
+}
+
+#photo .container {
+    margin: 10px 0 0 0;
+}
+
+#photo .container .item {
+    width: 405px;
+    height: 260px;
+    position: relative;
+}
+
+#photo .container .item a {
+    display: block;
+    text-decoration: none;
+}
+
+#photo .wrapper {
+    height: 260px;
+}
+
+#photo .container .item b {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#7F000000', endColorstr='#7F000000');
+    background: rgba(0, 0, 0, 0.5);
+    height: 36px;
+    text-align: center;
+    color: #fff;
+    line-height: 36px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+#photo .container .item img {
+    display: block;
+}
+
+/*公司公告*/
+
+#application {
+    clear: both;
+    border-top: solid 1px #fff;
+    width: 100%;
+}
+
+#application ul li {
+    margin: 11px auto 26px auto;
+}
+
+#application ul h3 {
+    font-family: simsun, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    border-bottom: dotted 1px #d0cfcf;
+    position: relative;
+    zoom: 1;
+}
+
+#application ul h3 a {
+    color: #666;
+    background: #fff;
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    padding-right: 12px;
+}
+
+#application ul h3 a:hover {
+    color: #38a3db;
+}
+
+#application ul h3 span {
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    background: #fff;
+    padding-left: 8px;
+}
+
+#application ul h3 span {
+    color: #999;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+#application ul p {
+    color: #666;
+    font-size: 12px;
+    line-height: 22px;
+    margin: 8px 356px 8px 8px;
+}
+
+li.more {
+    font-size: 12px;
+    font-family: simsun, sans-serif;
+    line-height: normal;
+    height: 18px;
+    padding-left: 10px;
+    line-height: 18px;
+    background: -webkit-gradient(linear, left bottom, right bottom, from(#ddd), to(#fff));
+    background: -moz-linear-gradient(left, #ddd, #fff);
+    background: -o-linear-gradient(left, #ddd, #fff);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#dddddd', endColorstr='#ffffff');
+    background: linear-gradient(left, #ddd, #fff);
+}
+
+/*侧栏*/
+#sidebar {
+    width: 210px;
+    float: left;
+}
+
+#quick-entry .item {
+    width: 66px;
+    height: 66px;
+    margin: 0 4px 4px 0;
+    font-family: Simsun, sans-serif;
+    font-size: 12px;
+    position: relative;
+    float: left;
+}
+
+#quick-entry h2 {
+    border-bottom: 0;
+}
+
+#quick-entry .item a {
+    color: #fff;
+    text-decoration: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 2;
+}
+
+#quick-entry .item a b {
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+}
+
+#quick-entry .item s,
+#corporate-culture a.home-page s,
+#corporate-culture .panel s {
+    background-image: url(img/icon.png);
+}
+
+#quick-entry .item s {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 66px;
+    height: 66px;
+}
+
+/*费用报销*/
+#quick-entry .reimbursement-expenses {
+    background-color: #6bb61d;
+}
+
+#quick-entry .reimbursement-expenses s {
+    background-position: 0 0;
+}
+
+/*结款申请*/
+#quick-entry .loan-application {
+    background-color: #299edb;
+}
+
+#quick-entry .loan-application s {
+    background-position: -69px 0;
+}
+
+/*办公用品*/
+#quick-entry .office-supplies {
+    background-color: #299edb;
+}
+
+#quick-entry .office-supplies s {
+    background-position: -138px 0;
+}
+
+/*采购申请*/
+
+#quick-entry .purchase-requisition {
+    background-color: #d84d78;
+}
+
+#quick-entry .purchase-requisition s {
+    background-position: 0 -69px;
+
+}
+
+/*AMS*/
+
+#quick-entry .ams {
+    background-color: #d84d78;
+}
+
+#quick-entry .ams s {
+    background-position: -69px -69px;
+}
+
+/*报表系统*/
+#quick-entry .reporting-system {
+    background-color: #db562e;
+}
+
+#quick-entry .reporting-system s {
+    background-position: -69px -138px;
+}
+
+/*会议室*/
+#quick-entry .conference-room {
+    background-color: #299edb;
+}
+
+#quick-entry .conference-room s {
+    background-position: 0 -138px;
+}
+
+/*GoRequest*/
+#quick-entry .go-request {
+    background-color: #bc1d49;
+}
+
+#quick-entry .go-request s {
+    background-position: -69px -138px;
+}
+
+/*Email*/
+#quick-entry .mail {
+    background-color: #299edb;
+}
+
+#quick-entry .mail s {
+    background-position: -138px -138px;
+}
+
+/*招聘管理*/
+#quick-entry .job-system {
+    background-color: #299edb;
+}
+
+#quick-entry .job-system s {
+    background-position: 0 -207px;
+}
+
+#quick-entry .crm {
+    background-color: #299edb;
+}
+
+#quick-entry .crm s {
+    background-position: -69px -207px;
+}
+
+#quick-entry .wiki {
+    background-color: #613cbc;
+}
+
+#quick-entry .wiki  s {
+    background-position: -138px -207px;
+}
+
+/*个人信息*/
+
+#personal-details {
+    clear: both;
+}
+
+#personal-details h2 {
+    margin-top: 12px;
+    border-bottom: none;
+}
+
+#personal-details p.name {
+    position: relative;
+    background-color: #299edb;
+    width: 204px;
+    height: 66px;
+    color: #fff;
+    font-size: 22px;
+}
+
+#personal-details p.name strong {
+    position: absolute;
+    left: 24px;
+    top: 16px;
+}
+
+#personal-details p img {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+}
+
+#personal-details .info div {
+    width: 66px;
+    height: 66px;
+    background-color: #299edb;
+    color: #fff;
+    font-size: 12px;
+    float: left;
+    margin: 3px 3px 0 0;
+    position: relative;
+}
+
+#personal-details .info div b,
+#personal-details .info div span {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    font-weight: normal;
+}
+
+#personal-details .info div b {
+    top: 15px;
+}
+
+#personal-details .info div span {
+    bottom: 8px;
+    font-family: simsun, sans-serif;
+}
+
+/*win8滑块*/
+#personal-details .timesheet {
+    margin-top: 3px
+}
+
+#personal-details .win8-metro .wrapper {
+    height: 66px;
+}
+
+#personal-details .timesheet .item {
+    width: 204px;
+    height: 100%;
+}
+
+/*Timesheet*/
+#personal-details .timesheet .title {
+    background-color: #299edb;
+    text-align: center;
+    font-size: 30px;
+    line-height: 66px;
+    color: #fff;
+    text-decoration: none;
+}
+
+#personal-details .timesheet .weekly {
+    background: #299edb;
+}
+
+/*上周提交     本周提交*/
+#personal-details .timesheet .weekly p {
+    float: left;
+    border-right: solid 1px #1884bd;
+    width: 32.8%;
+    color: #fff;
+    text-align: center;
+    margin-top: 3px
+}
+
+#personal-details .timesheet .weekly p.last {
+    border-right: none;
+}
+
+#personal-details .timesheet .weekly p strong {
+    display: block;
+    font-size: 28px;
+}
+
+#personal-details .timesheet .weekly p span {
+    font-family: simsun, sans-serif;
+    font-size: 12px;
+}
+
+/*企业文化*/
+
+#corporate-culture h2 {
+    border-bottom: none;
+}
+
+#corporate-culture a.home-page {
+    display: block;
+    width: 204px;
+    height: 66px;
+    background-color: #299edb;
+    text-align: center;
+    position: relative;
+}
+
+#corporate-culture a.home-page span {
+    position: absolute;
+    color: #fff;
+    font-family: simsun, sans-serif;
+    right: 102px;
+    top: 25px;
+    font-size: 12px;
+}
+
+#corporate-culture a.home-page s {
+    position: absolute;
+    background-position: -382px 0;
+    width: 51px;
+    height: 51px;
+    top: 7px;
+    right: 36px;
+}
+
+#corporate-culture .panel .item {
+    width: 100px;
+    height: 66px;
+    background-color: #299edb;
+    float: left;
+    margin: 4px 4px 0 0;
+    position: relative;
+}
+
+#corporate-culture .panel .item s {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 66px;
+}
+
+#corporate-culture .panel .item a {
+    font-family: simsun, sans-serif;
+    font-size: 12px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    z-index: 2;
+}
+
+#corporate-culture .panel .item a b {
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    width: 100%;
+    font-weight: normal;
+    text-align: center;
+}
+
+#corporate-culture .panel .bbs s {
+    background-position: -396px -464px;
+}
+
+#corporate-culture .panel .address-book s {
+    background-position: -500px -464px;
+}
+
+#corporate-culture .panel .learn s {
+    background-position: -396px -534px;
+}
+
+#corporate-culture .panel .questionnaire s {
+    background-position: -500px -534px;
+}
+
+

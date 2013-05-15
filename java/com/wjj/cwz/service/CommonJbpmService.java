@@ -72,7 +72,7 @@ public abstract class CommonJbpmService extends CommonService{
 		fp = flowProcessService.get(fp.getId());
 		FlowTask waitTask = getWaitTask(fp.getId(), approveUser);
 		BaseJbpmService jbpmService = getJbpmService();
-		JbpmVo jbpmVo = createJbpmVo(waitTask, opinion);
+		JbpmVo jbpmVo = createJbpmVo(waitTask, opinion, approveUser);
 		if(variables != null){
 			variables.put("mainProcessId", flowTaskService.getMainProcessId(jbpmVo.getSessionId()).getProcessId());
 		}
@@ -85,10 +85,11 @@ public abstract class CommonJbpmService extends CommonService{
 		return flowTaskService.getWaitTask(flowProcessId, actor);
 	}
 	
-	public JbpmVo createJbpmVo(FlowTask waitTask, String opinion){
+	public JbpmVo createJbpmVo(FlowTask waitTask, String opinion, String approveUser){
 		JbpmVo jbpmVo = new JbpmVo();
 		BeanUtils.copyProperties(waitTask, jbpmVo);
 		jbpmVo.setOpinion(opinion);
+		jbpmVo.setActorId(approveUser);
 		return jbpmVo;
 	}
 }

@@ -1,0 +1,37 @@
+html, body {
+    background-color: #4aacc5;
+}
+
+#wrapper {
+    width: 873px;
+    margin: 0 auto;
+    color: #fff;
+    position: relative;
+    font-family: "Microsoft Yahei", sans-serif;
+}
+
+
+
+#footer .content {
+    width: 990px;
+    position: relative;
+    font-family: arial, sans-serif;
+    font-size: 12px;
+    margin: 2em auto;
+    padding: 1em 0;
+    color: #126a80;
+    border-top: solid 1px #2391ad;
+}
+
+#footer .content p.link {
+    position: absolute;
+    right: 0;
+    top: 1em;
+}
+
+#footer .content p.link a {
+    margin: 0 0 0 1em;
+    color: #126a80;
+    text-decoration: none;
+}
+

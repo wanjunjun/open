@@ -1,0 +1,220 @@
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.hidden{
+    display: none;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+body {
+    font-family: "Microsoft Yahei", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #666;
+}
+
+a:hover {
+    color: #38a3db;
+    text-decoration: underline;
+}
+input{border:1px solid #eeeeee}
+#advanced table tr td{
+	padding:3px 0 3px 5px;
+	text-align:right;
+}
+#nav {
+    height: 60px;
+    background: url(img/nav-shadow.gif) 0 bottom repeat-x;
+}
+
+#nav .content {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 999;
+}
+
+#logo {
+    position: absolute;
+    left: 0;
+    top: 4px;
+}
+
+#nav .nav ul {
+    position: absolute;
+    left: 223px;
+}
+
+#nav .nav ul li {
+    float: left;
+    position: relative;
+    border-top: solid 2px #fff;
+}
+
+#nav .nav ul li.hover,
+#nav .nav ul li:hover {
+    background: #e9e9e9;
+    border-color: #38a3db;
+}
+
+#nav .nav ul li a {
+    height: 55px;
+    display: inline-block;
+    padding: 0 26px;
+    color: #333;
+    line-height: 59px;
+    text-decoration: none;
+}
+
+#nav .nav ul li a:hover {
+    color: #fff;
+    background-color: #299edb;
+}
+
+#nav .nav ul li ul {
+    position: absolute;
+    left: 0;
+    top: 54px;
+    background: #e9e9e9;
+    width: 140px;
+    font-size: 12px;
+    padding: 4px 0;
+    border-top: solid 1px #cacaca;
+    visibility: hidden;
+}
+
+#nav .nav ul li ul li {
+    float: none;
+    border-top: solid 1px #d1d1d1;
+}
+
+#nav .nav ul li ul li:first-child {
+    border-top: none;
+}
+
+#nav .nav ul li ul li a {
+    padding-left: 2em;
+    height: 25px;
+    display: block;
+    line-height: 25px;
+    font-family: simsun, sans-serif;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#nav .nav ul li:hover a:hover {
+    background-color: #299edb;
+}
+
+#nav .nav ul li:hover ul li a {
+    color: #666;
+}
+
+#nav .nav ul li ul li a:hover {
+    color: #fff;
+}
+
+#nav .nav ul li.hover ul,
+#nav .nav ul li:hover ul {
+    visibility: visible;
+}
+
+/*登陆帐号的相关信息*/
+
+#nav .info {
+    position: absolute;
+    right: 1em;
+    top: 5px;
+    font-family: simsun, sans-serif;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+#nav .info .menu {
+    float: left;
+    margin: 0 -1px 0 0;
+    padding: 0 1em;
+    background: url("./img/icon.png") right -188px no-repeat;
+}
+
+#nav .info .menu ul {
+    height: 19px;
+    overflow: hidden;
+    position: relative;
+    line-height: 19px;
+}
+
+#nav .info .menu ul:hover,
+#nav .info .menu ul:hover {
+    height: auto;
+    background-color: #e9e9e9;
+}
+
+#nav .info .menu ul a {
+    display: block;
+    padding: 0 12px;
+    font-family: simsun, sans-serif;
+}
+
+#nav .info .menu ul a:hover {
+    background-color: #299edb;
+    color: #fff;
+    text-decoration: none;
+}
+
+#nav .info .menu ul a.email {
+    background-image: url("./img/icon.png");
+    background-position: -588px -145px;
+    padding-left: 26px;
+}
+
+/*公用的metro动画容器*/
+.win8-metro {
+    position: relative;
+}
+
+.win8-metro .wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.win8-metro .wrapper .item {
+    overflow: hidden;
+}
+
+#footer .content {
+    width: 1200px;
+    position: relative;
+    font-family: arial, sans-serif;
+    font-size: 12px;
+    border-top: solid 1px #e5e5e5;
+    margin: 2em auto;
+    padding: 1em 0;
+    color: #7d7d7d;
+}
+
+#footer .content p.link {
+    position: absolute;
+    right: 0;
+    top: 1em;
+}
+
+#footer .content p.link a {
+    margin: 0 0 0 1em;
+    color: #797979;
+    font-weight: bold;
+    font-size: 14px;
+}
+

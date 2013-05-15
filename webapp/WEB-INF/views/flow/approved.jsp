@@ -22,7 +22,7 @@
 	<script type="text/javascript">
 	jQuery(document).ready(function(){	
 		var setting = {
-				url:"${ctx}/flowProcess/getWaitTask.do",
+				url:"${ctx}/flowProcess/getApproveTask.do",
 				colNames:['id','流程名称','申请人','申请时间','操作'],
 				colModel:[
 					   		{name:'id', width:55},

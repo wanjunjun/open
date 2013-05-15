@@ -43,11 +43,7 @@ function initImgNews(){
                 <li><a href="login.html">[2012.12] 进入登陆页面</a><s></s></li>
                 <li><a href="list.html">[2012.12] 进入列表页 </a><s></s></li>
                 <li><a href="404.html">[2012.12] 404</a><s></s></li>
-                <li><a href="pending.html">[2012.12] 服务器错误页面 </a><s></s></li>
-                <li><a href="">[2012.12] 博彦科技副总裁张靖出席“河南省软件行业发展与人才培养论坛”并且作了深刻的讲话。</a><s></s></li>
-                <li><a href="">[2012.12] 博彦科技副总裁张靖出席“河南省软件行业发展与人才培养论坛”并且作了深刻的讲话。</a><s></s></li>
-                <li><a href="">[2012.12] 博彦科技副总裁张靖出席“河南省软件行业发展与人才培养论坛”并且作了深刻的讲话。</a><s></s></li>
-                <li><a href="">[2012.12] 博彦科技副总裁张靖出席“河南省软件行业发展与人才培养论坛”并且作了深刻的讲话。</a><s></s></li>
+                <li><a href="pending.html">[2012.12] 服务器错误页面 </a><s></s></li>                
                 <li class="more"><a href="#">MORE...</a></li>
             </ul>
         </div>
@@ -59,13 +55,13 @@ function initImgNews(){
                     <div class="wrapper">
                         <div class="item">
                             <a href="#">
-                                <img src="${ctx}/css/assets/img/photo-news.jpg">
+                                <img src="${ctx}/css/assets/img/AA.png">
                                 <b>IT项目管理知识体系与实践</b>
                             </a>
                         </div>
                         <div class="item">
                             <a href="#">
-                                <img src="${ctx}/css/assets/img/photo-news.jpg">
+                                <img src="${ctx}/css/assets/img/DD.png">
                                 <b>IT项目管理知识体系与实践</b>
                             </a>
                         </div>
@@ -77,21 +73,21 @@ function initImgNews(){
             <h2>公司公告 <span>company announcement</span></h2>
             <ul>
                 <li>
-                    <h3><a href="#">《博彦科技财务管理制度-借款、付款、报销》更新通知</a> <span>[BY   周桌人 2013-01-24</span></h3>
+                    <h3><a href="#">《管理制度》更新通知</a> <span>[BY   wanjunjun 2013-01-24</span></h3>
 
-                    <p>各位同仁：<br>大家好，《博彦科技财务管理制度-借款、付款、报销》已更新于公司内网博彦科技财务管理制度-借款、付款、报销
+                    <p>各位同仁：<br>大家好，《xxxx财务管理制度-借款、付款、报销》已更新于公司内网xxxx财务管理制度-借款、付款、报销
                         V4.0， 相应附件请见Regulations-Category-Finance 部分。请大家参考使用。</p>
                 </li>
                 <li>
-                    <h3><a href="#">《博彦科技争议解决机构选择指南》发布通知</a> <span>[BY   周桌人 2013-01-24</span></h3>
+                    <h3><a href="#">《管理制度》更新通知</a> <span>[BY   wanjunjun 2013-01-24</span></h3>
 
-                    <p>各位同仁：<br>大家好，《博彦科技财务管理制度-借款、付款、报销》已更新于公司内网博彦科技财务管理制度-借款、付款、报销
+                    <p>各位同仁：<br>大家好，《xxxx财务管理制度-借款、付款、报销》已更新于公司内网xxxx财务管理制度-借款、付款、报销
                         V4.0， 相应附件请见Regulations-Category-Finance 部分。请大家参考使用。</p>
                 </li>
                 <li>
-                    <h3><a href="#">《博彦科技财务管理制度-借款、付款、报销》更新通知</a> <span>[BY   周桌人 2013-01-24</span></h3>
+                    <h3><a href="#">《管理制度》更新通知</a> <span>[BY   wanjunjun 2013-01-24</span></h3>
 
-                    <p>各位同仁：<br>大家好，《博彦科技财务管理制度-借款、付款、报销》已更新于公司内网博彦科技财务管理制度-借款、付款、报销
+                    <p>各位同仁：<br>大家好，《xxxx财务管理制度-借款、付款、报销》已更新于公司内网xxxx财务管理制度-借款、付款、报销
                         V4.0， 相应附件请见Regulations-Category-Finance 部分。请大家参考使用。</p>
                 </li>
                 <li class="more"><a href="#">MORE...</a></li>
@@ -104,18 +100,7 @@ function initImgNews(){
     </div>
 </div>
 
-<div id="footer">
-    <div class="content">
-        <p>
-            &copy; 2013 Beyondsoft
-        </p>
-
-        <p class="link">
-            <a href="#">帮助</a>
-            <a href="#">反馈</a>
-        </p>
-    </div>
-</div>
+<%@include file="/common/footer.jsp" %>
 
 </body>
 </html>

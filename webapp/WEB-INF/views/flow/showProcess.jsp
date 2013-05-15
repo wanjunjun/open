@@ -21,6 +21,7 @@
 		<thead>
 			<tr class="ui-widget-header ">
 				<th>审批人</th>
+				<th>审批状态</th>
 				<th>审批时间</th>
 				<th>审批意见</th>
 				<th>审批节点</th>
@@ -30,6 +31,12 @@
 		<c:forEach items="${process}" var="item">
 		<tr>
 			<td>${item.actor}</td>
+			<td>
+			<c:choose>	
+				<c:when test="${item.taskStatus == 'Completed'}">已审批</c:when>
+				<c:otherwise>待审批</c:otherwise>
+			</c:choose>
+			</td>
 			<td>${item.completeTime}</td>
 			<td>${item.opinion}</td>
 			<td>${item.nodeName}</td>
@@ -40,7 +47,7 @@
 
 </div>
 <div style="width:120px;float:right;margin-top:25px;font-size:15px">
-	<c:forEach items="${process}" var="item">
+	<c:forEach items="${process}" var="item" varStatus="status">
 		<div style="height: 60px;" class="ui-state-highlight ui-comer-all">
 			<span style="float:left;margin-right:3em;" class="ui-icon ui-icon-info"></span>
 			<br>
@@ -48,14 +55,10 @@
 			<br>			
 			
 		</div>
-		<center><img src="${ctx}/images/direction.jpg"/></center>
+		<c:if test="${status.last==false}">
+			<center><img src="${ctx}/images/direction.jpg"/></center>
+		</c:if>		
 	</c:forEach>
-		<div style="height: 60px;" class="ui-state-highlight ui-comer-all">
-			<span style="float:left;margin-right:3em;" class="ui-icon ui-icon-info"></span>
-			<br>
-			<div style="text-align:center">结束</div>
-			<br>			
-		</div>	
 </div>
 </body>
 </html>

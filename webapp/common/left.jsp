@@ -5,35 +5,24 @@
 	
 	            <div class="win8">
 	                <div class="item reimbursement-expenses">
-	                    <a href="${ctx}/page.do?page=bflow/employeeFlow/quick_entry&flowId=40&active=workflow"><b>
-								日常报销
+	                    <a href="${ctx}/page.do?page=flow/index"><b>
+								流程申请
 								</b></a>
 	                    <s></s>
 	                </div>
 	                <div class="item loan-application">
-	                    <a href="${ctx}/page.do?page=bflow/employeeFlow/quick_entry&flowId=42&active=workflow"><b>借款申请</b></a>
+	                    <a href="${ctx}/page.do?page=flow/wait"><b>流程审批</b></a>
 	                    <s></s>
 	                </div>
 	                <div class="item office-supplies">
-	                    <a href="${ctx}/page.do?page=bflow/employeeFlow/quick_entry&flowId=46&active=workflow"><b>办公用品</b></a>
+	                    <a href="${ctx}/page.do?page=flow/approved"><b>已审批查询</b></a>
 	                    <s></s>
-	                </div>
-	                <div class="item purchase-requisition">
-	                    <a href="${ctx}/page.do?page=bflow/employeeFlow/quick_entry&flowId=45&active=workflow"><b>采购申请</b></a>
-	                    <s></s>
-	                </div>
-	                <div class="item ams">
-	                    <a href="https://ams.beyondsoft.com/base/UserAction_loginFromAPSA.action?username=<security:authentication property="principal.username"/>" target="_blank"><b>AMS</b></a>
-	                    <s></s>
-	                </div>
-	                <div class="item reporting-system">
-	                    <a href="#"><b>报表系统</b></a> <s></s>
-	                </div>
+	                </div>	             
 	                <div class="item conference-room">
-	                    <a href="http://192.168.5.101:8800/RoomManage/Default.aspx?itcode=<security:authentication property="principal.username"/>" target="_blank"><b>会议室</b></a> <s></s>
+	                    <a href="#" target="_blank"><b>预留入口</b></a> <s></s>
 	                </div>
 	                <div class="item go-request">
-	                    <a href="http://192.168.5.101:8800/GoRequest/Default.aspx?itcode=<security:authentication property="principal.username"/>" target="_blank"><b>GoRequest</b></a> <s></s>
+	                    <a href="#" target="_blank"><b>预留入口</b></a> <s></s>
 	                </div>
 	                <div class="item mail">
 	                    <a href="#"><b>Mail</b></a> <s></s>
@@ -42,10 +31,10 @@
 	                    <a href="#"><b>招聘管理</b></a> <s></s>
 	                </div>
 	                <div class="item crm">
-	                    <a href="#"><b>CRM</b></a> <s></s>
+	                    <a href="#" target="_blank"><b>预留入口</b></a> <s></s>
 	                </div>
 	                <div class="item wiki">
-	                    <a href="http://home1.beyondsoft.com/web/marketing/mkc-home" target="_blank"><b>Wiki</b></a> <s></s>
+	                    <a href="#" target="_blank"><b>预留入口</b></a> <s></s>
 	                </div>
 	            </div>
 	        	</div>
@@ -97,13 +86,12 @@
 		        
 		        <div id="corporate-culture">
             <h2>企业文化 <span>CORPORATE CULTURE</span></h2>
-            <a class="home-page" href="http://www.beyondsoft.com" target="_blank"><span>博彦官网</span><s></s></a>
+            <a class="home-page" href="http://www.beyondsoft.com" target="_blank"><span>公司官网</span></a>
 
             <div class="panel">
                 <div class="item bbs"><a href="http://192.168.4.191:8088/jforum/user/loginFromAPSA.page?username=<security:authentication property="principal.username"/>" target="_blank"><b>BBS</b></a> <s></s></div>
                 <div class="item address-book"><a href="${ctx}/cms/contact/list.do"><b>通讯薄</b></a> <s></s></div>
-                <div class="item learn"><a href="#"><b>培训与测评</b></a> <s></s></div>
-                <div class="item questionnaire"><a href="#"><b>调查问卷</b></a> <s></s></div>
+             
             </div>
         </div>
 <form id="hhh" action="" method="post"></form>

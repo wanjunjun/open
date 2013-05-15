@@ -6,17 +6,12 @@
 	<%@include file="/common/meta.jsp" %>
 	<title>jQuery UI Dialog - Modal form</title>
 	<link rel="stylesheet" type="text/css" href="${ctx}/css/jquery-ui/jquery.ui.css" />
+	<link rel="stylesheet" type="text/css" href="${ctx}/css/form.css" />
 	
 	<script src="${ctx}/js/entry.js" type="text/javascript"></script>
 	<script src="${ctx}/js/entry.jquery.js" type="text/javascript"></script>
 	<style>
-		body{
-			font-size: 62.5%;			
-		}
-		input.button{cursor:pointer}
-		div#users-contain { width: 350px; margin: 20px 0; }
-		div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
-		div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+		
 	</style>
 </head>
 <body>
@@ -40,7 +35,7 @@ function del(a){
 </script>
 
 
-<div id="users-contain" class="ui-widget">
+<div id="flow-form" class="ui-widget">
 	<h1>Existing Users:</h1>
 	<table id="tform" class="ui-widget ui-widget-content">
 		<thead>
