@@ -31,6 +31,8 @@ public class Depo extends BaseBean{
 	private String city;
 	private String address;
 	private Depo parent;
+	private String adminCode;
+	private String adminName;
 	private Set<Depo> childs = new HashSet<Depo>(0);
 	
 	@Column(name = "name", length = 30)
@@ -89,6 +91,21 @@ public class Depo extends BaseBean{
 		this.parent = parent;
 	}
 	
+	@Column(name = "admin_code", length = 50)
+	public String getAdminCode() {
+		return adminCode;
+	}
+	public void setAdminCode(String adminCode) {
+		this.adminCode = adminCode;
+	}
+	
+	@Column(name = "admin_name", length = 50)
+	public String getAdminName() {
+		return adminName;
+	}
+	public void setAdminName(String adminName) {
+		this.adminName = adminName;
+	}
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "parent")
 	public Set<Depo> getChilds() {
 		return childs;

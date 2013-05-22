@@ -21,6 +21,7 @@ public class TransPortDetail extends BaseBean{
 	
 	private TransPort transPort;
 	private String boxId;
+	private String boxType;
 	private String state;
 	private String remark;
 	
@@ -39,6 +40,14 @@ public class TransPortDetail extends BaseBean{
 	}
 	public void setBoxId(String boxId) {
 		this.boxId = boxId;
+	}
+	
+	@Column(name = "box_type", length = 30)
+	public String getBoxType() {
+		return boxType;
+	}
+	public void setBoxType(String boxType) {
+		this.boxType = boxType;
 	}
 	
 	@Column(name = "state", length = 10)

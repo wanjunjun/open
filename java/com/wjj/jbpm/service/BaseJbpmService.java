@@ -80,8 +80,8 @@ public abstract class BaseJbpmService extends JbpmEnvironment {
 				logger.error("flow apply error", e1);
 			}
 			
-			JbpmTaskService jbpmTaskManager = new JbpmTaskService();
-			TaskVo taskVo = jbpmTaskManager.getApplyTask(itcode, processInstanceId);
+			JbpmTaskService jbpmTaskService = new JbpmTaskService();
+			TaskVo taskVo = jbpmTaskService.getApplyTask(itcode, processInstanceId);
 			if(taskVo == null){
 				logger.error("---------查询申请流程TASK出错--------");
 				return null;

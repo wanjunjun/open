@@ -16,8 +16,10 @@ public class AuthorizeService implements UserDetailsService{
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {		
 		/**/
 		AuthorizeDetailImpl authorizeUser = new AuthorizeDetailImpl();
-		authorizeUser.setUsername(username);
+		
+		authorizeUser.setUserCode(username);
 		User user = userService.findUniqueBy("userCode", username);
+		authorizeUser.setUsername(user.getUserName());
 		authorizeUser.setId(user.getId());
 		authorizeUser.setPassword(user.getPasword());
 		//Role 

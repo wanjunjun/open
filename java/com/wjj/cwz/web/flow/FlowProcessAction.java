@@ -36,7 +36,7 @@ public class FlowProcessAction extends BaseAction{
 		Page<FlowProcess> page = new Page<FlowProcess>();
 		pageHandle(request, page);
 		Map<String, Object> map = Maps.newHashMap();
-		map.put("actor", getCurrentUser().getUsername());
+		map.put("actor", getCurrentUser().getUserCode());
 		page = flowProcessService.getWait(page, map);
 		return JsonUtils.getPageGrid(page);
 	}
@@ -47,7 +47,7 @@ public class FlowProcessAction extends BaseAction{
 		Page<FlowProcess> page = new Page<FlowProcess>();
 		pageHandle(request, page);
 		Map<String, Object> map = Maps.newHashMap();
-		map.put("actor", getCurrentUser().getUsername());
+		map.put("actor", getCurrentUser().getUserCode());
 		page = flowProcessService.getApproved(page, map);
 		return JsonUtils.getPageGrid(page);
 	}

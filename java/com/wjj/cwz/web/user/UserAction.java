@@ -23,6 +23,7 @@ import com.wjj.cwz.entity.Module;
 import com.wjj.cwz.entity.User;
 import com.wjj.cwz.service.user.UserService;
 import com.wjj.cwz.web.BaseAction;
+import com.wjj.jbpm.service.JbpmUserService;
 
 /** 
  *
@@ -80,6 +81,9 @@ public class UserAction extends BaseAction{
 				userService.delete(Long.parseLong(id));
 			}
 		}else{
+			if(entity.getId() == null){
+				new JbpmUserService().addUser(entity.getUserCode());
+			}
 			userService.merge(entity);
 		}
 		return Constants.AJAX_SUCCESS;

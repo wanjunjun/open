@@ -72,6 +72,7 @@ public class ModuleService extends CommonService{
 		hql.append("(select ur.role.id from UserRole ur where ur.user.id = ?)");
 		hql.append(")");
 		hql.append("and m.parent.id = ? ");
+		hql.append(" group by m.id");
 		return getList(hql.toString(), userId, parentId);
 	}
 	

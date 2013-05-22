@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ include file="/common/taglibs.jsp" %>   
+ <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -43,6 +44,12 @@
 				<td>${formData.depo.name}</td>
 				<td>备注</td>
 				<td>${formData.remark}</td>
+			</tr>
+			<tr>
+				<td>领用日期</td>
+				<td><fmt:formatDate value="${formData.startDate}" pattern="yyyy-MM-dd"/></td>
+				<td>录单日期</td>
+				<td><fmt:formatDate value="${formData.createDate}" pattern="yyyy-MM-dd"/></td>
 			</tr>
 		</tbody>
 	</table>

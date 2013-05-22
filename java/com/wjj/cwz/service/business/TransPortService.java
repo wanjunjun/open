@@ -4,14 +4,12 @@ import static java.util.Locale.ENGLISH;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.wjj.cwz.core.frame.Page;
+import com.wjj.cwz.core.config.FlowForm;
 import com.wjj.cwz.dao.SimpleHibernateDao;
 import com.wjj.cwz.dao.business.TransPortDao;
 import com.wjj.cwz.entity.FlowProcess;
@@ -88,20 +86,5 @@ public class TransPortService extends CommonJbpmService{
 			tp.setDetails(tp.getDetails());
 		}
 		return tp;
-	}
-	
-	public Page<TransPort> getPage(Page<TransPort> page, Map<String, Object> map){
-		StringBuilder hql = new StringBuilder();
-		hql.append("from TransPort tp where 1=1 ");
-		if(StringUtils.isNotBlank((String)map.get("driver"))){
-			hql.append(" and tp.dirver like concat('%',:driver,'%')");
-		}
-		if(StringUtils.isNotBlank((String)map.get("carNo"))){
-			hql.append(" and tp.carNo like concat('%',:carNo,'%')");
-		}
-		if(StringUtils.isNotBlank((String)map.get("depo"))){
-			hql.append(" and tp.depo.name like concat('%',:depo,'%')");
-		}
-		return getPage(hql.toString(), page, map);
 	}
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ include file="/common/taglibs.jsp" %>   
+ <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -44,6 +45,16 @@
 				<td>备注</td>
 				<td>${formData.remark}</td>
 			</tr>
+			<tr>
+				<td>领用日期</td>
+				<td><fmt:formatDate value="${formData.startDate}" pattern="yyyy-MM-dd"/></td>
+				<td>录单日期</td>
+				<td><fmt:formatDate value="${formData.createDate}" pattern="yyyy-MM-dd"/></td>
+			</tr>
+			<tr>
+				<td>录单人</td>
+				<td colspan="3">${flowProcess.user.userName}</td>
+			</tr>
 		</tbody>
 	</table>
 		
@@ -51,6 +62,7 @@
 		<thead>
 			<tr class="ui-widget-header ">
 				<th>芯片ID</th>
+				<th>芯片类型</th>
 				<th>状态</th>
 				<th>备注</th>
 			</tr>
@@ -59,6 +71,7 @@
 		<c:forEach items="${formData.details}" var="detail">
 		<tr>
 			<td>${detail.boxId}</td>
+			<td>${detail.boxType}</td>
 			<td>${detail.status}</td>
 			<td>${detail.remark}</td>
 		</tr>

@@ -39,7 +39,7 @@ public class DepoService extends CommonService{
 	public String getDepoTree(){
 		String tree = null;
 		List<Depo> roots = getChilds(null);
-		String[] attributes = {"id","text","value","code","province","city","address"};
+		String[] attributes = {"id","text","value","code","province","city","address","adminCode","adminName"};
 		try {
 			tree = TreeHandle.getInstance().buildTree("0", "仓库", roots, attributes, this, "getChilds", "true");
 		} catch (Exception e) {

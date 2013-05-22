@@ -16,7 +16,8 @@ public class AuthorizeDetailImpl implements AuthorizeDetail{
 
 	private Collection<GrantedAuthority> authorities;
 	private Long id;
-	private String username; //itcode
+	private String username; //usercode
+	private String userCode;
 	private String password;
 	private boolean enabled;
 	private boolean accountNonExpired;
@@ -40,6 +41,12 @@ public class AuthorizeDetailImpl implements AuthorizeDetail{
 		this.username = username;
 	}
 
+	public String getUserCode() {
+		return userCode;
+	}
+	public void setUserCode(String userCode) {
+		this.userCode = userCode;
+	}
 	public String getPassword() {
 		return password;
 	}

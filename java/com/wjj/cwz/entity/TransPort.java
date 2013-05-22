@@ -1,5 +1,6 @@
 package com.wjj.cwz.entity;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -11,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.wjj.cwz.core.collection.BpmSet;
 
@@ -31,6 +34,8 @@ public class TransPort extends BaseBean{
 	private String carNo;
 	private Depo depo;
 	private String remark;
+	private Date startDate;		//领用日期
+	private Date createDate;	//录单日期
 	
 	private Set<TransPortDetail> details = new BpmSet<TransPortDetail>(0, TransPortDetail.class); 
 
@@ -88,6 +93,26 @@ public class TransPort extends BaseBean{
 
 	public void setRemark(String remark) {
 		this.remark = remark;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "start_date", length = 10)
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "create_date", length = 10)
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 
 	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "transPort")

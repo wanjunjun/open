@@ -8,6 +8,7 @@
 	<title>wbpm</title>	
 			
 	<link rel="stylesheet" type="text/css" href="${ctx}/css/jquery-ui/jquery.ui.css" />
+	<link rel="stylesheet" type="text/css" href="${ctx}/css/style.css" />
 	
 	<script src="${ctx}/js/entry.js" type="text/javascript"></script>
 	<script src="${ctx}/js/entry.jquery.js" type="text/javascript"></script>
@@ -21,7 +22,7 @@
 	jQuery(document).ready(function(){
 		loadDepoTree();		
 		bindMenu();
-		$("#depo").dialog({autoOpen: false,width:500,height:300});
+		$("#depo").dialog({autoOpen: false,width:550,height:300});
 	});
 	function loadDepoTree(){
 		Common.ajax("${ctx}/depo/getTree.do?",null,initDepoTree);			
@@ -84,6 +85,8 @@
 			$("#d_province").val(node.province);
 			$("#d_city").val(node.city);
 			$("#d_address").val(node.address);
+			$("#d_adminCode").val(node.adminCode);
+			$("#d_adminName").val(node.adminName);
 		}else{
 			$("#d_id").val("");
 			$("#d_name").val("");
@@ -91,6 +94,8 @@
 			$("#d_province").val("");
 			$("#d_city").val("");
 			$("#d_address").val("");
+			$("#d_adminCode").val("");
+			$("#d_adminName").val("");
 		}
 		$("#depo").dialog("open");
 	}	
@@ -113,6 +118,8 @@
 		bean.city = $("#d_city").val();
 		bean.address = $("#d_address").val();
 		bean.oper = $("#d_oper").val();
+		bean.adminCode = $("#d_adminCode").val();
+		bean.adminName = $("#d_adminName").val();
 		Common.ajax("${ctx}/depo/crud.do?",bean,loadDepoTree);
 		$("#depo").dialog("close");
 	}
@@ -132,10 +139,14 @@
 	function cancel(){
 		$("#depo").dialog("close");
 	}
+	function getUser(user){
+		$("#d_adminCode").val(user.userCode);
+		$("#d_adminName").val(user.userName);
+	}
 	</script>
 </head>
 <body>
-
+	<%@include file="../../base/grid/userGrid.jsp" %>
 	<div style="border:1px solid #7f7f7f;padding:3px 0px 3px 5px">提示：1、右键点击仓库节点，可以对仓库进行添加、编辑操作。</div>
 	<div id="depoTree" style="width:200px;height:100%;"></div>
 	<div id="depo"  title="增加仓库">
@@ -144,24 +155,28 @@
 	<input type="hidden" id="d_oper">
 	<table width="100%" style="text-align: center;">
 		<tr>
-			<td align="right">仓库名称：</td>
-			<td><input type="text" id="d_name"/></td>
+			<td class="cr">仓库名称</td>
+			<td class="cl"><input type="text" id="d_name"/></td>
+			<td class="cr">仓库编码</td>
+			<td class="cl"><input type="text" id="d_code"/></td>
 		</tr>
 		<tr>
-			<td align="right">仓库编码：</td>
-			<td><input type="text" id="d_code"/></td>
+			<td class="cr">省</td>
+			<td class="cl"><input type="text" id="d_province"/></td>
+			<td class="cr">市</td>
+			<td class="cl"><input type="text" id="d_city"/></td>
 		</tr>
 		<tr>
-			<td align="right">省：</td>
-			<td><input type="text" id="d_province"/></td>
+			<td class="cr">仓库地址</td>
+			<td colspan="3" class="cl"><input type="text" id="d_address"/></td>			
 		</tr>
 		<tr>
-			<td align="right">市：</td>
-			<td><input type="text" id="d_city"/></td>
-		</tr>
-		<tr>
-			<td align="right">地址：</td>
-			<td><input type="text" id="d_address"/></td>
+			<td class="cr">仓库管理员</td>
+			<td colspan="3" class="cl">
+				<input type="hidden" id="d_adminCode"/>
+				<input type="text" id="d_adminName" readonly="readonly"/>
+				<a href="#" onclick="showUser()">选择</a>
+			</td>			
 		</tr>
 		<tr>
 			<td colspan="2">

@@ -12,12 +12,20 @@
 	
 	<script src="${ctx}/js/entry.js" type="text/javascript"></script>
 	<script src="${ctx}/js/entry.jquery.js" type="text/javascript"></script>
+	<script src="${ctx}/jqueryui/datepicker/main.js" type="text/javascript"></script>
 	<script type="text/javascript">
+	$(function(){
+		$("#startDate").datepicker({showOn: "button", buttonImage: "images/calendar.gif", buttonImageOnly: true});
+		$( "#startDate" ).datepicker( "option", "dateFormat", "yy-mm-dd");
+		$("#createDate").datepicker({showOn: "button", buttonImage: "images/calendar.gif", buttonImageOnly: true});
+		$( "#createDate" ).datepicker( "option", "dateFormat", "yy-mm-dd");
+	});
 	var itemSize = 0;
 	function add(){
 		var table = $("#itemTab");
 		var size = table[0].rows.length;
-		var tr = '<tr><td><input type="text" name="items['+itemSize+'].boxId" class="ui-widget-content"></td>';	
+		var tr = '<tr><td><input type="text" name="items['+itemSize+'].boxId" class="ui-widget-content"></td>';
+		tr += '<td><input type="text" name="items['+itemSize+'].boxType" class="ui-widget-content"></td>';
 		tr += '<td><input type="text" name="items['+itemSize+'].remark" class="ui-widget-content"></td>';
 		tr += '<td><a href="#" onclick="del(this)">删除</a></td>';
 		table.append(tr);
@@ -70,6 +78,20 @@
 				<td>备注</td>
 				<td><input type="text" name="remark" class="ui-widget-content"></td>
 			</tr>
+			<tr>
+				<td>领用日期</td>
+				<td>
+					<input type="text" id="startDate" name="startDate" class="ui-widget-content">
+				</td>
+				<td>录单日期</td>
+				<td><input type="text" id="createDate" name="createDate" class="ui-widget-content"></td>
+			</tr>
+			<tr>
+				<td>录单人</td>
+				<td colspan="3">
+					<security:authentication property="principal.username"/>
+				</td>
+			</tr>
 		</tbody>
 	</table>
 	<div style="text-align:right;margin-top:25px"><input class="ui-state-default button" type="button" value="添加芯片" onclick="add()"></div>	
@@ -77,6 +99,7 @@
 		<thead>
 			<tr class="ui-widget-header ">
 				<th>芯片ID</th>
+				<th>芯片类型</th>
 				<th>备注</th>
 				<th>操作</th>
 			</tr>
