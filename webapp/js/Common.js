@@ -76,6 +76,9 @@
 					alert("Please Select Row to delete!");
 				}
 			},
+			g_search: function(gid){
+				jQuery("#"+gid).jqGrid('searchGrid',{sopt:['cn'],closeAfterSearch: true});
+			},
 			childTree:function(id,text,data){
 				//该方法用于构造二级节点的树，id为树的根结点，text为根结点的名称，data包含叶子结点的数据
 				var treeData = [];
@@ -107,6 +110,10 @@
 					return node;
 				}
 				return treeData;
+			},
+			getDate:function(){
+				var d = new Date();
+				return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
 			}
 	};
 	

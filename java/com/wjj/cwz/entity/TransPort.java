@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -116,6 +117,7 @@ public class TransPort extends BaseBean{
 	}
 
 	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "transPort")
+	@OrderBy(value="id")
 	public Set<TransPortDetail> getDetails() {
 		return details;
 	}

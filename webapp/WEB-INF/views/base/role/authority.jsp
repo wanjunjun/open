@@ -82,12 +82,7 @@
 	</div>
 
 	<br>
-	<footer id="footer" >
-        <div class="copyright">
-            Copyright 2011 - 2012 Beyondsoft. <br>All Rights Reserved.
-        </div>
-
-    </footer>
+	<%@include file="/common/left.jsp"%>
 
 </div><!-- desktop end -->
 

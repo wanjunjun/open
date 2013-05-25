@@ -22,10 +22,11 @@ public class TransPortDetail extends BaseBean{
 	private TransPort transPort;
 	private String boxId;
 	private String boxType;
+	private String isArrived;
 	private String state;
 	private String remark;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "trans_port")
 	public TransPort getTransPort() {
 		return transPort;
@@ -50,6 +51,14 @@ public class TransPortDetail extends BaseBean{
 		this.boxType = boxType;
 	}
 	
+	@Column(name = "is_arrived", length = 10)
+	public String getIsArrived() {
+		return isArrived;
+	}
+	public void setIsArrived(String isArrived) {
+		this.isArrived = isArrived;
+	}
+	
 	@Column(name = "state", length = 10)
 	public String getState() {
 		return state;
@@ -66,5 +75,10 @@ public class TransPortDetail extends BaseBean{
 		this.remark = remark;
 	}
 	
-	
+//	public boolean equals(Object o){
+//		if(o instanceof TransPortDetail){
+//			return this.getId().equals(((TransPortDetail)o).getId());
+//		}
+//		return false;
+//	}
 }

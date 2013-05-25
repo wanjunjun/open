@@ -133,6 +133,10 @@ public abstract class CommonService {
 		getDao().delete(id);
 	}
 	
+	public void delete(Object bean){
+		getDao().delete(bean);
+	}
+	
 	/**
 	 * 按属性查找唯一对象, 匹配方式为相等.
 	 */

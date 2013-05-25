@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>博彦科技 Beyondsoft</title>
+    <title>wbpm</title>
     <link rel="stylesheet" href="${ctx}/css/assets/reset.css"/>
     <link rel="stylesheet" href="${ctx}/css/assets/global.css"/>
     <link rel="stylesheet" href="${ctx}/css/assets/home.css"/>

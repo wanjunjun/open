@@ -9,7 +9,7 @@
 
 <body>
 <div>
-	<div><h1>flow apply success!</h1></div>
+	<div><h1>flow handle success!</h1></div>
 </div>
 </body>
 </html>

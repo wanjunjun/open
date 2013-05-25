@@ -41,6 +41,17 @@ public class FlowProcessAction extends BaseAction{
 		return JsonUtils.getPageGrid(page);
 	}
 	
+	@RequestMapping(value="/flowProcess/getDraft")
+	@ResponseBody
+	public Object getDraft(HttpServletRequest request){
+		Page<FlowProcess> page = new Page<FlowProcess>();
+		pageHandle(request, page);
+		Map<String, Object> map = Maps.newHashMap();
+		map.put("userId", getCurrentUser().getId());
+		page = flowProcessService.getDraft(page, map);
+		return JsonUtils.getPageGrid(page);
+	}
+	
 	@RequestMapping(value="/flowProcess/getApproveTask")
 	@ResponseBody
 	public Object getApproveTask(HttpServletRequest request){

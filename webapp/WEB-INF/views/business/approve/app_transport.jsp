@@ -41,15 +41,21 @@
 			</tr>
 			<tr>
 				<td>目的仓库</td>
-				<td>${formData.depo.name}</td>
-				<td>备注</td>
-				<td>${formData.remark}</td>
+				<td colspan="3">${formData.depo.name}</td>
 			</tr>
 			<tr>
 				<td>领用日期</td>
 				<td><fmt:formatDate value="${formData.startDate}" pattern="yyyy-MM-dd"/></td>
 				<td>录单日期</td>
 				<td><fmt:formatDate value="${formData.createDate}" pattern="yyyy-MM-dd"/></td>
+			</tr>
+			<tr>
+				<td>录单人</td>
+				<td colspan="3">${flowProcess.user.userName}</td>
+			</tr>
+			<tr>
+				<td>备注</td>
+				<td colspan="3">${formData.remark}</td>
 			</tr>
 		</tbody>
 	</table>
@@ -58,14 +64,24 @@
 		<thead>
 			<tr class="ui-widget-header ">
 				<th>芯片ID</th>
+				<th>芯片类型</th>
+				<th>是否到货</th>
 				<th>状态</th>
 				<th>备注</th>
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach items="${formData.details}" var="detail">
+		<c:forEach items="${formData.details}" var="detail" varStatus="status">
 		<tr>
 			<td>${detail.boxId}</td>
+			<td>${detail.boxType}</td>
+			<td>
+				<select name="items[${status.index}]">是否到货
+					<option value="">请选择...</option>
+					<option value="是">是</option>
+					<option value="否">否</option>
+				</select>
+			</td>
 			<td>${detail.status}</td>
 			<td>${detail.remark}</td>
 		</tr>

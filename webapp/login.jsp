@@ -8,7 +8,7 @@
 <head>
 	<%@include file="/common/meta.jsp" %>
 
-	<title>Beyondsoft APSA</title>
+	<title>wbpm</title>
 	<link rel="stylesheet" href="./css/assets/reset.css"/>
     <link rel="stylesheet" href="./css/assets/global.css"/>
     <link rel="stylesheet" href="./css/assets/login.css"/>
@@ -43,7 +43,7 @@
 		<!-- -->
         <p class="deny-passport"><a href="#">无法登陆您的帐户</a></p>
 		
-        <p class="modify-password"><a href="https://changepwd.beyondsoft.com/iisadmpwd/">修改密码</a></p>
+        <p class="modify-password"><a href="#">修改密码</a></p>
 		 
         <div class="high-mananger">
             <h2><span>高级管理人员帐户</span></h2>
@@ -53,9 +53,8 @@
     </form>
 
     <div id="pic">
-        <img src="${ctx}/css/assets/img/CC.png">
+        <img src="${ctx}/css/assets/img/wcr.png">
         <h2>超越期待 尽善尽美</h2>
-        <img src="${ctx}/images/apsa-logo1.png" height="55px" style="position:absolute;bottom:10px;right:5px">
         
     </div>
 

@@ -1,0 +1,42 @@
+/*----------------- 验证不通过时,错误提示的样式 ---------------*/
+span.validate_error_message
+{
+	font-family: Tahoma, 宋体;
+	font-size:9pt;
+	color: #FF0000;
+	text-decoration: none;
+	padding:2px;
+	padding-bottom:0px;
+	margin:2px;
+	margin-bottom:0px;
+    background-color: #FFFFF7;
+}
+/*----------------- 验证不通过时,输入框的样式 ---------------*/
+.validate_error_input
+{
+	border:1px solid #FF0000;
+    background-color: #FFefef;
+}
+.validate_error_input option
+{
+	border-bottom:1px solid #FF0000;
+    background-color: #FFefef;
+}
+/*----------------- 必输项的星号样式 ---------------*/
+span.validate_required_star
+{
+	color: #FF0000;
+	padding:2px;
+	font-family: Tahoma, 宋体;
+	font-size:9pt;
+}
+/*----------------- 比较验证器，被比较值的样式 ---------------*/
+span.validate_comparevalue
+{
+	color: #000000;
+	font-family: Tahoma, 宋体;
+	background-color:#F0FBEB;
+	font-size:9pt;
+	/*text-decoration:underline;--*/
+	border-bottom:1px dashed #000000;
+}

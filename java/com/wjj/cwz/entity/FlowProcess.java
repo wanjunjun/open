@@ -31,6 +31,7 @@ public class FlowProcess extends BaseBean {
 	private Flow flow;			//流程类型
 	private String flowForm;	//流程表单
 	private String uuid;		//唯一标识
+	private String formState;	//表单状态，draft表示草稿
 	
 	public FlowProcess() {
 	}	
@@ -108,5 +109,14 @@ public class FlowProcess extends BaseBean {
 
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
+	}
+
+	@Column(name = "form_state", length = 30)
+	public String getFormState() {
+		return formState;
+	}
+
+	public void setFormState(String formState) {
+		this.formState = formState;
 	}
 }

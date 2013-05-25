@@ -2,14 +2,16 @@ package com.wjj.cwz.service.business;
 
 import static java.util.Locale.ENGLISH;
 
-import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.wjj.cwz.core.config.FlowForm;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import com.wjj.cwz.dao.SimpleHibernateDao;
 import com.wjj.cwz.dao.business.TransPortDao;
 import com.wjj.cwz.entity.FlowProcess;
@@ -18,6 +20,7 @@ import com.wjj.cwz.entity.TransPortDetail;
 import com.wjj.cwz.service.CommonJbpmService;
 import com.wjj.cwz.service.flow.FlowProcessService;
 import com.wjj.cwz.service.flow.FlowTaskService;
+import com.wjj.cwz.vo.CommonVo;
 import com.wjj.cwz.vo.TransPortVo;
 import com.wjj.jbpm.service.BaseJbpmService;
 import com.wjj.jbpm.service.business.TransPortJbpmService;
@@ -59,7 +62,7 @@ public class TransPortService extends CommonJbpmService{
 	public void setFormData(TransPortVo tpv, TransPort tp){
 		if(tpv.getItems() != null){
 			List<TransPortDetail> items = tpv.getItems();
-			for(TransPortDetail item : items){
+			for(TransPortDetail item : items){				
 				item.setTransPort(tp);
 				tp.getDetails().add(item);
 			}
@@ -67,13 +70,12 @@ public class TransPortService extends CommonJbpmService{
 	}
 	
 	public void saveFlow(FlowProcess fp, TransPortVo tpv, TransPort tp){
-		fp.setCompleteTime(new Date());
 		fp.setFlowForm(getFlowForm().getCode());
 		tp.setFlowProcess(fp);
 		flowProcessService.merge(fp);
 		merge(tp);
 	}
-	
+		
 	public TransPort getFormData(Long flowProcessid){
 		TransPort tp = null;
 		String hql = "from TransPort tp where tp.flowProcess.id = ?";
@@ -87,4 +89,30 @@ public class TransPortService extends CommonJbpmService{
 		}
 		return tp;
 	}
+	
+	public void removeItem(Long flowProcessid){
+		if(flowProcessid == null)return;
+		TransPort tp = getFormData(flowProcessid);
+		Set<TransPortDetail> items = tp.getDetails();
+		List<TransPortDetail> removes = Lists.newArrayList();
+		for(TransPortDetail item : items){
+			removes.add(item);
+		}
+		for(TransPortDetail item : removes){
+			items.remove(item);
+			delete(item);
+		}		
+	}
+	
+	public void updateFormData(FlowProcess fp, CommonVo cv){
+		TransPort tp = getFormData(fp.getId());
+		List<String> arrives = cv.getItems();
+		Set<TransPortDetail> items = tp.getDetails();
+		int i = 0;
+		for(TransPortDetail item : items){
+			item.setIsArrived(arrives.get(i));
+			i++;
+		}
+		merge(tp);
+	}	
 }

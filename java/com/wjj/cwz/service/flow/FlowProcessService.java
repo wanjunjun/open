@@ -42,14 +42,21 @@ public class FlowProcessService extends CommonService{
 	@Override
 	public SimpleHibernateDao getDao() {
 		return flowProcessDao;
-	}	
+	}
+	
+	//待办流程查询
+	public Page<FlowProcess> getDraft(Page<FlowProcess> page, Map<String, Object> map){
+		StringBuilder hql = new StringBuilder();
+		hql.append("from FlowProcess fp where fp.formState = 'draft' and fp.user.id = :userId");
+		return getPage(hql.toString(), page, map);
+	}
 	
 	//待办流程查询
 	public Page<FlowProcess> getWait(Page<FlowProcess> page, Map<String, Object> map){
 		StringBuilder hql = new StringBuilder();
-		hql.append("from FlowProcess fp where fp.id in (");
-		hql.append(" select distinct flowProcessId from FlowTask ft");
-		hql.append(" where ft.taskStatus in ('Ready','Reserved') and ft.actor = :actor");
+		hql.append("from FlowProcess fp where exists (");
+		hql.append(" select flowProcessId from FlowTask ft");
+		hql.append(" where ft.flowProcessId = fp.id and ft.taskStatus in ('Ready','Reserved') and ft.actor = :actor");
 		hql.append(")");
 		return getPage(hql.toString(), page, map);
 	}

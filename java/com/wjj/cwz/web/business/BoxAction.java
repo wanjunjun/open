@@ -57,4 +57,11 @@ public class BoxAction extends BaseAction{
 		}
 		return Constants.AJAX_SUCCESS;
 	}
+	
+	@RequestMapping(value="/box/getByBoxId")
+	@ResponseBody
+	public Object getByBoxId(String boxId){
+		Box box = boxService.findUniqueBy("boxId", boxId);
+		return box;
+	}
 }

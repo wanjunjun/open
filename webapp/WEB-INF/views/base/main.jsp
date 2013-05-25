@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Beyondsoft APSA</title>
+	<title>wbpm</title>
 	<link rel="stylesheet" href="${ctx}/css/assets/reset.css"/>
     <link rel="stylesheet" href="${ctx}/css/assets/global.css"/>
     <link rel="stylesheet" href="${ctx}/css/assets/home.css"/>
