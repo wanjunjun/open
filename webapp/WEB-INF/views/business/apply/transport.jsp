@@ -14,7 +14,7 @@
 	<script src="${ctx}/js/entry.jquery.js" type="text/javascript"></script>
 	<script src="${ctx}/js/Common.js" type="text/javascript"></script>
 	<script src="${ctx}/jqueryui/datepicker/main.js" type="text/javascript"></script>
-	<script src="${ctx}/js/Common.js" type="text/javascript"></script>
+	<script src="${ctx}/js/form.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	$(function(){
 		$("#startDate").datepicker({showOn: "button", buttonImage: "images/calendar.gif", buttonImageOnly: true});
@@ -78,6 +78,7 @@
 <div>
 	<input class="ui-state-default button" type="button" value="申请" onclick="apply()">
 	<input class="ui-state-default button" type="button" value="保存" onclick="save()">
+	<input class="ui-state-default button" type="button" value="打印" onclick="_print()">
 </div>
 <form id="ff" action="${ctx}/business/transport/applyFlow.do" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="flow.id" value="${flowId}">
@@ -98,10 +99,14 @@
 			</tr>
 			<tr>
 				<td>目的仓库</td>
-				<td colspan="3">
+				<td>
 					<input type="hidden" id="depoId" name="depo.id" class="ui-widget-content">
 					<input type="text" id="depoName" name="depo.name" readonly="readonly" class="ui-widget-content">
 					<a href="#" onclick="showTree()">选择</a>
+				</td>
+				<td>芯片位置</td>
+				<td>
+					<input type="text" id="location" name="location" class="ui-widget-content">
 				</td>				
 			</tr>
 			<tr>

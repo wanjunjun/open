@@ -34,6 +34,7 @@ public class TransPort extends BaseBean{
 	private String driver;
 	private String carNo;
 	private Depo depo;
+	private String location;
 	private String remark;
 	private Date startDate;		//领用日期
 	private Date createDate;	//录单日期
@@ -85,6 +86,15 @@ public class TransPort extends BaseBean{
 
 	public void setDepo(Depo depo) {
 		this.depo = depo;
+	}
+
+	@Column(name = "location", length = 100)
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 	@Column(name = "remark", length = 100)

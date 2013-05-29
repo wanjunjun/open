@@ -46,7 +46,9 @@
 			</tr>
 			<tr>
 				<td>目的仓库</td>
-				<td colspan="3">${formData.depo.name}</td>
+				<td>${formData.depo.name}</td>
+				<td>芯片位置</td>
+				<td>${formData.location}</td>
 			</tr>
 			<tr>
 				<td>领用日期</td>

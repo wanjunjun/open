@@ -13,11 +13,7 @@
 	
 	<script src="${ctx}/js/entry.js" type="text/javascript"></script>
 	<script src="${ctx}/js/entry.jquery.js" type="text/javascript"></script>
-	<script type="text/javascript">
-	function _print(){
-		window.print();
-	}
-	</script>
+	<script src="${ctx}/js/form.js" type="text/javascript"></script>	
 </head>
 
 <body>
@@ -41,7 +37,9 @@
 			</tr>
 			<tr>
 				<td>目的仓库</td>
-				<td colspan="3">${formData.depo.name}</td>
+				<td>${formData.depo.name}</td>
+				<td>芯片位置</td>
+				<td>${formData.location}</td>
 			</tr>
 			<tr>
 				<td>领用日期</td>
