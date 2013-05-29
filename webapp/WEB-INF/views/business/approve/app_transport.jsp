@@ -14,7 +14,8 @@
 	<script src="${ctx}/js/entry.js" type="text/javascript"></script>
 	<script src="${ctx}/js/entry.jquery.js" type="text/javascript"></script>
 	<script type="text/javascript">
-	function approve(){
+	function approve(oper){
+		$("#oper").val(oper);
 		$("#ff").submit();
 	}
 	</script>
@@ -23,9 +24,13 @@
 <body>
 <%@include file="../../base/tree/depoTree.jsp" %>
 <div id="flow-form">
-<div><input class="ui-state-default button" type="button" value="审批" onclick="approve()"></div>
+<div>
+<input class="ui-state-default button" type="button" value="审批" onclick="approve('pass')">
+<input class="ui-state-default button" type="button" value="驳回" onclick="approve('reject')">
+</div>
 <form id="ff" action="${ctx}/business/transport/approveFlow.do" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="id" value="${formData.flowProcess.id}">
+	<input type="hidden" id="oper" name="oper" value="">
 	<table id="mainTab" class="ui-widget ui-widget-content">
 		<thead>
 			<tr class="ui-widget-header ">

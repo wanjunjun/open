@@ -4,6 +4,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -64,6 +65,7 @@ public class TransPortAction extends BaseAction{
 		Map<String, Object> variables = Maps.newHashMap();
 		variables.put("node1", user.getUserCode());
 		variables.put("node2", depo.getAdminCode());
+		variables.put("agree", false);
 		transPortService.applyFlow(user.getUserCode(), fp, variables);
 	}
 		
@@ -77,7 +79,13 @@ public class TransPortAction extends BaseAction{
 	@RequestMapping(value="/business/transport/approveFlow")
 	public String approveFlow(HttpServletRequest request, FlowProcess fp, CommonVo cv, String opinion){
 		AuthorizeDetailImpl user = SpringSecurityUtils.getCurrentUser();	
-		transPortService.approveFlow(user.getUserCode(), fp, opinion, null, "approve");
+		Map<String, Object> variables = null;
+		String oper = request.getParameter("oper");
+		if(StringUtils.isNotBlank(oper)){
+			variables = Maps.newHashMap();
+			variables.put("agree", oper.equals("pass"));
+		}
+		transPortService.approveFlow(user.getUserCode(), fp, opinion, variables, "approve");
 		transPortService.updateFormData(fp, cv);
 		return "redirect:/page.do?page=business/success";
 	}
