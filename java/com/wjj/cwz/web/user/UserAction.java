@@ -21,6 +21,7 @@ import com.wjj.cwz.core.util.JsonUtils;
 import com.wjj.cwz.core.util.SpringSecurityUtils;
 import com.wjj.cwz.entity.Module;
 import com.wjj.cwz.entity.User;
+import com.wjj.cwz.service.license.LicenseService;
 import com.wjj.cwz.service.user.UserService;
 import com.wjj.cwz.web.BaseAction;
 import com.wjj.jbpm.service.JbpmUserService;
@@ -38,6 +39,9 @@ public class UserAction extends BaseAction{
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private LicenseService licenseService;
 	
 	@RequestMapping(value="/index")
 	public String index(){
@@ -87,5 +91,12 @@ public class UserAction extends BaseAction{
 			userService.merge(entity);
 		}
 		return Constants.AJAX_SUCCESS;
+	}
+	
+	@RequestMapping(value="/login/getLicense")
+	@ResponseBody
+	public Object getLicense(HttpServletRequest request){
+		Long license = licenseService.getLicense();
+		return license;
 	}
 }

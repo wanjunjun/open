@@ -2,10 +2,17 @@ package com.wjj.cwz.service.business;
 
 import static java.util.Locale.ENGLISH;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +20,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.wjj.cwz.core.frame.Page;
+import com.wjj.cwz.core.util.FileUtil;
 import com.wjj.cwz.dao.SimpleHibernateDao;
 import com.wjj.cwz.dao.business.TransPortDao;
 import com.wjj.cwz.entity.FlowProcess;
@@ -123,12 +132,32 @@ public class TransPortService extends CommonJbpmService{
 	public Page<TransPortDetail> getPage(Page<TransPortDetail> page, Map<String, Object> values){
 		StringBuilder sb = new StringBuilder();
 		sb.append("from TransPortDetail d where 1=1 ");
-		if(StringUtils.isNotBlank((String)values.get("userName"))){
-			sb.append("and u.userName like concat('%',:userName,'%') ");
+		if(StringUtils.isNotBlank((String)values.get("driver"))){
+			sb.append("and d.transPort.driver like concat('%',:driver,'%') ");
 		}
-		if(StringUtils.isNotBlank((String)values.get("userCode"))){
-			sb.append("and u.userCode = :userCode ");
+		if(StringUtils.isNotBlank((String)values.get("carNo"))){
+			sb.append("and d.transPort.carNo = :carNo ");
+		}
+		if(StringUtils.isNotBlank((String)values.get("boxId"))){
+			sb.append("and d.boxId = :boxId ");
 		}
 		return getPage(sb.toString(), page, values);
+	}
+	
+	public void exportDetail(Map<String, Object> values, HttpServletResponse response)throws Exception{
+		Page<TransPortDetail> page = new Page<TransPortDetail>();
+		page.setPageNo(1);
+		page.setPageSize(100);
+		page = getPage(page, values);
+				
+		String[] headers = {"id","芯片ID","类型","位置","是否到货","司机","车牌号"};
+		String[] cols = {"id","boxId","boxType","transPort.location","isArrived","transPort.driver","transPort.carNo"};
+		
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+		String excelName = sdf.format(cal.getTime());
+		response.setContentType("application/msexcel");
+		response.setHeader("Content-Disposition", "attachment; filename="+excelName+".xls");
+		FileUtil.writeExcel("芯片信息",response.getOutputStream(), page.getResult(), headers, cols);
 	}
 }

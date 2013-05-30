@@ -171,6 +171,12 @@ public abstract class CommonService {
 		}		
 	}
 	
+	public Long getCount(String hql, Object... values){
+		Session session = getSession();
+		Long count = (Long)createQuery(session, hql, values).uniqueResult();
+		return count;
+	}
+	
 	//分页查询
 	public <T> Page<T> getPage(String hql, Page<T> page, Map<String, ?> values){
 		Session session = null;

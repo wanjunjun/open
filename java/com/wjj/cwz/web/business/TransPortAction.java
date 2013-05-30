@@ -3,18 +3,24 @@ package com.wjj.cwz.web.business;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.common.collect.Maps;
 import com.wjj.cwz.authorize.AuthorizeDetailImpl;
+import com.wjj.cwz.core.frame.Page;
+import com.wjj.cwz.core.util.JsonUtils;
 import com.wjj.cwz.core.util.SpringSecurityUtils;
 import com.wjj.cwz.entity.Depo;
 import com.wjj.cwz.entity.FlowProcess;
+import com.wjj.cwz.entity.Reader;
 import com.wjj.cwz.entity.TransPort;
+import com.wjj.cwz.entity.TransPortDetail;
 import com.wjj.cwz.service.business.DepoService;
 import com.wjj.cwz.service.business.TransPortService;
 import com.wjj.cwz.vo.CommonVo;
@@ -88,5 +94,31 @@ public class TransPortAction extends BaseAction{
 		transPortService.approveFlow(user.getUserCode(), fp, opinion, variables, "approve");
 		transPortService.updateFormData(fp, cv);
 		return "redirect:/page.do?page=business/success";
+	}
+	
+	@RequestMapping(value="/transport/getDetailPage")
+	@ResponseBody
+	public Object getDetailPage(HttpServletRequest request){
+		Page<TransPortDetail> page = new Page<TransPortDetail>();
+		pageHandle(request, page);
+		
+		Map<String, Object> values = Maps.newHashMap();
+		values.put("boxId", request.getParameter("boxId"));
+		values.put("driver", request.getParameter("driver"));
+		values.put("carNo", request.getParameter("carNo"));
+		
+		page = transPortService.getPage(page, values);
+		return JsonUtils.getPageGrid(page);
+	}
+	
+	@RequestMapping(value="/transport/exportDetail")
+	public Object exportDetail(HttpServletRequest request, HttpServletResponse response)throws Exception{
+		Map<String, Object> values = Maps.newHashMap();
+		values.put("boxId", request.getParameter("boxId"));
+		values.put("driver", request.getParameter("driver"));
+		values.put("carNo", request.getParameter("carNo"));
+		
+		transPortService.exportDetail(values, response);
+		return null;
 	}
 }

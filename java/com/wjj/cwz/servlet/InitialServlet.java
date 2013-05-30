@@ -1,6 +1,7 @@
 package com.wjj.cwz.servlet;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -11,6 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.wjj.cwz.core.util.SpringUtil;
+import com.wjj.cwz.entity.License;
+import com.wjj.cwz.service.license.LicenseService;
 
 /** 
 *
@@ -30,7 +35,12 @@ public class InitialServlet extends HttpServlet {
 		//初始化bean
 //		SpringContextUtils.getInstance().initContext();
 //		SpringContextUtils.getInstance().setWorkItemHandlerManager();
-		
+		LicenseService licenseService = (LicenseService)SpringUtil.getInstance().getBean("licenseService");
+		License license = licenseService.findUniqueBy("code", "system");
+		if(license == null || license.getDate() == null || license.getDate().getTime() < new Date().getTime()-86400000){
+			logger.error("license 超出使用期限.........");
+			System.exit(0);
+		}
 		EntityManagerFactory emf =  Persistence.createEntityManagerFactory("org.jbpm.persistence.jpa");
 //		JbpmCache.addCache("org.jbpm.persistence.jpa", emf);
 		
