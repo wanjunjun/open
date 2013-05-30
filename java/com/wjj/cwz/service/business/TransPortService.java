@@ -4,19 +4,23 @@ import static java.util.Locale.ENGLISH;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import com.wjj.cwz.core.frame.Page;
 import com.wjj.cwz.dao.SimpleHibernateDao;
 import com.wjj.cwz.dao.business.TransPortDao;
 import com.wjj.cwz.entity.FlowProcess;
 import com.wjj.cwz.entity.TransPort;
 import com.wjj.cwz.entity.TransPortDetail;
+import com.wjj.cwz.entity.User;
 import com.wjj.cwz.service.CommonJbpmService;
 import com.wjj.cwz.service.flow.FlowProcessService;
 import com.wjj.cwz.service.flow.FlowTaskService;
@@ -114,5 +118,17 @@ public class TransPortService extends CommonJbpmService{
 			i++;
 		}
 		merge(tp);
-	}	
+	}
+	
+	public Page<TransPortDetail> getPage(Page<TransPortDetail> page, Map<String, Object> values){
+		StringBuilder sb = new StringBuilder();
+		sb.append("from TransPortDetail d where 1=1 ");
+		if(StringUtils.isNotBlank((String)values.get("userName"))){
+			sb.append("and u.userName like concat('%',:userName,'%') ");
+		}
+		if(StringUtils.isNotBlank((String)values.get("userCode"))){
+			sb.append("and u.userCode = :userCode ");
+		}
+		return getPage(sb.toString(), page, values);
+	}
 }

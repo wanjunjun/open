@@ -14,6 +14,7 @@
 	<script src="${ctx}/js/entry.jquery.js" type="text/javascript"></script>
 	<script src="${ctx}/js/Common.js" type="text/javascript"></script>
 	<script src="${ctx}/jqueryui/datepicker/main.js" type="text/javascript"></script>
+	<script src="${ctx}/js/validate/main.js" type="text/javascript"></script>
 	<script src="${ctx}/js/form.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	$(function(){
@@ -21,6 +22,7 @@
 		$("#startDate").datepicker( "option", "dateFormat", "yy-mm-dd");
 		//$("#createDate").datepicker( 'setDate', new Date() );		
 		$("#createDate").val(Common.getDate());
+		new RequiredValidator().add("driver","carNo","depo.name");
 	});
 	var itemSize = 0;
 	function add(){
@@ -46,9 +48,15 @@
 		$("#depoName").val(node.text);
 	}
 	function apply(){
+		if(!validate()){
+			return;
+		}
 		$("#ff").submit();
 	}
 	function save(){
+		if(!validate()){
+			return;
+		}
 		$("#ff").attr("action","${ctx}/business/transport/saveFlow.do");
 		$("#formState").val("draft");
 		$("#ff").submit();
@@ -92,10 +100,10 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>领用司机</td>
-				<td><input type="text" name="driver" class="ui-widget-content"></td>
-				<td>车牌号</td>
-				<td><input type="text" name="carNo" class="ui-widget-content"></td>
+				<td width="15%">领用司机</td>
+				<td width="35%"><input type="text" name="driver" class="ui-widget-content"></td>
+				<td width="15%">车牌号</td>
+				<td width="35%"><input type="text" name="carNo" class="ui-widget-content"></td>
 			</tr>
 			<tr>
 				<td>目的仓库</td>

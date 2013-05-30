@@ -13,12 +13,14 @@
 	<script src="${ctx}/js/entry.js" type="text/javascript"></script>
 	<script src="${ctx}/js/entry.jquery.js" type="text/javascript"></script>	
 	<script src="${ctx}/jqueryui/datepicker/main.js" type="text/javascript"></script>	
+	<script src="${ctx}/js/validate/main.js" type="text/javascript"></script>
 	<script src="${ctx}/js/Common.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	$(function(){
 		$("#startDate").datepicker({showOn: "button", buttonImage: "${ctx}/images/calendar.gif", buttonImageOnly: true});
 		$("#startDate").datepicker( "option", "dateFormat", "yy-mm-dd");
 		$("#createDate").val(Common.getDate());
+		new RequiredValidator().add("driver","carNo","depo.name");
 	});
 	var itemSize = ${formData.details.size()};
 	function add(){
@@ -73,18 +75,20 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>领用司机</td>
-				<td><input type="text" name="driver" class="ui-widget-content" value="${formData.driver}"></td>
-				<td>车牌号</td>
-				<td><input type="text" name="carNo" class="ui-widget-content" value="${formData.carNo}"></td>
+				<td width="15%">领用司机</td>
+				<td width="35%"><input type="text" name="driver" class="ui-widget-content" value="${formData.driver}"></td>
+				<td width="15%">车牌号</td>
+				<td width="35%"><input type="text" name="carNo" class="ui-widget-content" value="${formData.carNo}"></td>
 			</tr>
 			<tr>
 				<td>目的仓库</td>
-				<td colspan="3">
+				<td>
 					<input type="hidden" id="depoId" name="depo.id" class="ui-widget-content" value="${formData.depo.id}">
 					<input type="text" id="depoName" name="depo.name" readonly="readonly" class="ui-widget-content" value="${formData.depo.name}">
 					<a href="#" onclick="showTree()">选择</a>
-				</td>				
+				</td>	
+				<td>芯片位置</td>
+				<td><input type="text" id="location" name="location" class="ui-widget-content" value="${formData.location}"></td>			
 			</tr>
 			<tr>
 				<td>领用日期</td>
