@@ -5,11 +5,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="${ctx}/css/jquery-ui/jquery.ui.css" />
 </head>
 
 <body>
-<div>
-	<div><h1>flow handle success!</h1></div>
+
+<div style="height: 60px;" class="ui-state-highlight ui-comer-all">
+	<span style="float:left;margin-right:3em;" class="ui-icon ui-icon-info"></span>
+	<br>
+	<div style="padding:5 auto auto 10"><h1>流程处理完毕!</h1></div>
+	<br>			
+	
 </div>
 </body>
 </html>

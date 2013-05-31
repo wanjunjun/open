@@ -51,9 +51,10 @@
 		if(!validate()){
 			return;
 		}
-		$("#ff").submit();
+		msg("block");
+		$("#ff").submit();		
 	}
-	function save(){
+	function save(){		
 		if(!validate()){
 			return;
 		}
@@ -76,6 +77,10 @@
 				alert("没有找到对应的芯片信息");
 			}
 		});
+	}
+	function msg(display){
+		$('#mask').css("display",display);
+		$('#main').css("display",display);
 	}
 	</script>
 </head>
@@ -152,5 +157,17 @@
 	</table>
 </form>	
 </div>
+	<div id="mask" class="ui-widget-overlay" style="height: 100%; width: 100%; position: fixed; left: 0px; top: 0px; z-index: 1949; opacity: 0.3;display: none;">
+	</div>
+	<div id="main" class="ui-widget ui-widget-content ui-corner-all ui-jqdialog jqmID1" dir="ltr" style="width: 600px; height: auto; z-index: 1950; overflow: hidden; top: 260px; left: 200px; display: none;position:absolute">
+	
+		<div style="height: 60px;" class="ui-state-highlight ui-comer-all">
+			<span style="float:left;margin-right:3em;" class="ui-icon ui-icon-info"></span>
+			<br>
+			<div style="padding:5 auto auto 10">工作流处理中，请稍候...</div>
+			<br>			
+			
+		</div>
+	</div>
 </body>
 </html>
