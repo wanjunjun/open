@@ -19,12 +19,9 @@
 <body>
 <%@include file="../../base/tree/depoTree.jsp" %>
 <div id="flow-form">
-<div>
-	<input class="ui-state-default button" type="button" value="打印" onclick="_print()">	
-</div>
-<center><h2>单号[${formData.flowProcess.id}]</h2></center>
+<div><input class="ui-state-default button" type="button" value="打印" onclick="_print()"></div>
 <form id="ff" action="${ctx}/business/transport/approveFlow.do" method="post" enctype="multipart/form-data">
-	<input type="hidden" name="id" value="${formData.flowProcess.id}">	
+	<input type="hidden" name="id" value="${formData.flowProcess.id}">
 	<table id="mainTab" class="ui-widget ui-widget-content">
 		<thead>
 			<tr class="ui-widget-header ">
