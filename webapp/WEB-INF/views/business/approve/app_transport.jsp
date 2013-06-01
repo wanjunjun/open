@@ -31,8 +31,11 @@
 <div id="flow-form">
 <div>
 <input class="ui-state-default button" type="button" value="审批" onclick="approve('pass')">
+<!-- 
 <input class="ui-state-default button" type="button" value="驳回" onclick="approve('reject')">
+ -->
 </div>
+<center><h2>单号[${formData.flowProcess.id}]</h2></center>
 <form id="ff" action="${ctx}/business/transport/approveFlow.do" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="id" value="${formData.flowProcess.id}">
 	<input type="hidden" id="oper" name="oper" value="">

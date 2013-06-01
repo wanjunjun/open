@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ include file="/common/taglibs.jsp" %>   
+ <%@ include file="/common/taglibs.jsp" %>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>   
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -22,7 +23,7 @@
 		$("#createDate").val(Common.getDate());
 		new RequiredValidator().add("driver","carNo","depo.name");
 	});
-	var itemSize = ${formData.details.size()};
+	var itemSize = "${fn:length(formData.details)}";
 	function add(){
 		var table = $("#itemTab");
 		var size = table[0].rows.length;
