@@ -70,7 +70,9 @@
 <div>
 	<input class="ui-state-default button" type="button" value="申请" onclick="apply()">
 	<input class="ui-state-default button" type="button" value="保存" onclick="save()">
+	<input class="ui-state-default button" type="button" value="打印" onclick="_print()">
 </div>
+<center><h2>单号[${flowProcess.id}]</h2></center>
 <form id="ff" action="${ctx}/business/transport/submitDraft.do" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="id" value="${flowProcess.id}">
 	<input type="hidden" name="flow.id" value="${flowProcess.flow.id}">

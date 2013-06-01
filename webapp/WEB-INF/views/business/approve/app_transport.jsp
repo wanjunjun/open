@@ -31,6 +31,7 @@
 <div id="flow-form">
 <div>
 <input class="ui-state-default button" type="button" value="审批" onclick="approve('pass')">
+<input class="ui-state-default button" type="button" value="打印" onclick="_print()">
 <!-- 
 <input class="ui-state-default button" type="button" value="驳回" onclick="approve('reject')">
  -->
