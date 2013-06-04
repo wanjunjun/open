@@ -21,14 +21,18 @@
 	<script src="${ctx}/css/assets/search.js"></script>
 	<script type="text/javascript">
 	jQuery(document).ready(function(){	
+		function bindEvent(cellvalue, options, rowObject){
+			return rowObject.depo.name;			
+		}
 		var setting = {
 				url:"${ctx}/reader/getPage.do",
-				colNames:['id','阅读器ID','类型','描述'],
+				colNames:['id','阅读器ip','类型','描述','仓库'],
 				colModel:[
 					   		{name:'id', width:55},
-					   		{name:'readerId', width:100,editable:true},
+					   		{name:'readerIp', width:100,editable:true},					   		
 					   		{name:'type', width:150,editable:true},
-					   		{name:'description', width:150,editable:true}
+					   		{name:'description', width:150,editable:true},
+					   		{name:'depo.id', width:150,editable:true,formatter:bindEvent, edittype:"custom", editoptions:{custom_element:depoTree,custom_value:setDepo}}
 					   	],				
 				editurl:"${ctx}/reader/crud.do",
 				toolbar: [true,"top"],
@@ -44,6 +48,26 @@
 		$("#del").bind("click",function(){Common.g_del("list");});	
 		initDialogSearch();
 	});
+	function depoTree(){
+		var depoDiv = document.createElement("div");
+		$(depoDiv).append('&nbsp;<input type="hidden" id="depoId"><input type="text" class="FormElement ui-widget-content ui-corner-all" id="depoName" readonly="readonly"><a href="#" onclick="showTree()">选择</a>');
+		return depoDiv;
+		
+	}
+	function setDepo(ele,m,v){	
+		if("set" == m){
+			$(ele).val(v);
+			//$(ele).text(v);
+		}
+		if("get" == m){
+			return $("#depoId").val();
+		}
+		return "no value";
+	}
+	function getDepoTreeNode(node){
+		$("#depoId").val(node.id);
+		$("#depoName").val(node.text);
+	}
 	function initDialogSearch(){
 		var p = $("#advanced").position();
 		$("#advanced").dialog({autoOpen: false,width:500,show:"blind",hide:"blind",position:[p.left,p.top]});
@@ -77,6 +101,7 @@
 	</script>
 </head>
 <body >
+<%@include file="../../base/tree/depoTree.jsp" %>
 		<form id="search" name="search" class="clearfix">
             <div id="search-select" class="select">
                 <input id="searchField" type="text" code="readerId" value="阅读器ID" readonly="readonly" name="type">
