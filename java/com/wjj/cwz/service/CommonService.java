@@ -13,6 +13,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.transform.Transformers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -250,5 +251,12 @@ public abstract class CommonService {
 		} finally{
 			closeSession(session);
 		}
+	}
+	
+	public List<Map> sqlQueryMap(String sql, Map<String, Object> param){
+		Session session = getSession();
+		Query query = session.createSQLQuery(sql).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+		query.setProperties(param);		
+		return query.list();
 	}
 }

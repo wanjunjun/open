@@ -1,5 +1,6 @@
 package com.wjj.cwz.service.business;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
@@ -49,5 +50,25 @@ public class ReaderService extends CommonService{
 			sb.append("and b.description like concat('%',:description,'%') ");
 		}
 		return getPage(sb.toString(), page, values);
+	}
+	
+	public List<Map> searchReader(Map<String, Object> values){
+		StringBuilder sb = new StringBuilder();
+		sb.append("select mr.ticket_id, mr.reader_ip, mr.reader_time, cd.name ");
+		sb.append("from c_reader cr inner join mid_reader mr on cr.reader_ip = mr.reader_ip ");
+		sb.append("left join c_depo cd on cr.depo = cd.id where 1=1 ");
+		if(StringUtils.isNotBlank((String)values.get("readerIp"))){
+			sb.append("and cr.reader_ip = :readerIp ");
+		}
+		if(StringUtils.isNotBlank((String)values.get("depoName"))){
+			sb.append("and cd.name like concat('%',:depoName,'%') ");
+		}
+		if(StringUtils.isNotBlank((String)values.get("s_date"))){
+			sb.append("and mr.reader_time >= :s_date ");
+		}
+		if(StringUtils.isNotBlank((String)values.get("e_date"))){
+			sb.append("and mr.reader_time <= :e_date ");
+		}
+		return sqlQueryMap(sb.toString(), values);
 	}
 }

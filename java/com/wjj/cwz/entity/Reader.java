@@ -2,6 +2,9 @@ package com.wjj.cwz.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /** 
@@ -18,6 +21,10 @@ public class Reader extends BaseBean{
 	private String readerId;
 	private String type;
 	private String description;
+	private String readerIp;
+	private String location;
+	private Depo depo;
+	
 	
 	@Column(name = "reader_id", length = 50)
 	public String getReaderId() {
@@ -41,4 +48,31 @@ public class Reader extends BaseBean{
 	public void setDescription(String description) {
 		this.description = description;
 	}		
+	
+	@Column(name = "reader_ip", length = 50)
+	public String getReaderIp() {
+		return readerIp;
+	}
+	public void setReaderIp(String readerIp) {
+		this.readerIp = readerIp;
+	}
+	
+	@Column(name = "location", length = 100)
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "depo")
+	public Depo getDepo() {
+		return depo;
+	}
+
+	public void setDepo(Depo depo) {
+		this.depo = depo;
+	}
 }

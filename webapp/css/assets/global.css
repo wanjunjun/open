@@ -31,7 +31,7 @@ a:hover {
 input{border:1px solid #eeeeee}
 #advanced table tr td{
 	padding:3px 0 3px 5px;
-	text-align:right;
+	text-align:left;
 }
 #nav {
     height: 60px;

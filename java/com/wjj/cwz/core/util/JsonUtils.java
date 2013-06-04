@@ -1,5 +1,6 @@
 package com.wjj.cwz.core.util;
 
+import java.util.List;
 import java.util.Map;
 
 import com.google.common.collect.Maps;
@@ -19,7 +20,15 @@ public class JsonUtils {
 		jsonMap.put(TOTAL_PAGE, page.getTotalPages());
 		jsonMap.put(TOTAL_COUNT, page.getTotalCount());
 		jsonMap.put(JSON_ARRAY, page.getResult());
-		return jsonMap;
-		
+		return jsonMap;		
+	}
+	
+	public static <T> Map<String , Object>  getPageGrid(List<Map> list){
+		Map<String , Object> jsonMap = Maps.newHashMap();
+		jsonMap.put(PAGE_NO, 1);
+		jsonMap.put(TOTAL_PAGE, 1);
+		jsonMap.put(TOTAL_COUNT, list.size());
+		jsonMap.put(JSON_ARRAY, list);
+		return jsonMap;		
 	}
 }

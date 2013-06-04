@@ -1,5 +1,6 @@
 package com.wjj.cwz.web.business;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -64,5 +65,17 @@ public class ReaderAction extends BaseAction{
 	public Object getByReaderId(String readerId){
 		Reader reader = readerService.findUniqueBy("readerId", readerId);
 		return reader;
+	}
+	
+	@RequestMapping(value="/reader/searchReader")
+	@ResponseBody
+	public Object searchReader(HttpServletRequest request){
+		Map<String, Object> values = Maps.newHashMap();
+		values.put("readerIp", request.getParameter("readerIp"));
+		values.put("depoName", request.getParameter("depoName"));
+		values.put("s_date", request.getParameter("s_date"));
+		values.put("e_date", request.getParameter("e_date"));
+		List<Map> list = readerService.searchReader(values);		
+		return JsonUtils.getPageGrid(list);
 	}
 }
