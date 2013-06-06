@@ -22,7 +22,12 @@
 	<script type="text/javascript">
 	jQuery(document).ready(function(){	
 		function bindEvent(cellvalue, options, rowObject){
-			return rowObject.depo.name;			
+			if(rowObject.depo){
+				return rowObject.depo.name;	
+			}else{
+				return '';
+			}
+						
 		}
 		var setting = {
 				url:"${ctx}/reader/getPage.do",
@@ -32,7 +37,7 @@
 					   		{name:'readerIp', width:100,editable:true},					   		
 					   		{name:'type', width:150,editable:true},
 					   		{name:'description', width:150,editable:true},
-					   		{name:'depo.id', width:150,editable:true,formatter:bindEvent, edittype:"custom", editoptions:{custom_element:depoTree,custom_value:setDepo}}
+					   		{name:'depo.id', width:150,editable:true,formatter:bindEvent, edittype:"custom",editrules:{required:true}, editoptions:{custom_element:depoTree,custom_value:setDepo}}
 					   	],				
 				editurl:"${ctx}/reader/crud.do",
 				toolbar: [true,"top"],
