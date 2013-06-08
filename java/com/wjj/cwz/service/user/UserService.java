@@ -59,4 +59,9 @@ public class UserService extends CommonService{
 		}
 		return getPage(sb.toString(), page, values);
 	}
+	
+	public User authorizeUser(String userCode, String password){
+		String hql = "from User u where u.userCode = ? and u.pasword = ?";
+		return findUnique(hql, userCode, password);
+	}
 }

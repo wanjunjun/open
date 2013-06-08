@@ -146,6 +146,13 @@ public abstract class CommonService {
 	} 
 	
 	/**
+	 * 按HQL查找唯一对象, 多个参数.
+	 */
+	public <T> T findUnique(final String propertyName, final Object... value){
+		return (T)getDao().findUnique(propertyName, value);
+	}
+	
+	/**
 	 * 按属性查找对象列表, 匹配方式为模糊查询.
 	 */
 	public <T> List<T> vagueFindBy(final String propertyName, final Object value){

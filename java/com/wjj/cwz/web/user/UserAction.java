@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.common.collect.Maps;
+import com.wjj.cwz.authorize.Authenticate;
 import com.wjj.cwz.authorize.AuthorizeDetailImpl;
 import com.wjj.cwz.core.frame.Page;
 import com.wjj.cwz.core.util.Constants;
@@ -41,6 +42,9 @@ public class UserAction extends BaseAction{
 	private UserService userService;
 	
 	@Autowired
+	private Authenticate authenticate;
+	
+	@Autowired
 	private LicenseService licenseService;
 	
 	@RequestMapping(value="/index")
@@ -51,7 +55,9 @@ public class UserAction extends BaseAction{
 	@RequestMapping(value="/user/login")
 	public String login(HttpServletRequest request){
 		logger.debug("Login in .......");
-
+		String theme = request.getParameter("theme");
+		theme = "null".equals(theme)?null:theme;
+		
 		AuthorizeDetailImpl user = SpringSecurityUtils.getCurrentUser();
 		request.getSession().setAttribute("user", user);
 		
@@ -59,8 +65,26 @@ public class UserAction extends BaseAction{
 		List<Module> modules = userService.getUserModules(user.getId());
 		request.getSession().setAttribute("modules", modules);
 		logger.debug("get modules of user["+user.getUsername()+"] module size:"+modules.size());
+		if(StringUtils.isNotBlank(theme))
+			return "main_"+theme;
 		return "main";
 	}
+	
+	@RequestMapping(value = "/user/authenticate")
+	public String authenticate(HttpServletRequest request){
+		String j_username = request.getParameter("j_username");
+		String j_password = request.getParameter("j_password");
+		String theme = request.getParameter("theme");
+		Boolean is = false;
+		User user = userService.authorizeUser(j_username, j_password);
+		is = user != null;
+		if(is){
+			SpringSecurityUtils.saveUserDetailsToContext(authenticate.save(j_username), request);
+			return "redirect:/user/login.do?theme="+theme;
+		}
+		return "redirect:/login.jsp";
+	}
+	
 	
 	@RequestMapping(value="/user/getPage")
 	@ResponseBody
