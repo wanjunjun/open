@@ -17,6 +17,7 @@
 	jQuery(document).ready(function(){	
 		var setting = {
 				url:"${ctx}/module/getPage.do?isParent=true",
+				width:600,
 				colNames:['id','模块名称','URL','排序值','操作'],
 				colModel:[
 					   		{name:'id', width:55},

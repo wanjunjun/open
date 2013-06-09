@@ -121,7 +121,7 @@ background:url(images/menu_bg.jpg) no-repeat center top #fff;
 .menu ul ul li {display:block;width: auto;height:auto;position:relative;line-height:1em;}
 
 /* style the links for the top level */
-.menu a, .menu a:visited {display:block;float:left;height:100%;font-size:11px;text-decoration:none;color:#fff;padding:0 21px 0 17px;}
+.menu a, .menu a:visited {display:block;float:left;height:100%;font-size:12px;text-decoration:none;color:#fff;padding:0 21px 0 17px;}
 .menu a.current{background:url(images/menu_bg.gif) repeat-x center;}
 /* style the sub level links */
 .menu ul ul a, .menu ul ul a:visited {display:block;background:#57c0e8; border-bottom:1px #81dafc solid; color:#fff;width:12em;height:100%;line-height:1em;padding:1em 1em;}

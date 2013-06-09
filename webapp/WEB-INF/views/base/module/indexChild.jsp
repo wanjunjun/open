@@ -17,6 +17,7 @@
 	<script type="text/javascript">
 	jQuery(document).ready(function(){	
 		var setting = {
+				width:600,	
 				url:"${ctx}/module/getPage.do?id=${moduleId}&isChild=true",
 				colNames:['id','模块名称','URL','排序值'],
 				colModel:[

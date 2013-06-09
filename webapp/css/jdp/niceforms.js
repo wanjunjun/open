@@ -8,7 +8,9 @@ Feel free to use and modify but please keep this copyright intact.
 #################################################################*/
 
 //Theme Variables - edit these to match your theme
-var imagesPath = "css/jdp/img/";
+var ctx = "/cwz";
+var imagesPath = ctx+"/css/jdp/img/";
+
 var selectRightWidthSimple = 19;
 var selectRightWidthScroll = 2;
 var selectMaxHeight = 200;

@@ -52,7 +52,7 @@
             <div class="menu">
                 <ul>
                     <li><a href="#"><security:authentication property="principal.username"/></a></li>
-                    <li><a href="${ctx }/j_spring_security_logout">[ 注销 ]</a></li>
+                    <li><a href="${ctx}/j_spring_security_logout">[ 注销 ]</a></li>
                 </ul>
             </div>
             <div class="menu">

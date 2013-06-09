@@ -6,8 +6,9 @@
 #search {
     position: relative;
     z-index: 2;
-    width: 837px;
-    margin-top: 30px;
+    width: 613px;
+    margin-top: 0px;
+    background: url("img/form_bg2.png") no-repeat;
 }
 
 #search .select {
@@ -66,7 +67,7 @@
 }
 
 #search input.keyword {
-    width: 467px;
+    width: 300px;
     height: 31px;
     padding: 0 6px 0 26px;
     outline: none;
@@ -83,7 +84,7 @@
 
 #search label.submit {
     position: absolute;
-    left: 613px;
+    left: 333px;
     top: 0;
     width: 123px;
     height: 35px;
