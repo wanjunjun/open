@@ -126,6 +126,10 @@ public abstract class CommonService {
 		getDao().save(entity);
 	}
 	
+	public <T> List<T> getAll(){
+		return (List<T>)getDao().getAll();
+	}
+	
 	public <T> T get(Long id){
 		return (T)getDao().get(id);
 	}
@@ -265,5 +269,19 @@ public abstract class CommonService {
 		Query query = session.createSQLQuery(sql).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
 		query.setProperties(param);		
 		return query.list();
+	}
+	
+	//使用查询缓存
+	public <T> List<T> cacheQuery(String hql, Object... values){
+		Session session = null;
+		session = getSession();
+		Query query = session.createQuery(hql);
+		if (values != null) {
+			for (int i = 0; i < values.length; i++) {
+				query.setParameter(i, values[i]);
+			}
+		}
+		query.setCacheable(true);
+		return query.list();				
 	}
 }

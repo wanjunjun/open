@@ -301,6 +301,7 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 		for (Criterion c : criterions) {
 			criteria.add(c);
 		}
+		criteria.setCacheable(true);
 		return criteria;
 	}
 
