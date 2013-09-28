@@ -8,7 +8,7 @@
 #areaopt div.areaopt_con	{ margin:5px; }
 #areaopt .clear		{ clear:both; display:block;}
 
-#areaopt a			{ color:#777777;text-decoration:none; padding:1px; text-align:left; margin-right:10px; width:24px; height:12px; display:block; float:left; overflow:hidden; margin-bottom:2px; text-align:center; cursor:pointer}
+#areaopt a			{ color:#777777;text-decoration:none; padding:1px; text-align:left; margin-right:10px; width:24px; height:18px; display:block; float:left; overflow:hidden; margin-bottom:2px; text-align:center; cursor:pointer}
 #areaopt a:hover	{ background-color:#666666; color:#fff; }
 #areaopt .areaopt_mouseon	{ background-color:#666666; color:#fff; }
 

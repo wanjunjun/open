@@ -4,10 +4,15 @@
 	this.id = '';
 	this.init = function(f){
 		//alert(typeof(textfileds));
-		if($("#areaopt_div").is(':visible')){
+		doml = f;
+		var ad = document.getElementById("areaopt_div");
+		var isShow = "none";
+		if(ad)isShow = ad.style.display;
+		//这里JQUERY判断元素是否可见有问题，需要用JS判断
+		if($("#areaopt_div").is(':visible') || isShow == "block"){
 			$("#areaopt_div").remove();
 		}
-		$(f).after("<div id='areaopt_div'> <div id='areaopt'> <div class='areaopt_province'> <div class='areaopt_con'>省份选择</div></div><div class='clear'></div> <div class='areaopt_city'><div class='areaopt_con'>城市选择</div> <div class='clear'></div> </div><div class='clear'></div> <div class='areaopt_zone'><div class='areaopt_con'>地区选择</div> <div class='clear'></div> </div><div class='clear'></div> <div class='areaopt_tools'> <span class='areaopt_info'></span> <span class='areaopt_tip'>要选择此位置请点\"确定\"</span> <input type=button value='确定' rel='confirm' class='areaopt_btn' /> <input type=button rel='close' value='关闭' class='areaopt_btn' /><div class='clear'></div></div> </div> <iframe frameborder=0 id='areaopt_back' height=40></iframe> <input type=hidden id='areaopt_province' /><input type=hidden id='areaopt_city' /><input type=hidden id='areaopt_zone' /> </div> <input type=hidden id='"+id+"' name='"+id+"' />");
+		$(f).after("<div id='areaopt_div'> <div id='areaopt'> <div class='areaopt_province'> <div class='areaopt_con'>省份选择</div></div><div class='clear'></div> <div class='areaopt_city'><div class='areaopt_con'>城市选择</div> <div class='clear'></div> </div><div class='clear'></div> <div class='areaopt_zone'><div class='areaopt_con'>地区选择</div> <div class='clear'></div> </div><div class='clear'></div> <div class='areaopt_tools'> <span class='areaopt_info'></span> <span class='areaopt_tip'>要选择此位置请点\"确定\"</span> <input type=button value='确定' rel='confirm' class='areaopt_btn' style='width:30px' /> <input type=button rel='close' value='关闭' class='areaopt_btn' style='width:30px'/><div class='clear'></div></div> </div> <input type=hidden id='areaopt_province' /><input type=hidden id='areaopt_city' /><input type=hidden id='areaopt_zone' /> </div> ");
 		$("#areaopt .areaopt_btn[rel='close']").click(function(){
 			$('#areaopt_div').remove();
 		});
@@ -30,6 +35,11 @@
 		this.handle(dom);
 		//$(document.body).prepend('<input type=hidden id="area_doms" value>');
 	}
+	this.area = function(dom){
+		$(dom).click(function(){
+			init(dom);
+		});
+	}
 	this.beforeinit = function(dom){
 		$(dom).attr('readonly', 'true');
 	}
@@ -49,9 +59,9 @@
 			$('#areaopt_div').css('left',dx-aw-15);
 		}else{
 			//$('#areaopt_div').css('left',dx+dw+1);
-			$('#areaopt_div').css('left',dx);
+			//$('#areaopt_div').css('left',dx);//cal
 		}
-		$('#areaopt_div').css('top',dy+dh+2);
+		//$('#areaopt_div').css('top',dy+dh+2);//cal
 		/*if(dy+dh+ah>wh){
 			$('#areaopt_div').css('top',dy-ah-1);
 		}else{
