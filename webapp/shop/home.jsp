@@ -7,20 +7,17 @@
       
     <link rel="stylesheet" href="${ctx}/shop/css/home.css" >
 	<link rel="stylesheet" href="${ctx}/shop/css/standard-v0.css"><!-- 页脚效果 -->
-	<link rel="stylesheet" href="${ctx}/jqueryui/area/theme/jquery.areaopt.css">
+	<link rel="stylesheet" href="${ctx}/jqueryui/jarea/theme/layout.css">
+	<link rel="stylesheet" href="${ctx}/jqueryui/jarea/theme/jquery.jarea.css">
     
 	<script src="${ctx}/js/entry.js" type="text/javascript"></script>
 	<script src="${ctx}/js/entry.jquery.js" type="text/javascript"></script>
-	<script src="${ctx}/jqueryui/area/jquery.areaopt.js" type="text/javascript"></script>
-	<script src="${ctx}/jqueryui/area/areaopt.data.js" type="text/javascript"></script>
+	
     <script>
     $(document).ready(function(){    	
 		initTab("tab");
 		initTab("hot");
-		
-		$.areaopt.area("#s-area");
-		$.areaopt.area("#d-area");
-		$.areaopt.area("#net-area");
+				
     });
 	function initTab(id){
 		var divs = $("#"+id+">div");
@@ -47,7 +44,54 @@
 
 </head>
 <body data-spm="2176793">
-    
+<div class="provinceCityAll" style="z-index:9999">
+  <div class="tabs clearfix">
+    <ul class="">
+      <li><a href="javascript:" class="current" tb="hotCityAll">热门城市</a></li>
+      <li><a href="javascript:" tb="provinceAll">省份</a></li>
+      <li><a href="javascript:" tb="cityAll" id="cityAll">城市</a></li>
+      <li><a href="javascript:" tb="countyAll" id="countyAll">区县</a></li>
+    </ul>
+  </div>
+  <div class="con">
+    <div class="hotCityAll invis">
+      <div class="pre"><a></a></div>
+      <div class="list">
+        <ul>
+          <!-- 					<li><a href="javascript:"  class="current">南京</a></li> -->
+        </ul>
+      </div>
+      <div class="next"><a class="can"></a></div>
+    </div>
+    <div class="provinceAll invis">
+      <div class="pre"><a></a></div>
+      <div class="list">
+        <ul>
+          <!-- 					<li><a href="javascript:"  class="current">江西省</a></li> -->
+        </ul>
+      </div>
+      <div class="next"><a class="can"></a></div>
+    </div>
+    <div class="cityAll invis">
+      <div class="pre"><a></a></div>
+      <div class="list">
+        <ul>
+          <!-- 					<li><a href="javascript:"  class="current">南京</a></li> -->
+        </ul>
+      </div>
+      <div class="next"><a class="can"></a></div>
+    </div>
+    <div class="countyAll invis">
+      <div class="pre"><a></a></div>
+      <div class="list">
+        <ul>
+        </ul>
+      </div>
+      <div class="next"><a class="can"></a></div>
+    </div>
+  </div>
+</div>
+<!-- area div -->    
 <div id="doc" class="index mod-spm" data-spm="5732505">
 
 <%@include file="/shop/header.jsp" %>
@@ -100,15 +144,15 @@
             </ul>
             <div style="display: block;" class="f-tab-b">
                 <div class="in">
-                    <div class="l"><label class="a">发货地</label><input value="湖北省-武汉市" aria-haspopup="true" aria-autocomplete="list" role="textbox" id="s-area" class="area-s ui-autocomplete-input" autocomplete="off"><i class="i-7 open" action="0"></i></div>
-                    <div class="l"><label class="a b">收货地</label><input value="城市名(中文/拼音)" aria-haspopup="true" aria-autocomplete="list" role="textbox" id="d-area" class="area-s ui-autocomplete-input" autocomplete="off"><i class="i-7 open desa" action="1"></i></div>
+                    <div class="l"><label class="a">发货地</label><input value="湖北省-武汉市" aria-haspopup="true" aria-autocomplete="list" role="textbox" id="s-area" class="city_input  inputFocus proCityQueryAll proCitySelAll" autocomplete="off"><i class="i-7 open" action="0"></i></div>
+                    <div class="l"><label class="a b">收货地</label><input value="城市名(中文/拼音)" aria-haspopup="true" aria-autocomplete="list" role="textbox" id="d-area" class="city_input  inputFocus proCityQueryAll proCitySelAll" autocomplete="off"><i class="i-7 open desa" action="1"></i></div>
                     <div id="recomendRoute" class="cc often" action="1"></div>
                     <div class="e"><button aliclickinited="true" class="b-q b-submit" action="f-price" aliclickkey="itu_tran_index_56_searchroad">查&nbsp;&nbsp;询</button></div>
                 </div>
             </div>
             <div style="display: none;" class="f-tab-b">
                 <div class="in">
-                    <div class="l"><label class="a b">地&nbsp;&nbsp;&nbsp;&nbsp;区</label><input value="城市名(中文/拼音)" aria-haspopup="true" aria-autocomplete="list" role="textbox" id="net-area" class="area-s ui-autocomplete-input" autocomplete="off"><i class="i-7 open" action="2"></i></div>
+                    <div class="l"><label class="a b">地&nbsp;&nbsp;&nbsp;&nbsp;区</label><input value="城市名(中文/拼音)" aria-haspopup="true" aria-autocomplete="list" role="textbox" id="net-area" class="city_input  inputFocus proCityQueryAll proCitySelAll" autocomplete="off"><i class="i-7 open" action="2"></i></div>
                     <div id="recomendSite" class="cc often" action="2"><a href="javascript:;" province="110000" city="110100" county=""> 北京 </a><a href="javascript:;" province="310000" city="310100" county=""> 上海 </a><a href="javascript:;" province="440000" city="440100" county=""> 广州 </a><a href="javascript:;" province="440000" city="440300" county=""> 深圳 </a></div>
                     <div class="l"><label class="a">街&nbsp;&nbsp;&nbsp;&nbsp;道</label><input class="area-text " autocomplete="off" id="net-name"></div>
                     <div class="e"><button aliclickinited="true" class="b-q b-submit" action="f-net" aliclickkey="itu_tran_index_qkworkno">查&nbsp;&nbsp;询</button></div>
@@ -416,5 +460,6 @@
 <%@include file="/shop/footer.jsp" %>
 </div>
 
+<script src="${ctx}/jqueryui/jarea/public.js" type="text/javascript"></script>
 </body>
 </html>
