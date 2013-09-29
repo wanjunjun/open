@@ -31,6 +31,9 @@
 			});
 		});
 	}
+	function doSearch(type){
+		alert($("#s-area").val());
+	}
     </script>
      
 	  <style type="text/css">
@@ -147,7 +150,7 @@
                     <div class="l"><label class="a">发货地</label><input value="湖北省-武汉市" aria-haspopup="true" aria-autocomplete="list" role="textbox" id="s-area" class="city_input  inputFocus proCityQueryAll proCitySelAll" autocomplete="off"><i class="i-7 open" action="0"></i></div>
                     <div class="l"><label class="a b">收货地</label><input value="城市名(中文/拼音)" aria-haspopup="true" aria-autocomplete="list" role="textbox" id="d-area" class="city_input  inputFocus proCityQueryAll proCitySelAll" autocomplete="off"><i class="i-7 open desa" action="1"></i></div>
                     <div id="recomendRoute" class="cc often" action="1"></div>
-                    <div class="e"><button aliclickinited="true" class="b-q b-submit" action="f-price" aliclickkey="itu_tran_index_56_searchroad">查&nbsp;&nbsp;询</button></div>
+                    <div class="e"><button aliclickinited="true" class="b-q b-submit" action="f-price" aliclickkey="itu_tran_index_56_searchroad" onclick="doSearch(1)">查&nbsp;&nbsp;询</button></div>
                 </div>
             </div>
             <div style="display: none;" class="f-tab-b">

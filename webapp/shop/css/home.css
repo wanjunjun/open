@@ -32,7 +32,7 @@
 .alp-close{width:16px;height:16px;cursor: pointer;background-position:-74px -96px;}
 
 /**头**/
-.i-9, .i-10, .i-11, .i-12, .i-13,.ali-logo,.alp-logo{background: url("http://i01.c.aliimg.com/cms/upload/2013/010/566/1665010_1458814456.jpg") no-repeat scroll 0 0 transparent;display: inline-block;font-size: 0;overflow: hidden;position: relative;vertical-align: middle;}
+.i-9, .i-10, .i-11, .i-12, .i-13,.ali-logo,.alp-logo{background: url("../images/home-logo.png") no-repeat scroll 0 0 transparent;display: inline-block;font-size: 0;overflow: hidden;position: relative;vertical-align: middle;}
 #alp-header{background-color:#5aa7e1;height:90px;color:#fff;}
 #alp-header .ali-logo, #alp-header .alp-logo{width:178px;height:45px;margin-top:23px;float:left;}
 #alp-header .alp-logo{width:100px;background-position:-178px 0;}
