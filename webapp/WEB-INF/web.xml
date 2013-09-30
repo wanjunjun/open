@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>cwz</display-name>
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>cwz.root</param-value>
+	</context-param>
+
+	<!-- Spring ApplicationContext配置文件的路径,可使用通配符,多个路径用,号分隔 此参数用于后面的Spring Context 
+		Loader -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath*:/spring/applicationContext.xml				
+			classpath*:/spring/spring-security.xml
+			<!-- 
+			classpath*:/spring/quartz-time.xml	
+			classpath*:/spring/spring-mail.xml
+			classpath*:/spring/applicationContext-rmi-*.xml
+			 -->
+		</param-value>
+	</context-param>
+
+	<!-- Filter 定义 -->
+	<!-- Character Encoding filter -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+
+	<!-- Hibernate Open Session In View filter -->
+	<filter>
+		<filter-name>hibernateOpenSessionInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+
+
+	<!-- Filter 映射 -->
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>hibernateOpenSessionInViewFilter</filter-name>
+		<url-pattern>*.action</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+
+	<!--Spring的ApplicationContext 载入 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- Spring 刷新Introspector防止内存泄露 -->
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+
+
+	<!-- spring mvc -->
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/springmvc-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	<!-- spring security -->
+
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+
+<!-- 用户SESSION过滤，验证是否登录 -->	
+	<filter>
+		<filter-name>sessionFilter</filter-name>
+		<filter-class>com.wjj.cwz.filter.SessionFilter</filter-class>
+		<init-param>   
+            <param-name>exclusion</param-name>   
+            <param-value>shop,login,authenticate,/index.jsp,</param-value>   
+        </init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>sessionFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>sessionFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+
+    
+	<servlet>
+		<servlet-name>IntialServlet</servlet-name>
+		<servlet-class>com.wjj.cwz.servlet.InitialServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<!-- <error-page> <error-code>500</error-code> <location>/common/500.jsp</location> 
+		</error-page> 客户端请求的网页不存在 <error-page> <error-code>404</error-code> <location>/common/404.jsp</location> 
+		</error-page> -->
+	<!-- <resource-ref> <description>jbpm pool</description> <res-ref-name>java/jbpm</res-ref-name> 
+		<res-type>javax.sql.DataSource</res-type> <res-auth>Container</res-auth> 
+		<res-sharing-scope>Shareable</res-sharing-scope> </resource-ref> -->
+	<jsp-config>
+		<taglib>
+			<taglib-uri>dictionary</taglib-uri>
+			<taglib-location>/WEB-INF/dictionary.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+</web-app>

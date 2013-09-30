@@ -1,10 +1,14 @@
 package com.wjj.cwz.web.test;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -35,5 +39,13 @@ public class TestAction {
 		System.out.println(jbpmMap);
 		
 		return "test success";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/test2")
+	public Object test(HttpServletRequest request, String page, Model model){
+		Map<String, Object> m = Maps.newHashMap();
+		m.put("date", new Date());
+		return m;
 	}
 }

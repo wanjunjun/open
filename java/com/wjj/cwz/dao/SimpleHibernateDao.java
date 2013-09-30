@@ -19,21 +19,20 @@ import org.hibernate.metadata.ClassMetadata;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.util.Assert;
 
 import com.wjj.cwz.core.frame.Page;
 import com.wjj.cwz.core.frame.ReflectionUtils;
 
+/**
+ * 
+ * @version
+ * @create 2011-9-16 下午01:45:06 hibernate操作基类， copy by springside
+ */
 
-/** 
-*
-* @version 
-* @create 2011-9-16 下午01:45:06 
-* hibernate操作基类， copy by springside
-*/
+public class SimpleHibernateDao<T, PK extends Serializable> {
 
-public class SimpleHibernateDao<T,PK extends Serializable> {
-	
 	protected Logger logger = LoggerFactory.getLogger(getClass());
 
 	protected SessionFactory sessionFactory;
@@ -41,22 +40,20 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 	protected Class<T> entityClass;
 
 	/**
-	 * 用于Dao层子类使用的构造函数.
-	 * 通过子类的泛型定义取得对象类型Class.
-	 * eg.
-	 * public class UserDao extends SimpleHibernateDao<User, Long>
+	 * 用于Dao层子类使用的构造函数. 通过子类的泛型定义取得对象类型Class. eg. public class UserDao extends
+	 * SimpleHibernateDao<User, Long>
 	 */
 	public SimpleHibernateDao() {
 		this.entityClass = ReflectionUtils.getSuperClassGenricType(getClass());
 	}
 
 	/**
-	 * 用于用于省略Dao层, 在Service层直接使用通用SimpleHibernateDao的构造函数.
-	 * 在构造函数中定义对象类型Class.
-	 * eg.
-	 * SimpleHibernateDao<User, Long> userDao = new SimpleHibernateDao<User, Long>(sessionFactory, User.class);
+	 * 用于用于省略Dao层, 在Service层直接使用通用SimpleHibernateDao的构造函数. 在构造函数中定义对象类型Class.
+	 * eg. SimpleHibernateDao<User, Long> userDao = new SimpleHibernateDao<User,
+	 * Long>(sessionFactory, User.class);
 	 */
-	public SimpleHibernateDao(final SessionFactory sessionFactory, final Class<T> entityClass) {
+	public SimpleHibernateDao(final SessionFactory sessionFactory,
+			final Class<T> entityClass) {
 		this.sessionFactory = sessionFactory;
 		this.entityClass = entityClass;
 	}
@@ -67,15 +64,16 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
-	
-	
+
 	/**
 	 * 采用@Autowired按类型注入SessionFactory, 当有多个SesionFactory的时候在子类重载本函数.
 	 */
 	@Autowired
+	@Qualifier("sessionFactory")
 	public void setSessionFactory(final SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
+
 	/**
 	 * 取得当前Session.
 	 */
@@ -95,7 +93,8 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 	/**
 	 * 删除对象.
 	 * 
-	 * @param entity 对象必须是session中的对象或含id属性的transient对象.
+	 * @param entity
+	 *            对象必须是session中的对象或含id属性的transient对象.
 	 */
 	public void delete(final T entity) {
 		Assert.notNull(entity, "entity不能为空");
@@ -109,7 +108,8 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 	public void delete(final PK id) {
 		Assert.notNull(id, "id不能为空");
 		delete(get(id));
-		logger.debug("delete entity {},id is {}", entityClass.getSimpleName(), id);
+		logger.debug("delete entity {},id is {}", entityClass.getSimpleName(),
+				id);
 	}
 
 	/**
@@ -128,14 +128,14 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 	}
 
 	/**
-	 *	获取全部对象.
+	 * 获取全部对象.
 	 */
 	public List<T> getAll() {
 		return find();
 	}
 
 	/**
-	 *	获取全部对象, 支持按属性行序.
+	 * 获取全部对象, 支持按属性行序.
 	 */
 	public List<T> getAll(String orderByProperty, boolean isAsc) {
 		Criteria c = createCriteria();
@@ -155,7 +155,7 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 		Criterion criterion = Restrictions.eq(propertyName, value);
 		return find(criterion);
 	}
-	
+
 	/**
 	 * 按属性查找对象列表, 匹配方式为模糊查询.
 	 */
@@ -177,7 +177,8 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 	/**
 	 * 按HQL查询对象列表.
 	 * 
-	 * @param values 数量可变的参数,按顺序绑定.
+	 * @param values
+	 *            数量可变的参数,按顺序绑定.
 	 */
 	public <X> List<X> find(final String hql, final Object... values) {
 		return createQuery(hql, values).list();
@@ -186,7 +187,8 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 	/**
 	 * 按HQL查询对象列表.
 	 * 
-	 * @param values 命名参数,按名称绑定.
+	 * @param values
+	 *            命名参数,按名称绑定.
 	 */
 	public <X> List<X> find(final String hql, final Map<String, ?> values) {
 		return createQuery(hql, values).list();
@@ -195,7 +197,8 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 	/**
 	 * 按HQL查询唯一对象.
 	 * 
-	 * @param values 数量可变的参数,按顺序绑定.
+	 * @param values
+	 *            数量可变的参数,按顺序绑定.
 	 */
 	public <X> X findUnique(final String hql, final Object... values) {
 		return (X) createQuery(hql, values).uniqueResult();
@@ -204,7 +207,8 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 	/**
 	 * 按HQL查询唯一对象.
 	 * 
-	 * @param values 命名参数,按名称绑定.
+	 * @param values
+	 *            命名参数,按名称绑定.
 	 */
 	public <X> X findUnique(final String hql, final Map<String, ?> values) {
 		return (X) createQuery(hql, values).uniqueResult();
@@ -213,7 +217,8 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 	/**
 	 * 执行HQL进行批量修改/删除操作.
 	 * 
-	 * @param values 数量可变的参数,按顺序绑定.
+	 * @param values
+	 *            数量可变的参数,按顺序绑定.
 	 * @return 更新记录数.
 	 */
 	public int batchExecute(final String hql, final Object... values) {
@@ -223,7 +228,8 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 	/**
 	 * 执行HQL进行批量修改/删除操作.
 	 * 
-	 * @param values 命名参数,按名称绑定.
+	 * @param values
+	 *            命名参数,按名称绑定.
 	 * @return 更新记录数.
 	 */
 	public int batchExecute(final String hql, final Map<String, ?> values) {
@@ -231,10 +237,10 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 	}
 
 	/**
-	 * 根据查询HQL与参数列表创建Query对象.
-	 * 与find()函数可进行更加灵活的操作.
+	 * 根据查询HQL与参数列表创建Query对象. 与find()函数可进行更加灵活的操作.
 	 * 
-	 * @param values 数量可变的参数,按顺序绑定.
+	 * @param values
+	 *            数量可变的参数,按顺序绑定.
 	 */
 	public Query createQuery(final String queryString, final Object... values) {
 		Assert.hasText(queryString, "queryString不能为空");
@@ -248,12 +254,13 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 	}
 
 	/**
-	 * 根据查询HQL与参数列表创建Query对象.
-	 * 与find()函数可进行更加灵活的操作.
+	 * 根据查询HQL与参数列表创建Query对象. 与find()函数可进行更加灵活的操作.
 	 * 
-	 * @param values 命名参数,按名称绑定.
+	 * @param values
+	 *            命名参数,按名称绑定.
 	 */
-	public Query createQuery(final String queryString, final Map<String, ?> values) {
+	public Query createQuery(final String queryString,
+			final Map<String, ?> values) {
 		Assert.hasText(queryString, "queryString不能为空");
 		Query query = getSession().createQuery(queryString);
 		if (values != null) {
@@ -265,36 +272,38 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 	/**
 	 * 按Criteria查询对象列表.
 	 * 
-	 * @param criterions 数量可变的Criterion.
+	 * @param criterions
+	 *            数量可变的Criterion.
 	 */
 	public List<T> find(final Criterion... criterions) {
 		return createCriteria(criterions).list();
 	}
 
-	
 	/**
 	 * 按Criteria查询对象列表.
 	 * 
-	 * @param criterions 数量可变的Criterion.
+	 * @param criterions
+	 *            数量可变的Criterion.
 	 */
 	public List<T> find(final List<Criterion> criterions) {
 		return createCriteria(criterions).list();
 	}
-	
+
 	/**
 	 * 按Criteria查询唯一对象.
 	 * 
-	 * @param criterions 数量可变的Criterion.
+	 * @param criterions
+	 *            数量可变的Criterion.
 	 */
 	public T findUnique(final Criterion... criterions) {
 		return (T) createCriteria(criterions).uniqueResult();
 	}
 
 	/**
-	 * 根据Criterion条件创建Criteria.
-	 * 与find()函数可进行更加灵活的操作.
+	 * 根据Criterion条件创建Criteria. 与find()函数可进行更加灵活的操作.
 	 * 
-	 * @param criterions 数量可变的Criterion.
+	 * @param criterions
+	 *            数量可变的Criterion.
 	 */
 	public Criteria createCriteria(final Criterion... criterions) {
 		Criteria criteria = getSession().createCriteria(entityClass);
@@ -312,14 +321,13 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 		}
 		return criteria;
 	}
-	
+
 	/**
-	 * 初始化对象.
-	 * 使用load()方法得到的仅是对象Proxy, 在传到View层前需要进行初始化.
-	 * 如果传入entity, 则只初始化entity的直接属性,但不会初始化延迟加载的关联集合和属性.
-	 * 如需初始化关联属性,需执行:
+	 * 初始化对象. 使用load()方法得到的仅是对象Proxy, 在传到View层前需要进行初始化. 如果传入entity,
+	 * 则只初始化entity的直接属性,但不会初始化延迟加载的关联集合和属性. 如需初始化关联属性,需执行:
 	 * Hibernate.initialize(user.getRoles())，初始化User的直接属性和关联集合.
-	 * Hibernate.initialize(user.getDescription())，初始化User的直接属性和延迟加载的Description属性.
+	 * Hibernate.initialize
+	 * (user.getDescription())，初始化User的直接属性和延迟加载的Description属性.
 	 */
 	public void initProxyObject(Object proxy) {
 		Hibernate.initialize(proxy);
@@ -333,8 +341,7 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 	}
 
 	/**
-	 * 为Query添加distinct transformer.
-	 * 预加载关联对象的HQL会引起主对象重复, 需要进行distinct处理.
+	 * 为Query添加distinct transformer. 预加载关联对象的HQL会引起主对象重复, 需要进行distinct处理.
 	 */
 	public Query distinct(Query query) {
 		query.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
@@ -342,8 +349,7 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 	}
 
 	/**
-	 * 为Criteria添加distinct transformer.
-	 * 预加载关联对象的HQL会引起主对象重复, 需要进行distinct处理.
+	 * 为Criteria添加distinct transformer. 预加载关联对象的HQL会引起主对象重复, 需要进行distinct处理.
 	 */
 	public Criteria distinct(Criteria criteria) {
 		criteria.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
@@ -363,36 +369,38 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 	 * 
 	 * 在修改对象的情景下,如果属性新修改的值(value)等于属性原来的值(orgValue)则不作比较.
 	 */
-	public boolean isPropertyUnique(final String propertyName, final Object newValue, final Object oldValue) {
+	public boolean isPropertyUnique(final String propertyName,
+			final Object newValue, final Object oldValue) {
 		if (newValue == null || newValue.equals(oldValue)) {
 			return true;
 		}
 		Object object = findUniqueBy(propertyName, newValue);
 		return (object == null);
 	}
-	
-	//-- 分页查询函数 --//
 
-	
+	// -- 分页查询函数 --//
+
 	/**
 	 * 按HQL分页查询.
 	 * 
-	 * @param page 分页参数. 注意不支持其中的orderBy参数.
-	 * @param hql hql语句.
-	 * @param values 数量可变的查询参数,按顺序绑定.
+	 * @param page
+	 *            分页参数. 注意不支持其中的orderBy参数.
+	 * @param hql
+	 *            hql语句.
+	 * @param values
+	 *            数量可变的查询参数,按顺序绑定.
 	 * 
 	 * @return 分页查询结果, 附带结果列表及所有查询输入参数.
 	 */
 	@SuppressWarnings("unchecked")
-	public Page<T> findPage(final Page<T> page, final String hql, final Object... values) {
+	public Page<T> findPage(final Page<T> page, final String hql,
+			final Object... values) {
 		Assert.notNull(page, "page不能为空");
 
 		Query q = createQuery(hql, values);
 
-		
 		long totalCount = countHqlResult(hql, values);
 		page.setTotalCount(totalCount);
-		
 
 		setPageParameterToQuery(q, page);
 
@@ -404,22 +412,24 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 	/**
 	 * 按HQL分页查询.
 	 * 
-	 * @param page 分页参数. 注意不支持其中的orderBy参数.
-	 * @param hql hql语句.
-	 * @param values 命名参数,按名称绑定.
+	 * @param page
+	 *            分页参数. 注意不支持其中的orderBy参数.
+	 * @param hql
+	 *            hql语句.
+	 * @param values
+	 *            命名参数,按名称绑定.
 	 * 
 	 * @return 分页查询结果, 附带结果列表及所有查询输入参数.
 	 */
 	@SuppressWarnings("unchecked")
-	public Page<T> findPage(final Page<T> page, final String hql, final Map<String, ?> values) {
+	public Page<T> findPage(final Page<T> page, final String hql,
+			final Map<String, ?> values) {
 		Assert.notNull(page, "page不能为空");
 
 		Query q = createQuery(hql, values);
 
-		
-			long totalCount = countHqlResult(hql, values);
-			page.setTotalCount(totalCount);
-	
+		long totalCount = countHqlResult(hql, values);
+		page.setTotalCount(totalCount);
 
 		setPageParameterToQuery(q, page);
 
@@ -427,8 +437,6 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 		page.setResult(result);
 		return page;
 	}
-
-	
 
 	/**
 	 * 设置分页参数到Query对象,辅助函数.
@@ -437,13 +445,11 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 
 		Assert.isTrue(page.getPageSize() > 0, "Page Size must larger than zero");
 
-		//hibernate的firstResult的序号从0开始
+		// hibernate的firstResult的序号从0开始
 		q.setFirstResult(page.getFirst() - 1);
 		q.setMaxResults(page.getPageSize());
 		return q;
 	}
-
-	
 
 	/**
 	 * 执行count查询获得本次Hql查询所能获得的对象总数.
@@ -457,7 +463,8 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 			Long count = findUnique(countHql, values);
 			return count;
 		} catch (Exception e) {
-			throw new RuntimeException("hql can't be auto count, hql is:" + countHql, e);
+			throw new RuntimeException("hql can't be auto count, hql is:"
+					+ countHql, e);
 		}
 	}
 
@@ -473,24 +480,25 @@ public class SimpleHibernateDao<T,PK extends Serializable> {
 			Long count = findUnique(countHql, values);
 			return count;
 		} catch (Exception e) {
-			throw new RuntimeException("hql can't be auto count, hql is:" + countHql, e);
+			throw new RuntimeException("hql can't be auto count, hql is:"
+					+ countHql, e);
 		}
 	}
 
 	private String prepareCountHql(String orgHql) {
 		String fromHql = orgHql;
-		//select子句与order by子句会影响count查询,进行简单的排除.
+		// select子句与order by子句会影响count查询,进行简单的排除.
 		fromHql = "from " + StringUtils.substringAfter(fromHql, "from");
 		fromHql = StringUtils.substringBefore(fromHql, "order by");
 
 		String countHql = "select count(*) " + fromHql;
 		return countHql;
 	}
-	
-	public boolean isEmpty(String value){
-		if(value == null || "".equals(value)){
+
+	public boolean isEmpty(String value) {
+		if (value == null || "".equals(value)) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}

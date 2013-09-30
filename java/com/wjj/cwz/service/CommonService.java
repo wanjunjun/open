@@ -281,7 +281,17 @@ public abstract class CommonService {
 				query.setParameter(i, values[i]);
 			}
 		}
-		query.setCacheable(true);
+//		query.setCacheable(true);
 		return query.list();				
+	}
+	
+	public Number queryCount(String sql, Map<String, Object> param){
+		Session session = getSession();
+		Query query = session.createSQLQuery(sql);
+		if(param != null){
+			query.setProperties(param);
+		}
+		
+		return (Number)query.uniqueResult();
 	}
 }

@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.google.common.collect.Maps;
 import com.wjj.cwz.core.frame.Page;
+import com.wjj.cwz.core.util.JsonUtils;
 import com.wjj.cwz.dao.SimpleHibernateDao;
 import com.wjj.cwz.dao.business.ReaderDao;
 import com.wjj.cwz.entity.Reader;
@@ -52,9 +54,10 @@ public class ReaderService extends CommonService{
 		return getPage(sb.toString(), page, values);
 	}
 	
-	public List<Map> searchReader(Map<String, Object> values){
+	public Map<String , Object> searchReader(Map<String, Object> values){
 		StringBuilder sb = new StringBuilder();
-		sb.append("select mr.ticket_id, mr.reader_ip, mr.reader_time, cd.name ");
+		String countSql = null;
+		sb.append("select mr.ticket_id, mr.reader_ip, date_format(mr.reader_time, '%Y-%m-%d %H:%i:%s')reader_time, cd.name ");
 		sb.append("from c_reader cr inner join mid_reader mr on cr.reader_ip = mr.reader_ip ");
 		sb.append("left join c_depo cd on cr.depo = cd.id where 1=1 ");
 		if(StringUtils.isNotBlank((String)values.get("readerIp"))){
@@ -69,6 +72,26 @@ public class ReaderService extends CommonService{
 		if(StringUtils.isNotBlank((String)values.get("e_date"))){
 			sb.append("and mr.reader_time <= :e_date ");
 		}
-		return sqlQueryMap(sb.toString(), values);
+		//create count sql query
+		String countString = sb.toString();
+		countSql = "select count(*) "+countString.toString().substring(countString.indexOf("from"));
+		
+		Integer count = queryCount(countSql,values).intValue();
+		
+		
+		sb.append("limit :startNo, :pageSize");
+		List<Map> list = sqlQueryMap(sb.toString(), values);
+		
+		Map<String , Object> result = Maps.newHashMap();
+		int pageSize = (Integer)values.get("pageSize");
+		long totalPage = count / pageSize;
+		if (count % pageSize > 0) {
+			totalPage++;
+		}
+		result.put(JsonUtils.PAGE_NO, values.get("pageNo"));
+		result.put(JsonUtils.TOTAL_PAGE, totalPage);
+		result.put(JsonUtils.TOTAL_COUNT, count);
+		result.put(JsonUtils.JSON_ARRAY, list);
+		return result;
 	}
 }

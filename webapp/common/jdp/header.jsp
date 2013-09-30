@@ -20,6 +20,6 @@
 <div class="header">
     <div class="logo"><a href="#"><img src="${ctx}/css/jdp/images/logo.gif" alt="" title="" border="0" /></a></div>
     
-    <div class="right_header">Welcome <security:authentication property="principal.username"/>, <a href="#">Visit site</a> | <a href="#" class="messages">(3) Messages</a> | <a href="${ctx}/j_spring_security_logout" class="logout">Logout</a></div>
+    <div class="right_header">Welcome <security:authentication property="principal.username"/>, <a href="#">Visit site</a> | <a href="#" class="messages">(3) Messages</a> | <a href="${ctx}/logout.jsp" class="logout">Logout</a></div>
     <div id="clock_a"></div>
 </div>

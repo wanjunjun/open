@@ -70,12 +70,18 @@ public class ReaderAction extends BaseAction{
 	@RequestMapping(value="/reader/searchReader")
 	@ResponseBody
 	public Object searchReader(HttpServletRequest request){
+		String pageNo = request.getParameter("page");
+		String rows = request.getParameter("rows");
+		
 		Map<String, Object> values = Maps.newHashMap();
 		values.put("readerIp", request.getParameter("readerIp"));
 		values.put("depoName", request.getParameter("depoName"));
 		values.put("s_date", request.getParameter("s_date"));
 		values.put("e_date", request.getParameter("e_date"));
-		List<Map> list = readerService.searchReader(values);		
-		return JsonUtils.getPageGrid(list);
+		values.put("pageNo", Integer.parseInt(pageNo));
+		values.put("startNo", (Integer.parseInt(pageNo)-1)*Integer.parseInt(rows));
+		values.put("pageSize", Integer.parseInt(rows));
+		Map<String , Object> result = readerService.searchReader(values);		
+		return result;
 	}
 }

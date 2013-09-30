@@ -27,5 +27,5 @@ public class PageAction {
 			model.addAttribute(pn, request.getParameter(pn));
 		}
 		return page;
-	}
+	}	
 }

@@ -68,6 +68,17 @@ public class UserService extends CommonService{
 		return findUnique(hql, userCode, password);
 	}
 	
+	
+	/**
+	 * 检查是否有重复的会员名
+	 * @param userCode
+	 * @return
+	 */
+	public User CheckDupUser(String userCode){
+		String hql = "from User u where u.userCode = ?";
+		return findUnique(hql, userCode);
+	}
+	
 	public List<Map> queryMap(){
 		String sql = "select user_code, user_name from c_user u";
 		return sqlQueryMap(sql, null);

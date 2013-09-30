@@ -1,6 +1,7 @@
 package com.wjj.cwz.filter;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.Filter;
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
 
+import com.google.common.collect.Lists;
+
 /** 
  *
  * @author "wanjunjun"
@@ -21,10 +24,11 @@ import org.apache.commons.lang.StringUtils;
  * 
  */
 public class SessionFilter implements Filter {
+	
+	private List<String> exclusions = null; 
 
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -33,7 +37,11 @@ public class SessionFilter implements Filter {
 			FilterChain filterChain) throws IOException, ServletException {		
 		HttpServletRequest httpServletRequest = (HttpServletRequest)request;
 		String servletPath = httpServletRequest.getServletPath();
-		if(servletPath.equals("/index.jsp")||servletPath.equals("/access.jsp") || servletPath.indexOf("login") != -1 || servletPath.indexOf("authenticate") != -1){
+//		if(servletPath.equals("/index.jsp")||servletPath.equals("/access.jsp") || servletPath.indexOf("login") != -1 || servletPath.indexOf("authenticate") != -1){
+//			filterChain.doFilter(request, response);
+//			return;
+//		}
+		if(isExclude(httpServletRequest)){
 			filterChain.doFilter(request, response);
 			return;
 		}
@@ -41,25 +49,28 @@ public class SessionFilter implements Filter {
 		if(user == null){
 			request.getRequestDispatcher("/login.jsp").forward(request,response);
 		}else{
-			//user module role check
-//			String moduleId = httpServletRequest.getParameter("moduleId");
-//			if(StringUtils.isNotBlank(moduleId)){
-//				ModuleFunction current_module = new ModuleFunction();
-//				current_module.setId(Long.parseLong(moduleId));
-//				List<ModuleFunction> moduleFunctions = (List<ModuleFunction>)httpServletRequest.getSession().getAttribute("moduleFunctions");
-//				if(moduleFunctions == null || !moduleFunctions.contains(current_module)){
-//					request.getRequestDispatcher("/noPermission.jsp").forward(request,response);
-//				}
-//			}			
+			
 			filterChain.doFilter(request, response);
 		}
 		
 	}
 
 	@Override
-	public void init(FilterConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
-		
+	public void init(FilterConfig config) throws ServletException {
+		String exclusion = config.getInitParameter("exclusion");
+		if(StringUtils.isNotBlank(exclusion)){
+			String[] exclusionArray = exclusion.split(",");
+			exclusions = Arrays.asList(exclusionArray);
+		}
 	}
 
+	private boolean isExclude(HttpServletRequest request){
+		String servletPath = request.getServletPath();
+		boolean checked = false;
+		for(String exc: exclusions){
+			checked = servletPath.indexOf(exc) != -1;
+			if(checked)return true;
+		}
+		return false;
+	}
 }
