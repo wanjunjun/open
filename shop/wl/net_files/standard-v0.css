@@ -1,0 +1,74 @@
+/**
+* footer css
+* @author  Edgar
+* @version 0.1.110310
+* @update  0.1.110315
+* @update  0.1.110322 //add fullscreen & bg #fff
+*/
+#footer,
+#footer div,
+#footer p,
+#footer ul,
+#footer li,
+#footer dl,
+#footer dt,
+#footer dd{
+margin:0;
+padding:0;
+}
+#footer ul{
+list-style:none;
+}
+#footer a{
+font:12px/1.5 Tahoma, Arial, "\5b8b\4f53", sans-serif;
+text-decoration:none;
+}
+#footer{
+clear:both;
+text-align:center;
+}
+#footer #footer-v0{
+font:12px/1.5 Tahoma, Arial, "\5b8b\4f53", sans-serif;
+color:#999;
+width:952px;
+margin:0 auto;
+padding:8px 4px 0;
+}
+#footer-v0 a:link,
+#footer-v0 a:visited{
+color:#333;
+}
+#footer-v0 a:hover,
+#footer-v0 a:active{
+color:#ff7300 !important;
+text-decoration:underline;
+}
+#footer-v0 .footer-container{
+background-color:#fff;
+border-top:3px solid #ff7300;
+padding-bottom:20px;
+}
+#footer-v0 p,
+#footer-v0 ul,
+#footer-v0 li,
+#footer-v0 dt,
+#footer-v0 dd{
+display:inline;
+}
+#footer-v0 p{
+_padding-right:8px;
+}
+#footer-v0 .ali-pages{
+padding:8px 0;
+}
+.fullscreen #footer #footer-v0{
+width:auto;
+min-width:952px;
+}
+.fullscreen #footer-v0 .footer-container{
+}
+.fullscreen #footer-v0 .ali-pages,
+.fullscreen #footer-v0 .ali-group{
+width:952px;
+margin:0 auto;
+}
