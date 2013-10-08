@@ -1,28 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/common/taglibs.jsp" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="/common/taglibs.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-<%@include file="/common/meta.jsp" %>
-<title>IN ADMIN PANEL | Powered by INDEZINER</title>
+<meta name="data-spm" content="a261o">
+	<%@include file="/common/meta.jsp"%>
+	<title>IN ADMIN PANEL | Powered by INDEZINER</title>
 
-<link rel="stylesheet" type="text/css" href="${ctx}/css/jdp/style.css" />
-<link rel="stylesheet" type="text/css" media="all" href="${ctx}/css/jdp/niceforms-default.css" />
-
-<script src="${ctx}/js/entry.js" type="text/javascript"></script>
-<script src="${ctx}/js/entry.jquery.js" type="text/javascript"></script>
-<script src="${ctx}/js/Common.js" type="text/javascript"></script>
-<script type="text/javascript" src="${ctx}/css/jdp/jconfirmaction.jquery.js"></script>
-<script type="text/javascript" src="${ctx}/css/jdp/niceforms.js"></script>
-
+	<link href="${ctx}/shop/css/fdev-float.css" rel="stylesheet">
+	<link href="${ctx}/shop/css/signin.css" rel="stylesheet">
 <script type="text/javascript">
     $(function(){
-    	Common.ajax("${ctx}/login/getLicense.do", null, function(data){
+    	/* Common.ajax("${ctx}/login/getLicense.do", null, function(data){
     		if(data && data < 30){
     			$("#msg").text("使用期限还剩下"+data+"天");
     		}
-    	});
+    	}); */
     	locationLoginJsp();	
+    	
     });
     	    	
    	function locationLoginJsp(){    		
@@ -34,78 +30,52 @@
    	
     function onload(){
         document.getElementById("username").focus();
-    }        
+    } 
+   
 </script>
-
-
-
 </head>
-<body>
-<div id="main_container">
+<body data-spm="2206477">
+	<div id="doc">
+		<div class="w952" id="masthead-v4">
+			<div class="ali-logo">
+				<h1>
+					<a class="main-logo" target="_self" title="商人的网站"
+						href="http://exodus.1688.com/">阿里巴巴</a> <span class="sub-logo">登录</span>
+				</h1>
+			</div>
+		</div>
 
-	<div class="header_login">
-    <div class="logo"><a href="#"><img src="${ctx}/css/jdp/images/logo.gif" alt="" title="" border="0" /></a></div>
-    
-    </div>
+		<div id="content" class="w952" data-spm="5817989">
+			<div class="main">
 
-     
-         <div class="login_form">
-         
-         <h3>Admin Panel Login</h3>
-         
-         <a href="#" class="forgot_pass">Forgot password</a> 
-         
-        
-         <form id="login" method="POST" action="${ctx}/user/authenticate.do" class="niceform">
-         		<input type="hidden" name="theme" value="jdp">
-                <fieldset>
-                    <dl>
-                        <dt><label for="email">Username:</label></dt>
-                        <dd><input type="text" id="username" name="j_username" size="54" /></dd>
-                    </dl>
-                    <dl>
-                        <dt><label for="password">Password:</label></dt>
-                        <dd><input type="text" id="password" name="j_password" size="54" /></dd>
-                    </dl>
-                    <!-- 
-                    <dl>
-                    	<dt><label for="theme">系统风格:</label></dt>
-                    	<dd>
-	                     <select name="theme">
-	                     	<option value="">old</option>
-	                     	<option value="jdp">jdp</option>
-	                     </select>
-	                     </dd>
-                     </dl>
-                      -->
-                    <dl>
-                        <dt><label></label></dt>
-                        <dd>
-                        	<h2><span id="msg" style="color:red;font-size:13px;margin-left:8px"></span></h2> 
-                        	<!-- 
-                    		<input type="checkbox" name="interests[]" id="" value="" /><label class="check_label">Remember me</label>
-                    		 -->
-                        </dd>
-                    </dl>
-                    
-                     <dl class="submit">                    
-                    <input type="submit" name="submit" id="submit" value="Enter" />
-                     </dl>
-                    
-                </fieldset>
-                
-         </form>
-         </div>  
-          
-	
-    
-    <div class="footer_login">
-    
-    	<div class="left_footer_login">IN ADMIN PANEL | Powered by <a href="http://indeziner.com">INDEZINER</a></div>
-    	<div class="right_footer_login"><a href="http://indeziner.com"><img src="${ctx}/css/jdp/images/indeziner_logo.gif" alt="" title="" border="0" /></a></div>
-    
-    </div>
+				<div class="feature">
+					<img src="${ctx}/shop/images/20131001.jpg" alt="" />
+				</div>
 
-</div>		
+				<div class="formarea">
+					<div id="loginchina-wrapper" class="signin">
+						<div id="loginchina">
+
+							<%@include file="/login_iframe.jsp"%>
+							<div class="signin-type" style="margin-top: 10px">
+
+								<a class="free-regist"
+									href="${ctx}/shop/user/register.jsp" target="_blank">免费注册</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<%@include file="/shop/footer.jsp"%>
+
+		<div style="color: #FFF">
+			cbulogin-web13.xyi<br>Server is OK 
+		</div>
+	</div>
+	<img src="login_files/clear.png">
 </body>
 </html>

@@ -14,19 +14,22 @@
 <script src="${ctx}/js/entry.jquery.js" type="text/javascript"></script>
 <script src="${ctx}/js/Common.js" type="text/javascript"></script>
 <script src="${ctx}/js/validate_278/main.js" type="text/javascript"></script>
-<script type="text/javascript" src="${ctx}/css/jdp/jconfirmaction.jquery.js"></script>
+<script type="text/javascript"
+	src="${ctx}/css/jdp/jconfirmaction.jquery.js"></script>
 <script type="text/javascript" src="${ctx}/css/jdp/niceforms.js"></script>
-<script src="${ctx}/css/assets/search.js"></script>
+	<script src="${ctx}/css/assets/search.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function(){	
 
 	 $("#btn_form_login").bind("click",register);
 });
 
-function register(){	
-	if(!tt.validateForm('form_login')){
-		return;
-	}
+
+function register(){
+	//alert(tt.validateForm('form_login'));
+	//if(!tt.validateForm('form_login')){
+	//	return;
+	//}
 	$("#form_login").attr("action","${ctx}/user/reg.do");
 	$("#form_login").submit();
 }
@@ -43,16 +46,15 @@ function register(){
 <div class="ali-logo-v5"><a class="main-logo-v5"
 	href="#" titinle="xxxx"> <img
 	src="${ctx}/shop/images/mlogo.png" alt="xxxx" height="37" width="153"></a> <span
-	class="sub-logo-v5">企业账号注册</span></div>
-<div class="fd-right" style="margin-top: 40px;"><a
-	href="#">切换成个人账号注册&nbsp;&nbsp;&gt;&gt;</a>
-</div>
+	class="sub-logo-v5">企业申请入驻</span></div>
+
 </div>
 </div>
 
 <div id="content" class="wborder">
 <div class="w991">
-<div class="switch-container"></div>
+<!-- <div class="switch-container"></div> -->
+
 <div id="phone-tab" class="tab-part fd-clr">
 <div class="form-part">
 <form action="" method="post" id="form_login">
@@ -134,7 +136,7 @@ function register(){
 <div><a href="#" target="_blank">《xxxx服务条款》</a>
 </div>
 </div></form></div>
-<div class="info-part"></div>
+<!-- <div class="info-part" style="margin-top:10px"></div> -->
 </div>
 </div>
 

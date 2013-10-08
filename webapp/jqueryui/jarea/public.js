@@ -800,10 +800,15 @@ var cityIdAll = null;
 var provinceAllTotalPage = null;
 var pa_pageSize = 12;
 var pa_currentPage = 1;
+function getWebContext(){
+	var strPath=window.document.location.pathname;
+	var context=strPath.substring(0,strPath.substr(1).indexOf('/')+1);
+	return context;
+}
 function sendAllProvinceAjax() {
 	$.ajax({
 		type: "get",
-		url: '../jqueryui/jarea/queryAllProvinces.js',
+		url: getWebContext()+'/jqueryui/jarea/queryAllProvinces.js',
 		async: false,
 		dataType: "json",
 		success: function(data) {
@@ -820,7 +825,7 @@ function sendAllProvinceAjax() {
 function sendAllCitiesAjax() {
 	$.ajax({
 		type: "get",
-		url: '../jqueryui/jarea/queryCities.js',
+		url: getWebContext()+'/jqueryui/jarea/queryCities.js',
 		async: false,
 		dataType: "json",
 		success: function(data) {
@@ -838,7 +843,7 @@ function sendAllCountiesAjax()
  {
 	$.ajax({
 		type: "get",
-		url: "../jqueryui/jarea/queryAllAreas.js",
+		url: getWebContext()+"/jqueryui/jarea/queryAllAreas.js",
 		async: false,
 		dataType: "json",
 		success: function(data) {

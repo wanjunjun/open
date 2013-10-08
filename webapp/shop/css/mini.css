@@ -1,0 +1,95 @@
+html, body {
+    background-color: #FAFAFA;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+html, legend {
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #404040;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font: 12px/1.5 Tahoma,Helvetica,Arial,'宋体',sans-serif;
+}
+
+.login-box {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 310px;
+}
+.login-box .bd {
+    padding: 10px 30px 0;
+}
+.login-box .msg {
+    margin-bottom: 5px;
+}
+a {
+    color: #0088CC;
+    text-decoration: none;
+}
+.login-box .field {
+    padding-bottom: 7px;
+    vertical-align: middle;
+}
+.login-box .field {
+    position: relative;
+    z-index: 1;
+}
+
+.login-box .field label {
+    color: #666666;
+    display: block;
+    font-weight: bold;
+    padding-bottom: 3px;
+}
+.login-box .forget-pw, .login-box .dynamic-link {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.ph-label {
+    color: #404040;
+    height: 26px;
+    line-height: 26px;
+    opacity: 1;
+    padding: 0 0 0 6px;
+    position: absolute;
+    transition: all 0.2s ease-out 0s;
+}
+.login-box .login-text {
+    border: 1px solid #C8C8C8;
+    height: 18px;
+    line-height: 18px;
+    margin-right: 3px;
+    padding: 3px;
+    vertical-align: middle;
+    width: 242px;
+}
+select, input, button, textarea {
+    font: 100% Tahoma,Helvetica,Arial,sans-serif;
+}
+
+#J_StandardPwd {
+    display: inline-block;
+    height: 28px;
+    vertical-align: middle;
+}
+
+.login-box button {
+    background: url("../../images/c.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    height: 33px;
+    line-height: 31px;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 250px;
+}

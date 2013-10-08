@@ -124,7 +124,7 @@
         </ul>
         <div class="r">
          <span>
-            <a href="http://56.1688.com/zhaoshang" target="_blank" cmsid="33">物流商申请入驻</a>
+            <a href="${ctx}/shop/enterprise/apply_join.jsp" target="_blank" cmsid="33">物流商申请入驻</a>
           </span>              
             |
             <a href="http://i56.1688.com/index.htm" target="_blank">物流商登录</a>
