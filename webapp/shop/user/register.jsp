@@ -13,25 +13,44 @@
 <script src="${ctx}/js/entry.js" type="text/javascript"></script>
 <script src="${ctx}/js/entry.jquery.js" type="text/javascript"></script>
 <script src="${ctx}/js/Common.js" type="text/javascript"></script>
-<script src="${ctx}/js/validate_278/main.js" type="text/javascript"></script>
-<script type="text/javascript" src="${ctx}/css/jdp/jconfirmaction.jquery.js"></script>
-<script type="text/javascript" src="${ctx}/css/jdp/niceforms.js"></script>
-<script src="${ctx}/css/assets/search.js"></script>
-<script type="text/javascript">
-jQuery(document).ready(function(){	
 
+<script src="${ctx}/js/validate3/main.js" type="text/javascript"></script>
+
+<script type="text/javascript"><!--
+jQuery(document).ready(function(){	
+	//下面这一行代码为4个字段添加了“非空”验证，同时会自动在4个字段上加上红色星号
+	tt.vf.req.add("userCode"); 
+	//tt.vf.req.add("userCode","pasword","pasword_confirm","userName","userPhone","userEmail"); 
+	/*			
+	tt.vf.email.add("userEmail");
+	new tt.LV().set(5, 15).add("pasword");
+	
+	var pasword_per = new tt.Field('pasword', null, 'pasword');
+	var pasword_per_confirm = new tt.Field("密码不一致", null, 'pasword_confirm');
+	new tt.CV().add(pasword_per_confirm).set('v', "==", pasword_per,false);			
+	tt.Conf.clearOtherError=true;
+	tt.Conf.errCls=talentErrMsg;
+		
+	var ajaxConfig = {
+			formId: 'form_login',      //要提交的form
+			url : "${ctx}/login/CheckUserCode.do"
+		};
+		
+		var remoteV = new tt.RemoteV().set(ajaxConfig);  */
+		
 	 $("#btn_form_login").bind("click",register);
 });
 
 function register(){	
+	tt.validate();
 	if(!tt.validateForm('form_login')){
 		return;
 	}
 	$("#form_login").attr("action","${ctx}/user/reg.do");
-	$("#form_login").submit();
+	//$("#form_login").submit();
 }
 
-</script>
+--></script>
 
 
 </head>
@@ -55,7 +74,7 @@ function register(){
 <div class="switch-container"></div>
 <div id="phone-tab" class="tab-part fd-clr">
 <div class="form-part">
-<form action="" method="post" id="form_login">
+<form action="${ctx}/user/reg.do" method="post" id="form_login">
 <table>
 	<tbody>
 		<tr>
@@ -63,7 +82,7 @@ function register(){
 			<label for="userCode_per" class="uname" data-icon="u">会员名</label>
 			</td>
 			<td class="col2 suggestline">
-			<input id="userCode_per" name="userCode"  type="text" placeholder="mysuperusername690" class="text" />   
+			<input id="userCode_per" name="userCode"  type="text"  class="text" />   
 			</td>
 			<td class="col3 suggestline">
 		
@@ -119,8 +138,8 @@ function register(){
 		<tr>
 			<td class="col1"></td>
 			<td class="col2">
-				<button hidefocus="true" onclick="tt.validateForm('form_login')"  id="btn_form_login" class="submit"
-				style="margin-left: -2px;" name="submit" type="submit">立即注册</button>
+				<button hidefocus="true" id="btn_form_login" class="submit"
+				style="margin-left: -2px;" name="submit" type="button">立即注册</button>
 			</td>
 			<td class="col3">
 			
@@ -148,32 +167,5 @@ function register(){
 <%@include file="/shop/footer.jsp" %>
 </div>
 </body>
-
-
-<script id="talent_script">
-			//下面这一行代码为4个字段添加了“非空”验证，同时会自动在4个字段上加上红色星号
-			tt.vf.req.add("userCode","pasword","pasword_confirm","userName","userPhone","userEmail"); 
-			
-			
-			
-			tt.vf.email.add("userEmail");
-			new tt.LV().set(5, 15).add("pasword");
-			
-			var pasword_per = new tt.Field('pasword', null, 'pasword');
-			var pasword_per_confirm = new tt.Field("密码不一致", null, 'pasword_confirm');
-			new tt.CV().add(pasword_per_confirm).set('v', "==", pasword_per,false);			
-			tt.Conf.clearOtherError=true;
-			tt.Conf.errCls=talentErrMsg;
-			
-			
-			var ajaxConfig = {
-					formId: 'form_login',      //要提交的form
-					url : "${ctx}/login/CheckUserCode.do"
-				};
-				
-				var remoteV = new tt.RemoteV().set(ajaxConfig);  
-			
- </script>
-
 
 </html>

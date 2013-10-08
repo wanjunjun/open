@@ -80,7 +80,7 @@ select, input, button, textarea {
 }
 
 .login-box button {
-    background: url("../../images/c.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background: url("../images/c.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
     border: 0 none;
     color: #FFFFFF;
     cursor: pointer;
