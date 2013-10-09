@@ -10,13 +10,14 @@
     
 	<script src="${ctx}/js/entry.js" type="text/javascript"></script>
 	<script src="${ctx}/js/entry.jquery.js" type="text/javascript"></script>
-	
+	<script src="${ctx}/js/validate3/main.js" type="text/javascript"></script>
     <script>
     $(document).ready(function(){    	
-	
-				
+    	tt.vf.req.add("userCode"); 				
     });
-	
+    function vali(){	
+    	tt.validate();
+    }
     </script>
      
 	  <style type="text/css">
@@ -79,7 +80,8 @@
   </div>
 </div>
 <!-- area div -->    
-
+<input id="userCode_per" name="userCode"  type="text"  class="text" />   
+<input type="button" value="validate" onclick="vali()">
 
 <script src="${ctx}/jqueryui/jarea/public.js" type="text/javascript"></script>
 </body>
