@@ -1,23 +1,61 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta charset="UTF-8">
-	<title>demo</title>
-	<link rel="stylesheet" type="text/css" href="css/index.css" />
-	<script type="text/javascript" src="js/jquery.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>jquery Xslider 插件图片特效演示图片淡隐淡现、图片上下滚动、图片左右滚动、选项卡</title>
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+a{text-decoration:none;}
+/* slider */
+.slider{margin:5px auto;width:620px;height:340px;border:1px solid #ccc;position:relative;overflow:hidden;}
+.conbox{position:absolute;/*必要元素*/}
+.switcher{position:absolute;bottom:10px;right:10px;float:right;z-index:99;}
+.switcher a{background:#fff;border:1px solid #D00000;cursor:pointer;float:left;font-family:arial;height:14px;line-height:14px;width:14px;margin:4px;text-align:center;color:#D00000;}
+.switcher a.cur,.switcher a:hover{background:#FF0000;border:1px solid #D00000;height:14px;line-height:14px;width:14px;margin:4px;color:#fff;font-weight:800;}
+/* slider1 水平 */
+#slider1 .conbox{width:9999em;}
+#slider1 .conbox div{width:620px;height:340px;overflow:hidden;float:left;}
+/* slider2 水平 */
+#slider2 .conbox div{width:620px;height:340px;overflow:hidden;}
+/* slider3 淡隐淡现 */
+#slider2 .conbox div{width:620px;height:340px;}
+</style>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.Xslider.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	// 焦点图片淡隐淡现
+	$("#slider3").Xslider({
+		affect:'fade',
+		ctag: 'div',
+		space: 2000, //时间间隔
+	});
+	
+	
+	
+	
+});
+</script>
 </head>
 <body>
-	      <div id="slider" class="banner"> 
-      <a style="cursor:auto"target="_blank"><img src="img/1.jpg" /></a> 
-      <a style="cursor:auto" target="_blank"><img src="img/2.jpg" /></a>
-       <a style="cursor:auto" target="_blank"><img src="img/3.jpg" /></a>
-        <a style="cursor:auto"target="_blank"><img src="img/4.jpg" /></a>
-         </div>
-      <script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script> 
-      <script type="text/javascript">
-		$(window).load(function() {
-			$('#slider').nivoSlider();
-		});
-	  </script>
+	<h2>焦点图片淡隐淡现</h2>
+		<div id="slider3" class="slider">
+			<div class="conbox">
+				<div><a href="http://www.17sucai.com/" title="jquery 文字连续滚动 节奏感十足的齿轮式滚动图片展示与文字内容特效展示"><img width="620" height="340" alt="jquery 文字连续滚动 节奏感十足的齿轮式滚动图片展示与文字内容特效展示" src="images/f23be4d33f61fda6d1769258ba6f48fb.jpg"></a></div>
+				<div><a href="http://www.17sucai.com/" title="常见问题解答部分动态读取数据 web / jQuery的，雅虎及谷歌文件"><img width="620" height="340" alt="常见问题解答部分动态读取数据 web / jQuery的，雅虎及谷歌文件" src="images/85dc407af2b2f7bfbbcb025a0ee0d66e.jpg"></a></div>
+				<div><a href="http://www.17sucai.com/" title="jquery 右下角提示框 快速反馈表Web/ PHP和jQuery的"><img width="620" height="340" alt="jquery 右下角提示框 快速反馈表Web/ PHP和jQuery的" src="images/44b91d75de385dc1a70fe56600f41e52.jpg"></a></div>
+				<div><a href="http://www.17sucai.com/" title="jquery 幻灯片效果制作防苹果风格的开机画面"><img width="620" height="340" alt="jquery 幻灯片效果制作防苹果风格的开机画面" src="images/4ffecc68cb780d1801f19db52d38cabd.jpg"></a></div>
+				<div><a href="http://www.17sucai.com/" title="jquery制作创建动画404页面"><img width="620" height="340" alt="jquery制作创建动画404页面" src="images/fd4767d55565e368f7c380f1b80cb878.jpg"></a></div>
+			</div>
+			<div class="switcher">
+				<a href="#" class="cur">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+				<a href="#">4</a>
+				<a href="#">5</a>
+			</div>
+		</div>
 </body>
 </html>
