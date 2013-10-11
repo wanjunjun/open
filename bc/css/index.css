@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* If an image is wrapped in a link */
+.banner a.nivo-imageLink {position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:60;display:none;}
+/* The slices in the Slider */
+.nivo-slice {display:block;position:absolute;z-index:50;height:100%;}
+/* Direction nav styles (e.g. Next & Prev) */
+.nivo-directionNav a {position:absolute;top:45%;z-index:99;cursor:pointer;}
+.nivo-prevNav {left:0px;}
+.nivo-nextNav {right:0px;}
+/* Control nav styles (e.g. 1,2,3...) */
+.nivo-controlNav a {position:relative;z-index:99;cursor:pointer;}
+
+/*=== Custom Slider Styles ===*/
+#slider {position:relative; width:1002px; height:350px;margin: 0 auto;}
+#slider img {position:absolute;top:0px;left:0px;display:none;}
+#slider a {border:0;display:block;}
+.nivo-controlNav{position:absolute; width:133px; height:24px; padding-top:5px; right:0px;bottom:0px; z-index:100;}
+.nivo-controlNav a {display:block;width:12px;height:12px; background:#FFF;text-indent:-9999px;border:0;margin-left:12px;float:left;filter:alpha(opacity=60);opacity:0.6}
+.nivo-controlNav a.active {filter:alpha(opacity=100);opacity:1}
+a.nivo-nextNav {background-position:-30px 0;right:15px; display:none}
+a.nivo-prevNav {left:15px; display:none}
+.nivo-caption { text-shadow:none;  font-family: Helvetica, Arial, sans-serif;}
+.nivo-caption a {  color:#efe9d1; text-decoration:underline;}
+.clear {clear:both;}
