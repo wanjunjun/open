@@ -19,7 +19,7 @@
 <script type="text/javascript">
 jQuery(document).ready(function(){	
 	//下面这一行代码为4个字段添加了“非空”验证，同时会自动在4个字段上加上红色星号
-
+	
 	tt.vf.req.add("userCode","pasword","pasword_confirm","userName","userPhone","userEmail"); 
 			
 	tt.vf.email.add("userEmail");
@@ -28,16 +28,17 @@ jQuery(document).ready(function(){
 	var pasword_per = new tt.Field("初始密码", null, 'pasword_per');
 	var pasword_per_confirm = new tt.Field("密码不一致", null, 'pasword_per_confirm');
 	new tt.CV().add(pasword_per_confirm).set('v', "==", pasword_per,false);			
-	/*tt.Conf.clearOtherError=true;
+	/*
+	tt.Conf.clearOtherError=true;
 	//tt.Conf.errCls=talentErrMsg;
-		
+	*/	
 	var ajaxConfig = {
 			formId: 'form_login',      //要提交的form
 			url : "${ctx}/login/CheckUserCode.do"
 		};
 		
-		var remoteV = new tt.RemoteV().set(ajaxConfig);  
-		*/
+	var remoteV	 = new tt.RemoteV().set(ajaxConfig).add();
+	
 	 $("#btn_form_login").bind("click",register);
 });
 
@@ -51,7 +52,9 @@ function register(){
 	//$("#form_login").attr("action","${ctx}/user/reg.do");	
 	$("#form_login").submit();
 }
-
+function checkExist(){
+	tt.validateRemote('form_login');
+}
 </script>
 
 
@@ -64,9 +67,9 @@ function register(){
 <div class="ali-logo-v5"><a class="main-logo-v5"
 	href="#" titinle="xxxx"> <img
 	src="${ctx}/shop/images/mlogo.png" alt="xxxx" height="37" width="153"></a> <span
-	class="sub-logo-v5">企业账号注册</span></div>
+	class="sub-logo-v5">个人账号注册</span></div>
 <div class="fd-right" style="margin-top: 40px;"><a
-	href="#">切换成个人账号注册&nbsp;&nbsp;&gt;&gt;</a>
+	href="${ctx}/shop/user/registerC.jsp">切换成企业账号注册&nbsp;&nbsp;&gt;&gt;</a>
 </div>
 </div>
 </div>
@@ -76,7 +79,7 @@ function register(){
 <div class="switch-container"></div>
 <div id="phone-tab" class="tab-part fd-clr">
 <div class="form-part">
-<form action="${ctx}/user/reg.do" method="post" id="form_login" name="form_login">
+<form action="${ctx}/user/regP.do" method="post" id="form_login" name="form_login">
 <table>
 	<tbody>
 		<tr>
@@ -84,7 +87,7 @@ function register(){
 			<label for="userCode_per" class="uname" data-icon="u">会员名</label>
 			</td>
 			<td class="col2 suggestline">
-			<input id="userCode_per" name="userCode"  type="text"  class="text" />   
+			<input id="userCode_per" name="userCode"  type="text"  class="text" onblur="checkExist()"/>   
 			</td>
 			<td class="col3 suggestline">
 		

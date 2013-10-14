@@ -21,8 +21,8 @@
 <div class="topnav">
 <ul>
 	<li class="list-first">
-	<div class="nav-title"><a href="#"
-		title="xxxx首页" data-trace="cn_alibar_home" target="_blank">xxxx首页</a>
+	<div class="nav-title"><a href="${ctx}/shop/home.jsp"
+		 data-trace="cn_alibar_home" target="_blank">首页</a>
 	</div>
 	</li>
 

@@ -1,0 +1,94 @@
+/*---------------------------------------@declare -------------------------------------*/
+
+.b_search,.b_print
+{background-image:url(../images/p.ls.bg.png?v=20101227); background-repeat:no-repeat;}
+
+.i_lsdetail,.i_lscancel,.i_lsfollow
+{background-image:url(../images/p.ls.icon.png); background-repeat:no-repeat;}
+.ls-tab-nav,.ls-tab-con
+{ background-image:url(../images/p.ls.bg-1.png);}
+
+.b_tpLWhite{color:#333;}
+
+/*-------------------------------------------------@component -----------------------------------------------*/
+
+.i_lsdetail,.i_lscancel,.i_lsfollow
+{_top:6px;}
+.i_lsdetail{width:15px;height:16px;background-position:0 -48px;}
+.i_lscancel{width:12px;height:16px;background-position:0 -33px;}
+.i_lsfollow{width:15px;height:16px;background-position:0 -65px;}
+
+.b_search{width:58px;height:22px;background-position:0 -158px;}
+a.b_search:hover{background-position:0 -186px}
+.b_print{width:83px;height:25px;background-position:0 -432px;}
+/*-------------------------------------------------@app -----------------------------------------------*/
+.LgServices .ls-hd{ position:relative; background-color:#deebfe; height:29px; margin-bottom:8px;}
+.ls-hd-tip{ margin:5px 0 0 15px}
+.LgServices .ls-list{ float:right; padding:5px;
+	padding:7px 5px 3px; }
+.ls-list li{ float:left; margin-left:15px;}
+.LgServices .btn { position:absolute;right:0; top:0px; z-index:1;}
+.LgServices .btn b{ margin-left:10px;}
+.ls-tab{ position:relative; zoom:1; padding-top:10px;}
+.ls-tab-titles{ zoom:1;height:31px;position:relative; top:1px;}
+.ls-tab-titles .ls-tab-btns{right:0; position:absolute}
+.ls-tab-titles li{ cursor:pointer; width:90px; height:31px;background:url(../images/p.ls.bg.png) no-repeat 0 0; float:left; text-align:center;  margin-right:3px; font-weight:bold; font-size:14px; border-bottom:1px solid #cecece;}
+.ls-tab-titles .current{ color:#0066cc; background-position:0 -37px; position:relative;border-bottom:1px solid #fff;}
+.ls-tab-content{}
+.ls-tab-titles span{ margin-top:5px; display:inline-block}
+.ls-tab-nav,.ls-tab-con
+{border:1px solid #cecece ; border-bottom:0;background-repeat:repeat-x; background-position:0 bottom; height:70px; }
+.ls-tab-nav ul,.ls-tab-con ul
+{overflow:hidden;zoom:1;}
+.ls-tab-nav li{ float:left; margin-left:20px; display:inline; margin-top:8px;}
+.ls-tab-nav input,.ls-tab-con input
+{ width:94px;}
+.ls-tab-nav label,.ls-tab-con label
+{ margin-right:10px;}
+.ls-tab-btn{ float:right; height:70px; padding-right:15px;}
+.ls-tab-btn .b_search{ vertical-align:middle; top:27px;}
+.ls-tab-con{ height:auto;margin-bottom:0;}
+
+
+
+#ls-Express{ width:792px;}
+#ls-Express li{ float:left; margin:20px 13px 20px 0; }
+#ls-Express .last{ margin-right:0px;}
+.ls-info{ background:url(../images/p.lg.app.jpg) no-repeat; height:221px; position:relative;}
+.inner_pic { position:absolute; top:85px; left:60px;}
+.inner_pic a{ display:block; width:158px; height:48px; float:left; margin-right:86px;}
+.inner_msg{ position:absolute; top:162px; left:45px;}
+.inner_msg span{ margin-right:30px;}
+.ls-tab-nav-Exp{ background:none; height:0px;}
+.ls-tab-nav-Exp ul{ display:none;}
+
+.msgTip{border:2px solid #06c; position:absolute; padding:10px 20px; display:none; background:#fff;}
+.msgTip .title{ margin-bottom:10px;}
+.msgTip .tip{ color:#999; margin:10px 0;}
+.msgTip select,.msgTip .INP_textarea
+{ display:block; margin-bottom:5px;}
+.msgTip select{ width:215px;}
+.msgTip .INP_textarea{ width:305px;}
+.msgTip .btn{ text-align:center;}
+.msgTip .b_tp1{ margin-left:10px;}
+
+.ls-bnn{ margin:10px 0;  height:120px;}
+.Notice{ padding:5px 16px; border:1px solid #ffcb99; background:#fff8ed ; color:#ff9a00; margin:10px 0;}
+
+.SearchWaybill {margin:0 10px; }
+.SearchWaybill p{ margin:10px 0;}
+
+.WaybillResultList{ overflow:hidden; zoom:1;  padding:10px; margin:0 10px 10px;border-top:1px solid #ececec; border-bottom:1px dashed #ececec;}
+.WaybillResultList li{ float:left; margin-right:10px; width:100%; font-weight:bold;font-size:14px; }
+.WaybillResultList_odd{ background:#F4FAFF;}
+
+.WaybillInfo{ padding:0 10px 20px;}
+.WaybillInfo .time{ color:#a0a0a0; width:120px; display:block; float:left;}
+.WaybillInfo .time:after{ content:'.';display:block;visibility:hidden;overflow:hidden;}
+.WaybillInfo li{ margin-bottom:5px; overflow:hidden;zoom:1;}
+.WaybillInfo li .info{  float:left;padding-left:5px; color:#666; width:645px;}
+
+
+.HotCity{ overflow:hidden;zoom:1; margin:10px 10px 0;}
+.HotCity h4{ margin-bottom:5px; font-weight:bold; color:#666;}
+.HotCity li{ float:left; display:inline; margin-right:2px; width:3em; white-space:nowrap; overflow:hidden; margin-bottom:5px;}

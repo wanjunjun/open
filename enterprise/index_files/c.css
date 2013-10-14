@@ -1,0 +1,174 @@
+/*---------------------------------------@declare -------------------------------------*/
+/* css sprites */
+
+.m_dialog,.m_waybillStep
+{background-image:url("../images/c.ls.app.png"); background-repeat:no-repeat;background-position:-111px -106px;}
+.btn_placeAnOrder
+{background:url("../images/btn.png") no-repeat 0 0;}
+.btn_placeAnOrder{width:80px;height:24px;background-position:0 -124px;}
+/* css sprites end */
+
+
+
+/* IE 下存在的问题，内部元素增大不会自动渲染兄弟元素的位置*/
+.m_skinB{float:left;width:880px;}
+.b_tpL0range{ position:static;}
+.StepList { overflow:hidden;zoom:1;}
+.StepList .step{ width:880px;}
+
+.NewWaybill .StepList .step{ width:565px;}
+/* VM error fix*/
+.Star{ color:#ff4200; position:relative; left:-3px; margin-left:-3px;zoom:1;}
+
+.FM_tp1 .lab{ width:90px;}
+.FM_tp1 .b_tp1{ top:-2px;*top:-5px;}
+.b_marketing{ top:1px; margin-left:10px;}
+
+/*-------------------------------------------------@module -----------------------------------------------*/
+.m_logistics-tip{ margin:10px 0; color:#ff4200;}
+.m_logistics-btn{ text-align:center; padding:30px 0 10px; margin:0 10px;clear:both;}
+
+.m_logistics-btn .b{margin:0 10px;}
+.m_logistics-title{ font-size:14px; font-weight:bold; margin:20px 3px;}
+
+
+/* 物流运单模块 */
+.m_waybill{ position:relative;margin-top:30px;
+	zoom:1;}
+.m_waybill .hd{ position:absolute;top:-18px; left:20px;background:#eee; padding:3px; border:1px solid #d8d8d8;}
+.m_waybill .bd{ padding:15px 20px 10px; }
+.m_waybill .btn{ text-align:center; position:relative; padding:5px 0 0;
+	zoom:1;}
+.m_waybill .b_blackshow,.m_waybill .b_blackhide
+{ position:absolute; right:10px; top:0;}
+.m_waybill .tip{ margin:8px 0 0 5px; color:#ff4200; text-decoration:underline; background:#fff;top:0px;float:left;}
+/* 运单步骤 */
+
+.m_waybillStep{ overflow:hidden;zoom:1;width:879px;height:24px; margin:25px 0;}
+.m_waybillStep li{ float:left; width:285px; padding:3px 0 0 8px; padding-top:4px\9;}
+.m_waybillStep .current{ color:#fff; font-weight:bold;}
+.m_waybillStep .end{ color:#0066cc;}
+.m_waybillStep .txt{vertical-align:baseline; zoom:1;}
+.m_waybillStep .i_s4{ margin-left:5px;}
+
+.m_help{display:inline; height:227px; float:left; width:450px; margin: 25px 5px 10px;}
+.m_help .bd{ margin-top:20px;}
+
+.s1{background-position:-106px 0;}
+.s2{background-position:-106px -26px;}
+.s3{background-position:-106px -51px;}
+
+/*-------------------------------------------------@component -----------------------------------------------*/
+.FM_tp1{ margin:0 0 0 7px;}
+.FM_tp1 input{ margin-right:10px;}
+
+.StepList h3{ margin-bottom:18px;}
+
+/*-------------------------------------------------@app -----------------------------------------------*/
+/* 查看运单 */
+.ViewWaybill .StepList{ margin-bottom:15px;}
+.ViewWaybill .StepList .step{border-bottom:1px dotted #424242; margin-bottom:20px; }
+ .trackLog{ padding:10px 0 10px 85px; position:relative; min-height:70px;
+	zoom:1;}
+ .trackLog .time{ width:120px; float:left; height:16px;}
+ .trackLog .info{ float:left;height:16px; 
+ 	*position:relative; *top:1px;}
+ .trackLog .i_lbox{ position:absolute; left:15px;}
+ .trackLog h3{ color:#009cff; font-size:14px; font-weight:bold; margin-bottom:10px;}
+ .trackLog li{ margin-bottom:8px; overflow:hidden;zoom:1;}
+.ViewWaybill .waybillInfo{ margin-bottom:20px;}
+.ViewWaybill .waybillInfo .i_sbox{ margin-left:12px;}
+.ViewWaybill .waybillInfo .item{ margin-left:25px; font-weight:bold;}
+
+/* 新建运单 */
+.NewWaybill{}
+.NewWaybill .btn,.NewWaybill_A .btn
+{ text-align:center; padding:15px;}
+
+.NewWaybill .describe .i_tp1,.NewWaybill_A .describe .i_tp1
+{ margin:0 1px 0 10px; padding:2px 10px 0 12px; height:19px; color:#fff; font-style:normal;}
+.NewWaybill .describe .i_tp2,.NewWaybill_A .describe .i_tp2
+{margin:0 1px 0 10px; padding:2px 0px 0 12px; border-right:1px solid #afcbf1; height:19px; color:#666; font-style:normal;}
+.NewWaybill .describe input,.NewWaybill_A .describe input
+{ padding-top:5px; height:14px; vertical-align:baseline;}
+.NewWaybill .ConsignorDetail{}
+.NewWaybill .m_tpBlue .bd,.NewWaybill_A .m_tpBlue .bd
+{ padding:10px 15px;}
+
+.NewWaybill_A .m_tpBlue{ width: 850px;}
+.NewWaybill_A .FM_tp1 .inp{text-align:left;}
+
+
+/* 费用明细 */
+.CostDetail{ width:235px; padding:10px 8px 10px 5px; overflow:hidden; }
+.costRow li{ height:24px; border-bottom:1px dashed #a8a8a8; line-height:22px; zoom:1 }
+.costRow span{ display:inline-block;text-align:right}
+.costRow .last{ border-bottom-style:solid}
+.costRow .sum{border-bottom:0px}
+.costRow .r1{ width:60px; }
+.costRow .r2{ width:74px}
+.costRow .r3{ width:75px}
+.costRow .r4{ width:23px;text-align:left; margin-left:3px;}
+.sum .r1{ width:112px; }
+.sum .r2{ width:22px; }
+/* 选择收货人 */
+.Consignee{padding:10px 8px 10px 5px; overflow:hidden;}
+#Consignee-search_btn{ margin-left:10px;}
+
+/* 选择货运公司 */
+.SelectWaybill{}
+.SelectWaybill h3{background:#f4faff; text-align:center; font-size:16px; font-family:"Microsoft YaHei";}
+.SelectWaybill h3 .city{ color:#ff4200; font-size:20px; margin:0 10px; font-weight:bold;}
+.SelectWaybill .m_tpBlue{ margin-bottom:8px;}
+.SelectWaybill .m_tpBlue-bd{ padding:8px 10px;}
+.SelectWaybill .formlist{overflow:hidden;zoom:1; margin:8px 0 0 3px;}
+.SelectWaybill .formlist li{ float:left; margin-right:30px;
+	display:inline;}
+.SelectWaybill .other{ padding:10px 5px 10px; border-top:1px dashed #AFCCE1; margin-top:10px;}
+/* 物流服务完成 */
+.Complete .m_msg{margin:30px 0 0 185px;}
+.Complete .Msgbox{ width:340px; position:relative; left:-20px; margin:0 0 0 270px;}
+.Complete .Msgbox .title{ font-weight:bold;}
+.Complete .Msgbox .inner{height:140px; width:320px; margin-bottom:30px; padding:10px 0 0 20px; margin-bottom:0px;}
+.Complete .Msgbox li{font-size:12px; margin-top:10px; width:180px;}
+.inner span{margin:0 10px 0 10px;}
+.Complete .top_msg{ margin:40px 0 10px 340px; display:block;}
+.Complete .b_tp1{ margin:0px auto 0;}
+
+.Complete .msg{ overflow:hidden;}
+.Complete h4 .hd{ float:left;}
+.Complete .msg ul{ overflow:hidden; zoom:1;}
+.Complete .tip{margin-top:5px; margin-bottom:20px; }
+.Complete .btn{ text-align:center; margin:10px 0;}
+/* 选择物流公司 */
+.m_msg2{margin:10px 0 0 150px; height:80px; }
+.m_msg2 .error{ margin:0 0 0 35px; position:relative; top:10px;}
+.m_msg2 .error span{ margin:0 8px 0 8px;}
+
+.SelLog .m_msg{margin:80px 0 0 180px; *height:48px; min-width: 60px; }
+.SelLog .m_msg .error{ margin:8px 0 0 75px;display:inline-block; width:375px;}
+.SelLog .m_msg .error span{ margin:0 8px 0 8px;}
+
+
+.SelLog .Msgbox{ width:340px; position:relative; left:-20px; margin:20px 0 0 270px;}
+.SelLog .Msgbox .title{ color:#fd7406; font-weight:bold;}
+.SelLog .Msgbox .bd{ padding:10px 0 10px 20px;}
+.SelLog .Msgbox .inner{ width:320px; margin-bottom:30px; margin-bottom:0px}
+.inner .link{margin-left:30px;}
+.SelLog .Msgbox li{font-size:12px; margin-top:10px; width:130px; overflow:hidden;}
+.inner span{margin:0 10px 0 10px;}
+.SelLog .b_tp1{ margin-top:30px; position:relative; left:-20px;}
+/*选择物流公司grid样式覆盖 */
+#CorpGrid .xui-simpleGrid-row{height: auto;}
+
+
+.LgHelp .m_logistics-bd{ margin: 15px 15px 0}
+
+.helpList{ overflow:hidden;zoom:1; margin-bottom:20px;}
+.helpList em{ float:left; font-weight:bold; color:#666; font-size:14px;}
+.helpList dd{ overflow:hidden;zoom:1; padding-left:10px;}
+
+.SelLog .ExpressTip { margin:80px auto; width:550px;}
+.ExpressTip p{margin-bottom:5px;}
+
+.TransitRoute{ background:#f6faff; padding:40px 20px}
