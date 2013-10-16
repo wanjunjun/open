@@ -1,0 +1,735 @@
+/*-------------------------------------@global--------------------------------------*/
+html, body, ul, ol, li, dl, dt, dd, p, h1, h2, h3, h4, h5, h6, a,img, th,td,form, fieldset, iframe, object, pre, code, legend, blockquote{margin:0; padding:0; border:0; outline:0}
+ol, ul{list-style:none}
+:focus{outline:0}
+strong{font-weight:bold}
+address, caption, cite, code, dfn, em, th, var {font-style:normal;font-weight:normal;}
+h1, h2, h3, h4, h5, h6{font-weight:normal; font-size:100%}
+/*form*/
+input, button, textarea, select {
+	font-family:inherit;
+	font-size:inherit;
+	font-weight:inherit;
+}
+
+/*table*/
+table{border-collapse:collapse;border-spacing:0}
+caption, th, td{/*text-align:left; */font-weight:normal}
+
+/*---------------------------------------@layout-------------------------------------*/
+.header:after,.footer:after,.section:after,.nav:after,.main:after,.box:after,.section_a:after,.foot:after,.notice:after,.topHead:after
+{content:"\0020"; display:block; height:0; clear:both}
+.header,.footer,.section,.nav,.main,.box,.section_a,.foot,.notice,.topHead
+{zoom:1}
+.section,.section_a,.main,.header,.foot,.notice,.topHead_content
+{margin:0 auto; width:952px;overflow:hidden}
+.section_a
+{ width:792px;}
+.content, .aside,.col
+{display:inline; overflow:hidden}
+.aside{ width:210px; float:left;}
+.content{ width: 710px;float:left;}
+.foot{margin-bottom:15px; overflow:visible}
+.section{ margin-top:14px}
+.topHead{ background-color:#d2e2f2; padding:10px 0}
+
+/*---------------------------------------@font -------------------------------------*/
+a{ color:#0147a6; text-decoration:none;} /*blue*/
+a:hover{color:#ff4200;} 
+.UL,.UL1,.UL2,.UL3,.UL4 
+{ text-decoration:underline; cursor:pointer;}
+.UL  /*blue*/ 
+{color:#0147a6;}
+
+
+/* font-weight */
+.B{ font-weight:bold;}
+.N{font-weight:normal;}
+.D{text-decoration:line-through; }
+
+/* font-size */
+.FS11{font-size:11px;}
+.FS12{font-size:12px;}
+.FS13{font-size:13px;}
+.FS14{font-size:14px;}
+.FS16{font-size:16px;}
+.FS18{font-size:18px;}
+.FS20{ font-size:20px;}
+
+/* color */
+.F1{color:#fff;} /*white*/
+.F2{color:#333;} /*black*/
+.F3{color:#666;} /*gray1*/
+.F4{color:#a0a0a0;} /*gray2*/
+.F5{color:#ff4200;} /*orange*/
+.F6{color:#009cff;} /*blue*/ 
+.F7{color:#31a428;} /*green*/ 
+.F8{color:#0066cc;} /*blue2*/ 
+.F9{ color:#999999}/*gray3*/
+.F10{ color:#a9a9a9}/*gray4*/
+.F11{color:#f90e08}/*red*/
+.F12{color:#004366}/*blue*/
+.F13{color:#F99338;} /*orange2*/
+.F14{color:#ff7300;} /*orange3*/
+
+/*---------------------------------------@declare -------------------------------------*/
+
+/*
+	@name: css sprites
+	@desc: 全局的css sprites 声明
+*/	
+
+/* app */
+.m_logistics,
+/* btn */
+
+/* component */
+.INP_text,.INP_textarea,.INP_textarea_focus,.INP_text_focus,
+/* icon */
+.i_sbox,.i_lbox,.i_num1,.i_num2,.i_num3,.i_num4,.i_num5,.i_num6,.i_num7,.i_num8,.i_num9,.i_num10,.i_tp1,.i_tp2
+{ background-image:url(../images/c.ls.app.png); background-repeat:no-repeat;}
+
+.i_ssuggest,.i_shelp,.i_sphone,.i_smobile,.i_s1,.i_s2,.i_s3,.i_s4,.i_s5,.i_s6,.i_s7,.i_s8,.i_s11,.m_total-bd,.i_arrow,.i_s14,.i_s15,.i_s17,.i_s18,.i_s19
+{ background-image:url(../images/g.icon.png); background-repeat:no-repeat;}
+.i_s12,.i_s13,.i_close,.b_selectArrow,.b_selectSquareArr,.i_triangle2
+{ background-image:url(../images/icon.png); background-repeat:no-repeat;}
+
+
+.b_tp0range,.b_tpLWhite,.b_marketing
+{ background-image:url(../images/g.btn.png); background-repeat:no-repeat;}
+
+
+.i_llogistics1,.i_llogistics2,.i_msg,.i_error,.b_lgSer_1,.b_lgSer_2,.b_lgSer_3,.i_s16
+{background-image:url(../images/g.app.p24.png); background-repeat:no-repeat;}
+
+.trackLog
+{ background:url(../images/c.ls.bg.png) 0 bottom repeat-x;}
+.m_tpBlue,.m_tpBlue s,.m_tpBlue .m_skinA-wp
+{ background-image:url(../images/g.md.blue.skin.p24.png); background-repeat:no-repeat;}
+
+.b_tpL0range,.b_placeorder ,.b_blackshow,.b_blackhide,.b_placeorderDis,.b_tp1,.b_tp1-inner,.b_tp2,.b_tp2-inner,.b_tp3,.b_tp3-inner,.b_help,.b_help_db,.b_order
+{background:url(../images/g.btn.png) no-repeat 0 0;}
+
+.b_previewDis,.b_preview{background:url(../images/preview.png) no-repeat 0 0;}
+
+.m_tpGrayBorder s
+{ background:url(../images/g.md.skin.png);}
+.i_lsLogo
+{background:url(../images/alp.logo.png);}
+.i_s10
+{background:url(../images/p.ls.icon.png); margin-right:3px;}
+.TAB_tp1 li{background:url(../images/p.ls.bg.png);}
+
+/* css sprites end */
+
+
+.m_logistics
+{background-position:-106px -76px;}
+
+
+
+.TAB:after,.m:after,.m .hd:after,.m .bdy:after,.m .ft:after,.row:after
+{content:"\0020"; display:block; height:0; clear:both}
+.TAB,.m,.m .hd,.m .bdy,.m .ft
+{zoom:1}
+
+i,b,.i,.b
+{display:-moz-inline-box;display:inline-block;*display:inline;zoom:1;*margin-right:3px;vertical-align:middle;position:relative; font-size:0;}
+b,.b
+{ cursor:pointer; font-weight:normal; font-size:12px;line-height:1.5}
+body{color:#333; background-position:0 -40px; background-repeat:repeat-x; font:12px/1.5 Arial,Helvetica,sans-serif; }
+textarea{background:#FFF9E8; border:1px solid #D4D6D7;}
+select{ color:#666;}
+
+/*-------------------------------------------------@component -----------------------------------------------*/
+
+/*
+	@name: 组件 tools
+	@desc: 全局应用的工具class
+*/	
+
+.POS{position:relative; zoom:1}
+.HIDE{display:none}
+.INVISIBLE{visibility:hidden; position:absolute}
+.CLEAR{ clear:both}
+.FIXFLOAT{ overflow:hidden;  _display:inline-block}
+.NOWRAP{white-space:nowrap; overflow:hidden}
+.BREAK{word-break:break-all; overflow:hidden}
+.R{ float:right}
+.L{ float:left}
+.ARROW{font-family:SimSun;}
+.INLINEBLOCK{display:-moz-inline-box;display:inline-block;*display:inline;zoom:1;*margin-right:3px;vertical-align:middle;position:relative;}
+.STAR{ color:#ff4200; position:relative; left:-3px; margin-left:-3px;zoom:1;}
+.SUPERSCRIPT{ vertical-align:super; font-size:10px;}
+.TL{ text-align:left}
+.TR{ text-align:right}
+
+/* tools end */
+
+/*
+	@name: 组件 icon
+	@desc: 默认用i作为icon的标签，i默认带有inline-block
+	@class name prefix:
+		 i_s 小型尺寸icon	
+		 i_l 大尺寸icon	后跟语义名或数字
+		 i_m 中等尺寸icon
+		
+	@example:
+		<i class="i_s1"></i>
+	@demo: _icon_btn_bg.html
+*/
+
+.i_sbox{width:23px;height:26px;background-position:0 0;}
+.i_lbox{width:54px;height:60px;background-position:0 -30px;}
+
+.i_num1,.i_num2,.i_num3,.i_num4,.i_num5,.i_num6,.i_num7,.i_num8,.i_num9,.i_num10
+{width:48px;height:31px;}
+.i_num1{background-position:0 -105px;}
+.i_num2{background-position:0 -139px;}
+.i_num3{background-position:0 -171px;}
+.i_num4{background-position:0 -207px;}
+.i_num5{background-position:0 -246px;}
+.i_num6{background-position:-53px -106px;}
+.i_num7{background-position:-52px -139px;}
+.i_num8{background-position:-52px -173px;}
+.i_num9{background-position:-52px -210px;}
+.i_num10{background-position:-52px -245px;}
+
+.i_ssuggest{width:15px;height:14px;margin-right:3px; 
+	*top:-2px;}
+.i_shelp{width:15px;height:16px;background-position:0 -18px;margin-right:3px; 
+	*top:-2px;}
+.i_sphone{width:16px;height:13px;background-position:0 -42px;}
+.i_smobile{width:12px;height:16px;background-position:0 -62px;}
+.i_lsLogo{width:161px;height:50px;}
+a.i_lsLogo:hover{background-position:0 -50px;}
+.i_msg{width:50px;height:50px;background-position:0 -113px;}
+.i_error{width:50px;height:48px;background-position:0 -168px;}
+.i_arrow{width:15px;height:8px;background-position:0 -188px;}
+.i_close{width:10px;height:11px;background-position:0 -210px;}
+.i_s1{width:12px;height:16px;background-position:0 -84px; margin-right:3px;}
+.i_s2{width:32px;height:21px;background-position:0 -106px; cursor:pointer;}
+.i_s3{width:32px;height:21px;background-position:0 -133px;cursor:pointer;}
+.i_s4{width:12px;height:12px;background-position:0 -168px;}
+.i_s5{width:18px;height:15px;background-position:0 -209px;}
+.i_s6{width:13px;height:10px;background-position:0 -228px;margin-right:3px;}
+.i_s7{width:15px;height:15px;background-position:0 -241px;margin-right:3px;}
+.i_s8{width:18px;height:18px;background-position:0 -261px}
+
+.i_s10{width:12px;height:12px;background-position:0 -19px;}
+.i_s11{width:44px;height:14px;background-position:0 -286px; top:3px;}
+.i_s12{width:23px;height:23px;background-position:0 -156px;}
+.i_s13{width:31px;height:20px;background-position:0 -184px;}
+.i_s14{width:9px;height:8px;background-position:0 -372px;}
+.i_s15{width:11px;height:11px;background-position:0 -397px; font-size:9px; text-align:center; color:#FFF; margin-right:5px}
+.i_s16{width:97px;height:22px;background-position:0 -254px}
+
+
+.i_s17{width:16px;height:16px;background-position:0 -417px;}
+.i_s18{width:16px;height:16px;background-position:0 -440px;}
+.i_s19{width:16px;height:16px;background-position:0 -460px;}
+
+.i_tp1{height:21px;background-position:-1067px -374px; font-size:12px;}
+.i_tp2{height:21px;background-position:-1067px -349px;font-size:12px;}
+
+.i_llogistics1{width:100px;height:28px;background-position:0 -50px;}
+.i_llogistics2{width:100px;height:28px;background-position:0 -81px;}
+
+
+.i_order{background:url(../images/order.bg.png);width:133px; height:46px}		
+
+.i_order1{background-position:0 -51px;}
+a.i_order1:hover{background-position:0 0px;}
+
+.i_order2{background-position:0 -154px;}
+a.i_order2:hover{background-position:0 -102px}
+
+.i_order3{background-position:0 -257px;}
+a.i_order3:hover{background-position:0 -206px}
+
+.i_order4{background-position:0 -359px;width:148px}
+a.i_order4:hover{background-position:0 -308px;}
+
+.b_order{ width:83px; height:25px; background-position:0 -492px; text-align:center; line-height:20px;  position:absolute; left:70px; top:-10px; color:#ffffff; visibility:hidden ; z-index:99}
+a.i_order:hover .b_order{ visibility:visible}
+
+.i_triangle2{background-position:0 -379px; width:20px; height:22px}
+
+
+
+/* icon end */
+
+/*
+	@name: 组件 button
+	@desc: 默认用b作为button的标签，b默认带有inline-block,鼠标指针为pointer 
+	@class name prefix:
+		 b 后跟应用名或数字		
+	@example:
+		<b class="b_submit"></b>
+		<b class="b_2"></b>
+	@demo: _icon_btn_bg.html
+*/	
+.b_tp0range
+{width:85px;height:18px; color:#934002; text-align:center; padding:2px 0;
+	*padding:4px 0 1px;}
+	
+.b_tpL0range{
+	width:108px;
+	background-position:0 -35px; 
+	padding:5px 0 5px;
+	text-align:center;
+	font-size:14px;
+	font-weight:bold;
+	color:#934002;
+		*padding:6px 0 4px;}
+a.b_tpL0range:hover{ color:#333;}
+.b_tpLWhite{
+	width:108px;
+	background-position:0 -305px;
+	padding:5px 0 5px;
+	text-align:center;
+	font-size:14px;
+	font-weight:bold;
+	color:#333;
+		*padding:6px 0 4px;
+}
+a.b_tpLWhite:hover{ color:#934002;}
+.b_placeorder {width:133px;height:30px;background-position:0 -74px;}
+.b_preview {width:58px;height:28px;background-position:0 1px;}
+.b_blackshow,.b_blackhide
+{width:92px;color:#eee;padding:0 18px 3px 0; text-align:center;
+	*padding:2px 18px 1px 0;}
+.b_blackshow{background-position:0 -144px; }
+.b_blackhide{background-position:0 -170px;}
+.b_placeorderDis{width:133px;height:30px;background-position:0 -107px;}
+.b_previewDis{width:58px;height:28px;background-position:0 -26px;}
+.b_marketing{width:132px;height:29px;background-position:0 -352px;}
+.b_selectArrow{ width:17px; height:18px; background-position:0 -302px;}
+.b_selectSquareArr{width: 24px;height: 23px;background-position:0 -335px;}
+.b_tp1{background-position:0 -247px; }
+.b_tp1-inner{background-position:right -272px; }
+.b_tp2{background-position:0 -196px;}
+.b_tp2-inner{background-position:right -224px;color:#934002;}
+.b_tp3{background-position:0 -387px;}
+.b_tp3-inner{background-position:right -412px;color:#934002;}
+
+.b_help,.b_help_db
+{width:90px;height:30px;background-position:0 -439px; padding:9px 0 0 14px; vertical-align:baseline;zoom:1;  margin:0 7px 5px 0;}
+.b_help_db{background-position:0 -455px;cursor:default; color:#a0a0a0;}
+
+a.b_tp2:hover .b_tp2-inner,.b_tp3-inner
+{ color:#333;}
+.b_tp1-inner,.b_tp2-inner,.b_tp3-inner{
+	padding:2px 15px 3px 12px;
+	position:relative; 
+	right:-4px; 
+	text-align:center;
+		*padding:4px 15px 1px 12px;}
+		
+
+
+/* button end */
+
+
+/* 
+	@name: 组件 input
+	@class
+		INP_text
+		INP_textarea			
+	@demo: _compotent.html		
+*/
+.INP_text,.INP_textarea
+{ background-position:-1063px 0; background-repeat:no-repeat; border:1px solid #bfbfbf; height:16px; width:210px; padding:3px; color:#666;}
+.INP_textarea{ height:50px;color:#666;}
+.INP_text_focus,.INP_textarea_focus
+{ background-image:url(../images/c.ls.app.png); background-repeat:no-repeat;background-position:-1063px 0; height:16px; width:210px; padding:3px; color:#666;border:1px solid #49b9c7}
+
+.INP_select{ 
+	display:-moz-inline-box;display:inline-block;*display:inline;zoom:1;vertical-align:middle;position:relative;
+	width:145px;}
+.INP_select .INP_text{width:120px; padding-right:20px;}
+.INP_select .b_selectArrow{ position:absolute; right:0px; top:2px; *top:3px;}
+.INP_select .b_selectSquareArr{ position:absolute; right:-165px; _right:5px;top:0px; _top:1px;}
+/* input end */
+
+/* 
+	@name: 组件 form table
+	@class
+		FM	
+	@demo: _module.html		
+*/
+.FM{ position:relative;table-layout:fixed;}
+.FM .lab{ padding:3px 0 3px 3px;}
+.FM .inp{ padding:3px 0 3px 5px}
+   
+.FM_tp1{ margin: 0 0 0 7px;}
+.FM_tp1 .lab{ text-align:left;}
+.FM_tp1 .list{ overflow:hidden;zoom:1;}
+.FM_tp1 .list li{ float:left; }
+.FM_tp1 .line{ margin:0 5px; color:#b3b3b3;}
+.FM_tp1 .tip{ margin-bottom:3px; color:#b3b3b3;}
+.FM_tp1 .intro{margin-bottom:3px; color:#333;}
+
+/* input end */
+.GRID {}/*position: relative;z-index: -110; */
+.GRID,.GRID th,.GRID td
+{ border:1px solid #ccc; }
+.GRID th,.GRID td
+{ padding:5px 10px;}
+.GRID .hover{background-color:#fcfbc8}
+.GRID .click{background-color:#d6f9f9}
+/* 
+	@name: 组件 tab
+	@class name prefix:
+		TAB
+	@demo: _compotent.html		
+*/
+
+/* tab 基类 */
+
+.TAB{}
+.TAB li{ float:left;}
+.TAB .wp{}
+.TAB .inner{}
+ 
+
+.TAB_tp1{ border-bottom:1px solid #c7dbf6; margin-bottom:15px; padding-left:15px;}
+.TAB_tp1 li{ 
+	padding:8px 12px; 
+	background-position:0 -244px; 
+	background-repeat:repeat-x; 
+	margin-right:5px; 
+	border:1px solid #c7dbf6;
+	position:relative;
+	top:1px;
+	cursor:pointer;
+	font-size:14px;
+
+	color:#0147a6;
+		*padding:10px 12px 6px; 	
+}
+.TAB_tp1 .TAB_On{background-position:0 -212px;border-bottom:1px solid #fff; color:#666; font-weight:bold;}
+.TAB_tp1 .i_s13{ position:absolute;top:-8px; right:-20px;}
+
+/* line 基类 */
+.LINE{ border-top:1px dashed #e6e6e6;}
+
+.LINE_tp1{ height:10px;margin:25px 0; }
+
+/* 
+	@name: 组件 StepList
+	@class name prefix:
+		StepList		
+*/
+.StepList{overflow:hidden;}
+.StepList .step{ padding:0 0 20px 0; position:relative;
+	zoom:1;}
+.StepList .describe{ font-weight:normal;}
+.StepList h3{ background:#f4faff; font-weight:bold; padding:3px 7px;
+	*padding:4px 3px 1px;zoom:1}
+.StepList .address { position:relative; overflow:hidden;zoom:1; margin:8px 0 0 3px;}
+.StepList .address li{ float:left; margin-right:26px;overflow:hidden;
+	display:inline;}
+.StepList .address .address-fn{position:absolute; margin:0; top:0px; right:10px;  cursor: pointer; font-size:14px;font-weight:bold;color:#0147a6;}
+.StepList .b_tp0range{ position:absolute; right:5px;bottom:10px;}
+
+.LIST_FM li{ padding-bottom: 5px; }
+/* input end */
+
+/* 
+	@name: 组件 upload
+	@class name prefix:
+		UPLOAD
+	@interface 
+		.INP_text	显示文件名
+		.btn		选择文件按钮
+		.fn			上传文件功能的容器
+		.progress	上传文件框 
+		.bar		上传文件进度条
+		.cancel		上传文件时的取消按钮
+		.filename	上传文件名
+		.msg		显示上传文件的状态信息
+	@demo: _compotent.html		
+*/
+
+/* upload end*/
+
+/*-------------------------------------------------@module -----------------------------------------------*/
+
+
+
+/* 
+	@name: 模块 m_ls
+	@class name prefix:
+		m_ls
+	@interface
+		m_ls-bg 
+	@demo: _module.html		
+*/
+.m_logistics{ padding-bottom:20px;}
+.m_logistics-hd{ padding:5px 12px;
+	*padding:6px 12px 4px;}
+.m_logistics-hd h2{ font-size:14px; font-weight:bold; color:#fff;}
+.m_logistics-bd{ margin:15px 35px 0; overflow:hidden;zoom:1;}
+
+/* m_ls end */
+
+/* -------- module sking ----- */
+.m_skinA s,.m_skinB s{
+	background-repeat:no-repeat;
+	font-size:0;
+	position:relative;	
+}
+/* 
+	@name: 模块 m_skinA
+	@desc: 该类被用于包装边框阴影效果，默认用s标签作为模块的skin，默认边框为5px
+	@class name prefix:
+		m_skinA
+	@interface 
+		.m_skinA-top 模块上部皮肤
+		.m_skinA-btm 模块下部皮肤
+	@demo: _module.html		
+*/
+
+.m_skinA{background-position:left top; position:relative;}
+
+.m_skinA-top{background-position:center top;}
+.m_skinA-top s{margin-bottom:-32000px;overflow:hidden; background:none;}
+.m_skinA-top .sr{right:-5px; float:right;}
+.m_skinA-btm s{margin-top:-5px;}
+.m_skinA-btm .sl{bottom:-5px;background-position:left bottom; float:left;}
+
+.m_skinA-wp{
+	background-position:right bottom;
+	position:relative;
+	bottom:-5px;
+	padding:0 5px 5px 0;
+	right:-5px;
+	zoom:1;
+	overflow:hidden;
+}
+.m_skinA-btm{}
+
+/* m_skinA end*/
+
+/* 
+	@name: 模块 m_skinB
+	@desc: 该类被用于包装圆角效果，默认用s标签作为模块的skin，默认边框为5px
+	@class name prefix:
+		m_skinB
+	@interface 
+		.m_skinB-top 模块上部皮肤
+		.m_skinB-btm 模块下部皮肤
+	@demo: _module.html		
+*/
+
+.m_skinB{background-position:left top;}
+.m_skinB s{
+	background-repeat:no-repeat;
+	font-size:0;
+	position:relative;
+	height:5px;
+	width:5px;}
+
+.m_skinB-top .sr,.m_skinB-btm .sr
+{float:right;}
+.m_skinB-top .sr,.m_skinB-top .sl
+{overflow:hidden;margin-bottom:-32000px;}
+.m_skinB-btm .sr,.m_skinB-btm .sl
+{margin-top:-5px;}
+
+.m_skinB-top{background-position:center top;}
+.m_skinB-top s{margin-bottom:-32000px;overflow:hidden;}
+.m_skinB-top .sl{background-position: left top;float:left;}
+.m_skinB-top .sr{ background-position: right top;}
+.m_skinB-btm s{margin-top:-5px;}
+.m_skinB-btm .sl{background-position: left bottom; float:left;}
+.m_skinB-btm .sr{background-position: right bottom;}
+.m_skinB-wp{
+	border:1px solid #eee;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	zoom:1;
+	overflow:hidden;}
+
+
+/* m_skinA end*/
+/* 
+	@name: 模块 m_tpBlue
+	@desc: 默认用s标签作为模块的skin
+	@class name prefix:
+		m_tpBlue
+	@demo: _module.html		
+*/
+.m_tpBlue{}
+/* m_tpBlue end*/
+
+/* 
+	@name: 模块 m_tpGrayBorder
+	@desc: 默认用s标签作为模块的skin
+	@class name prefix:
+		m_tpGrayBorder
+	@demo: _module.html		
+*/
+.m_tpGrayBorder{}
+/* m_tpBlue end*/
+
+/* -------- module sking end ----- */
+
+
+/* 
+	@name: 模块 m_msg
+	@class name prefix:
+		m_msg
+	@interface 
+		.pic	消息框的描述图片
+		.title	消息的标题 
+		.msg	消息内容
+		.tip	消息提示，或注释
+	@demo: _module.html		
+*/
+
+.m_msg{ position:relative;zoom:1; }
+.m_msg .pic{ position:absolute;}
+.m_msg .title,.m_msg .msg,.m_msg .tip
+{ overflow:hidden;}
+.m_msg .tip{color:#b3b3b3;}
+
+/*	.m_msg .title{}
+	.m_msg .msg{}
+	.m_msg .tip{}	*/
+
+	.m_msg .title{ color:#31a428; font-size:14px; font-weight:bold; margin-left:70px;}
+	.m_msg .msg{ color:#333; font-size:12px; margin:10px 0 0 70px;}
+	.m_msg .tip{}
+
+/*.m_msg_tp1{padding:20px 20px 20px 130px;border:1px solid #f4d889; background:#fffccd; }
+
+.m_msg_tp1 .pic{top:18px; left:70px;}
+.m_msg_tp1 .msg{}
+.m_msg_tp1 .title{font-size:14px; margin-bottom:3px}
+.m_msg_tp1 .tip{  }
+
+.m_msg_tp2{padding:20px 20px 20px 130px;border:1px solid #f4d889; background:#fffccd; }
+.m_msg_tp2 .pic{top:18px; left:60px;}
+.m_msg_tp2 .msg{}
+.m_msg_tp2 .title{font-size:14px; margin-bottom:5px}
+.m_msg_tp2 .tip{  }
+
+
+.m_msg_tp3 {padding:20px 20px 20px 130px; width:300px; margin:0 auto;}
+.m_msg_tp3 .pic{top:18px; left:70px; }
+.m_msg_tp3 .title{ font-size:14px;margin-bottom:3px;}*/
+
+/* m_msg end */
+.m_total{ }
+.m_total-arrow{ text-align:center; position:relative;top:1px;}
+.m_total-bd{  background-position:0 -476px; background-repeat:repeat-x; border:1px solid #e6e6e6; padding:20px;}
+.m_total-item{ margin-bottom:10px;}
+.m_total h4{ overflow:hidden; zoom:1;}
+.m_total .logoWp{border: 1px solid #D8D8D8;padding: 3px; float:left;}
+
+.m_preferential{width:98%; overflow:hidden; background:#f2f2f2; padding:12px 10px 7px;}
+.m_preferential-title i{ float:left;}
+.m_preferential-fn{ margin-left:10px;}
+.m_preferential-con{ overflow:hidden;zoom:1;padding-left:15px;}
+.m_preferential-con .t1{ color:#ff4202;}
+.m_preferential-con p{ margin-bottom:5px;}
+
+.m_tip{ border:1px solid #f2be87; background:#fff7d5; padding:5px 20px 5px 10px;; position:relative;zoom:1;
+	 *padding:6px 20px 3px 10px;}
+.m_tip .i_close{ position:absolute;top:5px;right:5px; cursor:pointer;}
+/*-------------------------------------------------@app -----------------------------------------------*/
+.header{ height:66px; position:relative; }
+.Logo{ overflow:hidden; zoom:1; padding-top:15px;}
+.Logo .aliLogo,.Logo .lsLogo
+{ float:left;}
+.Logo .aliLogo{ margin:10px 15px 0 0; padding-right:15px; border-right:1px solid #ccc;width:132px;height:32px;text-indent:0;}
+.Logo .aliLogo{background:none}
+.UserInfo{ position:absolute; right:0; top:15px;}
+.UserInfo li{ float:left; padding-left:10px; margin-left:10px; border-left:1px solid #ccc;
+	display:inline;}
+.UserInfo .first{ border:0;}
+.NavList{position:absolute; right:0; bottom:0;}
+.NavList li{ float:left; margin-left:15px;}
+
+.notice{width:958px; height:24px; border:1px solid #ffcb99; background-color:#fff8ed; }
+.notice_content{ padding:4px 0 0 9px}
+.notice_content span{zoom:1}
+.notice_content a{ margin:0 14px; display:inline-block; height:16px; line-height:16px }
+.xui-simpleGrid-row-selected{background:#f1f2bc}
+
+/* xui-suggest */
+
+.xui-ext-Visible-hide{ position:absolute!important; top:-9999px!important; left:-9999px!important; visibility:hidden!important;}
+
+.xui-suggest{ width:240px; background:#fff;}
+.xui-suggest-tip{ padding:5px 8px; border:1px solid #ccc; border-bottom:0; background:#f3f3f3;}
+.xui-suggest-list{ border:1px solid #ccc;*height:200px; min-height:200px; }
+.xui-suggest-list li { padding:4px 8px;*padding:5px 8px 3px; cursor: pointer;zoom:1;}
+.xui-suggest-list li.xui-suggest-list-hover,.xui-suggest-list li:hover
+{ background:#d8e2fd; }
+.xui-suggest-selected,li.xui-suggest-selected:hover
+{background:#4171f9;;color: #fff; }
+.xui-suggest-text,.xui-suggest-textarrow
+{margin-left:8px;color:#4171f9;}
+.xui-suggest-textarrow{font-family:"tahoma";}
+
+.xui-tabpanel{ border:1px solid #e6e5e5; width:340px;}
+.xui-tabpanel-hd{
+	background:url(../images/p.lsnew.bg.png) 0 -104px repeat-x ; 
+	border-bottom:1px solid #e6e5e5; 
+	height:32px;}
+.xui-tabpanel-hd h3{ 
+	color:#2b2b2b; 
+	font-size:14px; 
+	padding:8px 26px 3px; 
+	font-family:'Microsoft YaiHei';}
+.xui-tabpanel .xui-tabpanel-tab{ 
+	color:#757575;
+	cursor: pointer;
+	float:left; 
+	border:none;
+   	position:relative;
+	left:-1px;
+	top:1px;}
+.xui-tabpanel h3.xui-tabpanel-current{
+	background:#fff;
+	padding-bottom:4px; 
+	color:#2B2B2B; 
+	padding:8px 25px 3px;
+	border-left:1px solid #e6e5e5;
+	border-right:1px solid #e6e5e5;
+	font-weight:bold; color:#06c }
+	
+.xui-tabpanel .xui-tabpanel-panel{ display:none; }
+.xui-tabpanel div.xui-tabpanel-current{ display:block;}
+.xui-tabpanel .xui-tabpanel-First{ border-right:0;border-left:0;}
+
+.xui-tabpanel-bd,.xui-tabpanel-ft
+{ background:#fff; padding:10px 15px;overflow:hidden;zoom:1;}
+.xui-tabpanel-hd:after
+{content:"\0020"; display:block; height:0; clear:both}
+.xui-tabpanel-hd
+{zoom:1}
+
+.xui-tabpanel-list { overflow:hidden;zoom:1;}
+
+.xui-tabpanel-list li{ 
+	float:left; 
+	display:inline;
+	padding:5px 10px 5px 0; 
+	white-space:nowrap; 
+	position:relative; }
+.xui-tabpanel-list-item{ padding:2px 5px;*padding:4px 5px 1px; color:#404040;cursor:pointer;}
+a.xui-tabpanel-list-item:hover{ background:#d8e2fd; color:#404040;}
+
+.xui-tabpanel-selected, a.xui-tabpanel-selected:hover
+{ background:#06C;color: #fff; }
+
+.xui-tabpanel-category{overflow:hidden;zoom:1;}
+.xui-tabpanel-category .xui-tabpanel-list{ padding: 0;}
+.xui-tabpanel-category dt{ float:left; width:30px; padding-top:5px; color:#06c;}
+.xui-tabpanel-category dd{ float:left; width:280px;}
+/* xui-suggest end */
