@@ -1,0 +1,125 @@
+@charset "utf-8";
+/* CSS Document */
+*{ padding:0; margin:0;}
+body {font-family:"宋体"; font-size:12px;color:#333333; background:#eeeeee;}
+img{ border:0;}
+a{ text-decoration:none;}
+ol,ul,li {list-style: none;}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+	empty-cells:show;
+	text-align:left;
+	font-size: 14px;
+}
+th,td {
+	border-collapse:collapse;
+	font-size: 12px;}
+caption{text-align:left;}
+button {cursor:pointer;}
+.clearfix{ overflow:hidden; zoom:1;}
+
+
+#page{ width:1002px;background: url(images/bj.png) no-repeat; margin:0 auto;}
+
+#tool{ height:25px; line-height:25px; background:#fff; padding:0 10px;width:982px; float:left;}
+.tool_left{ float:left;}
+.tool_left a{ color:#b10000; margin-left:10px;}
+.tool_left a:hover{color:#FF7300; }
+.tool_right{ float:right;}
+.tool_right a{ color:#333333; margin-left:10px;}
+.tool_right a:hover{color:#FF7300; }
+
+#head{ height:105px; background:#b10000;width:1002px;float:left;}
+.logo{ background:url(images/logo.png) no-repeat; width:264px; height:51px; margin:28px 0 0 38px; float:left;}
+.wuliu{ float:right; font-size:14px;color:#fff; margin:75px 20px 0 0;}
+.wuliu a{ color:#fff; margin:0 10px;}
+.wuliu a:hover{ text-decoration:underline;}
+
+#menu{ font-size:14px;color:#fff; background:#8f0100; height:30px; line-height:30px;width:1002px;float:left;}
+#menu ul li{ float:left; margin:0 10px;font-weight:bold;}
+#menu ul li a{ color:#fff;}
+#menu ul li a:hover{ color:color:#FF7300;}
+
+#second{ height:242px; margin-top:20px;width:1002px;float:left;}
+.search{ width:284px; background:#fff; border:1px solid #b10000;/*height:166px; */float:left;}
+.xuanzhong{ background:#fff; color:#b10000;}
+.search ul{ width:78px; float:left;}
+.search ul li{ height:55px; line-height:55px; text-align:center;}
+.weixuan{color:#fff; background:#d95f5f; border-top:1px solid #b10000;border-right:1px solid #b10000;}
+.condition{ margin:30px 5px 0 5px; float:left; display:block; width:195px;}
+.condition_shuru{ margin:10px 0px; width:195px;}
+.user{ height:20px;width:135px;border:1px solid #807f7f; line-height:20px;}
+.button{ width:70px; height:24px; padding:10px 0 0 65px; float:left;}
+.button01{ background:url(images/button.png); width:70px; height:24px; color:#fff; border:none;}
+.search02{ width:284px; background:#fdeded; border-top:2px solid #b10000;height:71px; float:left;}
+.search02 img{ margin:16px 17px;}
+.banner{ width:370px; height:242px; float:left; margin:0 19px;}
+.info{ height:242px; width:308px; background:#fff;  float:left;}
+.info01{ width:185px; height:155px; line-height:25px; margin:5px; float:left;}
+.info01 span{color:#b10000;font-weight:bold;}
+.date{ background:url(images/date_bj.jpg); width:100px; height:153px; float:left; margin-top:5px; text-align:center;}
+.date_title{ line-height:24px;}
+.date_main{ font-family:Eras Bold ITC; font-size:48px;color:#b10000; margin-top:30px;}
+.date_main p{font-family:"宋体"; font-size:12px;color:#333333; margin-top:10px;}
+.slogan{ background:url(images/slogan.png); width:282px; height:65px; float:left;}
+
+#pinpai{ width:1002px;float:left;}
+.title{ height:30px; line-height:30px;font-size:14px;color:#b10000;font-weight:bold; padding-left:20px; float:left; width:982px;}
+.pinpai_main{ background:#fff; height:58px; float:left;width:1002px;}
+.pinpai_main_left{ background: url(images/left.png) no-repeat; width:15px; height:24px; margin:17px 20px; float:left; display:inline;}
+.pinpai_main_right{ background: url(images/right.png) no-repeat; width:15px; height:24px; margin:17px 20px; float:left; display:inline;}
+.pinpai_main_center{ width:892px; float:left;  margin-top:10px;}
+.pinpai_main_center ul li{ width:100px;text-align:center; float:left; margin:0 13px; display:inline;}
+.pinpai_main_center ul li span{margin-top:2px; float:left; width:100px;}
+
+#line{ width:1002px;float:left;}
+.line_main{ background:#fff; float:left;width:1002px;}
+.line_main ul li{ height:32px; display:inline; margin:0 3px; float:left;}
+.line_main ul li a{ color:#333333;height:24px; padding-top:8px;   display:inline-block;}
+.line_main ul li a img{vertical-align:middle;}
+.line_main ul li a:hover{ background:#FDEDED;}
+.line_main ul li span{ margin:0 5px;}
+.line_main_color{ color:#999999;}
+
+#good_wuliu{width:1002px; float:left;}
+.good_wuliu_title{ font-size:14px; font-weight:bold; height:30px; line-height:30px; color:#fff; background:#b10000; float:left;width:1002px; }
+.good_wuliu_title ul li{ width:334px;text-align:center;float:left;}
+.c9c9c9{ background:#c9c9c9; color:#000;}
+.good_wuliu_main{ background:#fff; float:left;width:1002px;}
+.good_wuliu_main ul li{width:147px; margin:0 10px; display:inline; text-align:center; height:32px; line-height:32px; float:left;}
+.good_wuliu_main ul li a{ color:#333333;}
+.good_wuliu_main ul li a:hover{color:#FF7300;}
+
+#link{ width:1002px; float:left; margin-top:20px;}
+.link_title{ height:30px; line-height:30px;font-size:14px;color:#b10000;font-weight:bold; padding-left:20px; float:left; width:982px; background:#d9d9d9;}
+.link_main{ width:982px; float:left; background:#fff; line-height:60px; height:60px;padding-left:20px;}
+
+#copyright{ width:1002px; margin-top:40px; text-align:center; float:left; height:50px;}
+#copyright a{ color:#333333; margin:0 3px;}
+#copyright a:hover{ color:#FF7300;}
+
+#buzhou{ width:1002px; height:56px; float:left; margin-top:8px;}
+#fahuo_left{ width:230px; float:left;}
+.fahuo_left_top{ padding-bottom:20px; padding-top:10px;background:#fff;  margin-top:20px; }
+.fahuo_left_second{ padding-bottom:20px;margin-top:20px;background:#fff; padding-top:10px;  }
+.left_logo{ width:186px; height:45px; background:url(images/fahuo_logo.jpg); margin:10px auto 20px;}
+#fahuo_right{ float:left; margin-left:20px; width:752px; margin-top:20px;}
+.fahuo_box{ float:left;}
+.fahuo_title{ float:left; padding-left:25px; width:727px; color:#b10000; font-size:14px; font-weight:bold; height:30px; line-height:30px;}
+.fahuo_title a{color:#b10000;padding-left:15px;font-size:12px; font-weight:normal;}
+.fahuo_title a:hover{color:#FF7300;}
+.fahuo_title span{ color:#999797; padding-left:15px;font-size:12px; font-weight:normal;}
+.fahuo_main{ float:left; padding:10px 0 20px 25px; background:#fff;width:727px;}
+.fahuo_input{ height:24px; line-height:24px; border:1px solid #807f7f; width:230px;}
+.fahuo_button{background:url(images/button.png); width:70px; height:24px; color:#fff; border:none; margin-left:10px; margin-top:5px; float:left;}
+.fahuo_checkbox{margin:11px 0 0px 10px;float:left;}
+.checkbox_word{ line-height:35px; float:left; padding-left:4px;}
+.fahuo_tips{ margin-left:10px; }
+.fahuo_text{ border:1px solid #807f7f;height:24px; line-height:24px; float:left;}
+.fahuo_menu{ width:250px; border:1px solid #807F7F; height:24px; line-height:24px;}
+.fahuo_txt{ border:1px solid #807F7F;font-size:12px;color:#333333; line-height:25px;}
+.fahuo_radio{margin:11px 0 0px 10px;float:left;}
+.fahuo_main table tr td{ line-height:35px;height:35px; vertical-align:middle;}
+.fahuo_main table tr td a{ color:#b10000;}
+.fahuo_main table tr td a:hover{color:#FF7300;}
