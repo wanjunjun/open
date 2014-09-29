@@ -1,0 +1,35 @@
+{
+	"name": "My First Extension",
+	"version": "1.0",
+	"description": "The first extension that I made.",
+	"manifest_version": 2,
+	"icons":{
+        "16"  : "icon_16.png",
+        "48"  : "icon_48.png",
+        "128" : "icon_128.png"
+    },
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_popup": "popup.html",
+		"default_title": "hello wcr"
+	},
+	// "options_page": "option.html",
+	"permissions": [
+        "notifications","contextMenus"
+    ],
+    "web_accessible_resources": [
+        "image/my.jpg"
+    ],
+    "omnibox": { "keyword" : "wcr" },
+    "background": {
+        "scripts": [
+            "js/jquery-1.7.2.min.js", "js/Common.js", "js/background.js"
+        ]
+    },
+	"content_scripts": [
+        {
+            "matches": ["*://www.google.com.hk/*"],
+            "js": ["js/jquery-1.7.2.min.js", "js/Common.js", "js/app.js"]
+        }
+    ]
+}
