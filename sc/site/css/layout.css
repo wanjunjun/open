@@ -1,0 +1,79 @@
+body{margin: 0 auto; font-size: 12px; line-height: 1.5;}
+ul,dl,dd,h1,h2,h3,h4,h5,h6,form,p { padding:0; margin:0;}
+ul{list-style: none;}
+img{border: 0;}
+a{color: #05a; text-decoration: none;}
+a:hover{color: #f00;}
+
+/**home**/
+#container{width: 900px; margin:0 auto; }
+
+/*header*/
+#header{height:71px; }
+#logo {float: left; margin-top: 18px;}
+#search {float: right; margin-top: 30px; height: 24px; color: #444;}
+.text_srch {width: 140px; height: 17px; padding-left: 20px; background: url(../images/srh_bg.gif) 0 0 no-repeat; border: 1px solid #cbcbcb;}
+.btn_srch {width: 58px; height: 23px; background: url(../images/btn_srh.gif) 0 0 no-repeat; border: none; cursor: pointer; text-indent: -99em;}
+#search *{vertical-align: middle;}
+
+#nav{height:66px; background:url(../images/nav_bg.gif) 0 0 repeat-x; margin-bottom:8px;}
+#nav_l {float: left; height: 66px; width: 5px; overflow: hidden; background: url(../images/nav_bg.gif) 0 -66px no-repeat; margin-right: 10px;}
+#nav_r {float: right; height: 66px; width: 5px; overflow: hidden; background: url(../images/nav_bg.gif) -5px -66px no-repeat; }
+
+.nav_main {height: 36px; overflow: hidden;}
+.nav_main ul li {float: left; font-size: 14px; font-weight: bold; margin: 5px 5px 0 5px}
+.nav_main ul li a {float: left; display: block; height: 26px; line-height: 26px; color: #fff; padding-left: 20px;}
+.nav_main ul li a span {float: left; display: block; padding-right: 20px; }
+.nav_main ul li a:hover {background:url(../images/nav_bg.gif) 0 -163px no-repeat; } 
+.nav_main ul li a:hover span {background:url(../images/nav_bg.gif) right -163px no-repeat;}
+.nav_main ul li a#nav_current {height: 31px; line-height: 31px; background:url(../images/nav_bg.gif) 0 -132px no-repeat; color: #646464;}
+.nav_main ul li a#nav_current span{height: 31px; background:url(../images/nav_bg.gif) right -132px no-repeat;}
+
+.nav_son {height: 30px;}
+.nav_son ul li {float: left; margin-top: 4px;}
+.nav_son ul li a {display: block; width: 78px; height: 22px; line-height: 22px; text-align: center; color: #6e6e6e;}
+.nav_son ul li a:hover {background:url(../images/nav_bg.gif) 0 -198px no-repeat;}
+
+
+
+
+/*main*/
+#content { margin-bottom:8px; overflow: auto;}
+#main {float: left; width:664px;height:500px; background:#ffff99; }
+.m1 {height: 255px;}
+.imgs {width: 270px; float: left;}
+.hot_news {width: 358px; height: 225px; background: url(../images/hot_bg.gif) 0 0 no-repeat; float: right; padding: 15px;}
+.news_top {border-bottom: 1px dotted #ccc; padding-bottom: 8px;}
+.news_top h1{font-size: 18px;  font-family: "microsoft yahei"; line-height: 2.2;}
+.news_top p {color: #777;}
+.news_list {padding-top: 6px;}
+.news_list ul li {background: url(../images/icon.gif) 0 -300px no-repeat; padding-left: 20px; height: 20px;}
+.news_list ul li span {float: right;}
+.news_list ul li a { color: #999;}
+
+#side {float: right;width:228px; }
+.side_box {margin-bottom: 8px;}
+.side_box h2 {height: 25px; padding: 6px 10px 0 10px; background: url(../images/side_bg.gif) 0 0 no-repeat; font-size: 14px; color: #444;}
+.side_box h2 strong {color: #f30;}
+.side_con {padding: 0 10px; background: url(../images/side_bg.gif) 0 bottom no-repeat;}
+.product {padding: 3px 10px;}
+.product ul {background: url(../images/icon2.gif) 5px 12px no-repeat;}
+.product ul li {height: 58px; padding: 14px 0 0 64px; border-bottom: 1px dashed #dcdcdc; color: #777;}
+.product ul li strong {display: block; height: 24px; color: #333;}
+.product ul li a {color: #777;}
+.product ul li a:hover {text-decoration: underline;}
+.product ul li.product3 {border-bottom: none;}
+
+.ask dl {padding: 9px 0; border-bottom: 1px dashed #dcdcdc;}
+.ask dl dt {height: 22px; overflow: hidden; font-weight: bold; background: url(../images/icon.gif) 0 -149px no-repeat; padding-left: 20px;}
+.ask dl dt a {color: #666;}
+.ask dl dd {color: #666; background: url(../images/icon.gif) 0 -198px no-repeat; padding-left: 20px;}
+
+.contact {padding: 2px;}
+
+/*footer*/
+#footer {height: 70px; background: #ccffcc }
+
+.clearfloat {clear: both; height: 0; line-height: 0; font-size: 1px;}
+
+

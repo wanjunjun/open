@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<style type="text/css">
+body { font-family: Verdana; font-size: 12px; line-height: 1.5; }
+a { color: #000; text-decoration: none; }
+a:hover { color: #F00; }
+#menu { width:500px; height:28px; margin:0 auto; border-bottom:3px solid #E10001;}
+#menu ul { list-style: none; margin: 0px; padding: 0px; }
+#menu ul li { float:left; margin-left:2px; overflow:auto; }
+#menu ul li a { display:block; min-width:87px; height:28px; line-height:28px; text-align:center; background:url(b2.png) 0 -28px no-repeat; font-size:14px;}
+#menu ul li a:hover { background:url(b2.png) 0 -56px no-repeat;}
+#menu ul li a#current { background:url(b2.png) 0 0 no-repeat; font-weight:bold; color:#fff;}
+
+
+#menu ul li ul {border:1px solid #ccc; display: none; position:absolute; background:#eee}
+#menu ul li ul li {float:none; background:#eee; }
+#menu ul li ul li a{background:none;}
+#menu ul li ul li a:hover{background: #333; color:#fff;}
+#menu ul li:hover ul{display:block;}
+</style>
+</head>
+<body>
+<div id="menu">
+<ul>
+<li><a id="current" href="#">首页</a></li>
+<li><a href="#">网页版式</a>
+	<ul>
+		<li><a href="#">自适应</a></li>
+		<li><a href="#">固定高度</a></li>
+	</ul>
+</li>
+<li><a href="#">web教程</a>
+	<ul>
+		<li><a href="#">CSS教程</a></li>
+		<li><a href="#">PS教程</a></li>
+	</ul>
+</li>
+<li><a href="#">web实例</a></li>
+<li><a href="#">常用代码</a></li>
+</ul>
+</div>
+
+<div>
+	<div style="float:left; width:600px; height:500px; border:1px solid #ccc;">main</div>
+	<div style="float: right; width:200px; height:500px; border:1px solid #ccc;">side</div>
+</div>
+<div style="height:50px; border:1px solid #ccc;">footer</div>
+</body>
+</html>
