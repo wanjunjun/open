@@ -1,8 +1,8 @@
-body{margin: 0 auto; font-size: 12px; line-height: 1.5;}
+body{margin: 0 auto; font-size: 12px; line-height: 1.5; font-family:Verdana;}
 ul,dl,dd,h1,h2,h3,h4,h5,h6,form,p { padding:0; margin:0;}
 ul{list-style: none;}
 img{border: 0;}
-a{color: #05a; text-decoration: none;}
+a{color: #444; text-decoration: none;}
 a:hover{color: #f00;}
 
 /**home**/
@@ -35,21 +35,45 @@ a:hover{color: #f00;}
 .nav_son ul li a:hover {background:url(../images/nav_bg.gif) 0 -198px no-repeat;}
 
 
-
-
 /*main*/
-#content { margin-bottom:8px; overflow: auto;}
-#main {float: left; width:664px;height:500px; background:#ffff99; }
-.m1 {height: 255px;}
+#content {  overflow: auto;}
+#main {float: left; width:664px; }
+.m1 {height: 255px; margin-bottom: 8px;}
 .imgs {width: 270px; float: left;}
+.login {margin-top: 5px;}
+.login #login_left {float: left;}
+.login #login_right {float: right;}
+
 .hot_news {width: 358px; height: 225px; background: url(../images/hot_bg.gif) 0 0 no-repeat; float: right; padding: 15px;}
 .news_top {border-bottom: 1px dotted #ccc; padding-bottom: 8px;}
-.news_top h1{font-size: 18px;  font-family: "microsoft yahei"; line-height: 2.2;}
-.news_top p {color: #777;}
+.news_top h1{font-size: 18px;  font-family: "microsoft yahei"; line-height: 2.2; color: #444;}
+.news_top p {color: #999;}
 .news_list {padding-top: 6px;}
-.news_list ul li {background: url(../images/icon.gif) 0 -300px no-repeat; padding-left: 20px; height: 20px;}
-.news_list ul li span {float: right;}
-.news_list ul li a { color: #999;}
+.news_list ul li {background: url(../images/icon.gif) 0 -300px no-repeat; padding-left: 20px; line-height: 1.9;}
+.news_list ul li span {float: right; color: #579f11;}
+
+.m2 { border: 1px solid #dbdbdb; margin-bottom: 8px;}
+.m2 h2 {background: url(../images/box_tit_bg.gif) 0 0 repeat-x; border-bottom:1px solid #dbdbdb; overflow: hidden; height: 28px;}
+.m2 h2 span {background: url(../images/rmcp.gif) 12px 6px no-repeat; display: block; height: 25px;}
+.m2 ul {padding: 0 0 15px 0; overflow: auto;}
+.m2 ul li {float: left; margin: 15px 0 0 21px; width: 107px; text-align: center; display: inline;}
+.m2 ul li a {display: block;}
+.m2 ul li a img {margin-bottom: 3px;}
+
+.m3 .box {float: left; border: 1px solid #dbdbdb; width: 326px;}
+.m3 .box h2 {background: url(../images/box_tit_bg.gif) 0 0 repeat-x; height: 23px; border-bottom: 1px solid #dbdbdb; padding: 5px 10px 0 10px; font-size: 14px; color: #444; overflow: hidden;}
+
+.m3 .box h2 span {display: block; background: url(../images/icon.gif) 0 -3px no-repeat;  height: 25px; padding-left: 20px;}
+.more {float: right; background: url(../images/icon.gif) 0 -46px no-repeat; padding-left: 13px; font-size: 12px; color: #db8d3b;}
+.more:hover { color:#cb6d0a; background:url(../images/icon.gif) 0 -96px no-repeat;}
+.box_con {padding:15px 15px 0 15px; overflow:hidden; height: 243px;}
+
+.box_con dl dt {float: left;}
+.box_con dl dd {margin-left: 105px; line-height: 1.5; color: #777; width: 188px;}
+.box_con dl dd a {display: block; color: #05a;}
+.box_con ul {margin-top: 10px;}
+.box_con ul li {background: url(../images/icon.gif) 0 -300px no-repeat; padding-left: 20px; height: 20px;}
+.m3 .box2 {float: right;}
 
 #side {float: right;width:228px; }
 .side_box {margin-bottom: 8px;}
@@ -71,8 +95,12 @@ a:hover{color: #f00;}
 
 .contact {padding: 2px;}
 
+
 /*footer*/
-#footer {height: 70px; background: #ccffcc }
+#footer { text-align: center;}
+#footer dl dt {background: #afafaf; color: #fff; height: 28px; line-height: 28px;}
+#footer dl dt a {color: #fff; font-weight: bold;}
+#footer dl dd {color: #777; padding: 8px 0; line-height: 2;}
 
 .clearfloat {clear: both; height: 0; line-height: 0; font-size: 1px;}
 

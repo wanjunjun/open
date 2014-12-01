@@ -96,6 +96,6 @@ a:hover { color:#f00;}
 
 /*footer*/
 #footer { text-align:center;}
-#footer dl dt { height:28px; line-height:28px; background:#afafaf; color:#fff; }
+#footer dl dt { height:28px; line-height:28px; background:#afafaf; color:#fff;}
 #footer dl dt a { font-weight:bold; color:#fff;}
 #footer dl dd { padding:8px 0; color:#666; line-height:2;}
