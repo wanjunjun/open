@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="GBK"?>
+<module>
+    <id>tshop-um-nav_mine</id>
+    <uuid>7ad075f6d6944d20bdb216d5f51205d7</uuid>
+    <name>我的导航</name>
+    <file>tshop-um-nav_mine.php</file>
+    <thumbnail>../../assets/images/default-thumbnail.png</thumbnail>
+    <description></description>
+    <requiredCache>true</requiredCache>
+    <supportedWidth>190,550,750,950</supportedWidth>
+    <themes default="默认">
+        <theme name="默认">
+            <css>assets/stylesheets/default.css</css>
+        </theme>
+    </themes>
+</module>

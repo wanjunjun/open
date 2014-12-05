@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="GBK"?>
+<module>
+    <id>tshop-pbsm-shop-activity-list</id>
+    <name>店铺活动</name>
+    <thumbnail>http://gtms03.alicdn.com/tps/i3/TB1wdRxGXXXXXcuXXXX1ElnIXXX-64-64.png</thumbnail>
+    <description>[提示：请为系统模块{店铺活动}添加描述信息]</description>
+    <themes default="默认">
+        <theme name="默认">
+            <css>assets/stylesheets/default.css</css>
+        </theme>
+    </themes>
+</module>
