@@ -8,6 +8,7 @@
  *		4. CSS URL地址必须是淘宝URL白名单中或者本地（相对或绝对）URL 
  */
 
-.tshop-pbsm-shop-item-cates {color:black;}
-
+.tshop-pbsm-shop-item-cates {color:black; background: url(assets/images/_bg.jpg) 0 0 repeat-y; }
+.tshop-pbsm-shop-item-cates .skin-box-bd, .tshop-pbsm-shop-item-cates .skin-box-hd{background: none;}
+.tshop-pbsm-shop-item-cates .skin-box-bd a {color: #6d5934; background: url(assets/images/_bg.jpg) 0 0 repeat-y; }
  

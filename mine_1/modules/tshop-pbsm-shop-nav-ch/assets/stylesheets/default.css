@@ -13,8 +13,12 @@
  .tshop-pbsm-shop-nav-ch .skin-box-bd {border: none;}
 */
 
-.tshop-pbsm-shop-nav-ch .all-cats .link {background: #59473d; color: #ffffff; border: none;}
+.tshop-pbsm-shop-nav-ch .all-cats .link {background: #AD937C; color: #ffffff; border: none;}
 
 .tshop-pbsm-shop-nav-ch .skin-box-bd a {color: #59473d;}
 
-.tshop-pbsm-shop-nav-ch .skin-box-bd {border: 1px solid #59473d; background: #59473d;}
+.tshop-pbsm-shop-nav-ch .skin-box-bd {border: 1px solid #59473d; background: #AD937C;}
+.tshop-pbsm-shop-nav-ch .popup-content {background: #AD937C; border: 1px solid #59473d}
+.tshop-pbsm-shop-nav-ch .popup-content .cats-tree .snd-pop-inner {background: #AD937C;}
+
+.tshop-pbsm-shop-nav-ch .all-cats .link .popup-icon {background: url(assets/images/all.jpg) 0 0 no-repeat;}

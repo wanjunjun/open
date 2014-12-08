@@ -1,11 +1,11 @@
 /**
- * 模块：tshop-pbsm-shop-srch-inshop 
- * 皮肤（主题）: 默认
- * 规则:
- * 		1. CSS选择器必须包含 ".tshop-pbsm-shop-srch-inshop"，禁止使用模块页面元素的ID选择器
- *		2. CSS样式声明的position属性值不能使用:fixed
- *		3. CSS样式文件中z-index属性值必须在1-99之间
- *		4. CSS URL地址必须是淘宝URL白名单中或者本地（相对或绝对）URL 
+ * 脛拢驴茅拢潞tshop-pbsm-shop-srch-inshop 
+ * 脝陇路么拢篓脰梅脤芒拢漏: 脛卢脠脧
+ * 鹿忙脭貌:
+ * 		1. CSS脩隆脭帽脝梅卤脴脨毛掳眉潞卢 ".tshop-pbsm-shop-srch-inshop"拢卢陆没脰鹿脢鹿脫脙脛拢驴茅脪鲁脙忙脭陋脣脴碌脛ID脩隆脭帽脝梅
+ *		2. CSS脩霉脢陆脡霉脙梅碌脛position脢么脨脭脰碌虏禄脛脺脢鹿脫脙:fixed
+ *		3. CSS脩霉脢陆脦脛录镁脰脨z-index脢么脨脭脰碌卤脴脨毛脭脷1-99脰庐录盲
+ *		4. CSS URL碌脴脰路卤脴脨毛脢脟脤脭卤娄URL掳脳脙没碌楼脰脨禄貌脮脽卤戮碌脴拢篓脧脿露脭禄貌戮酶露脭拢漏URL 
  */
 
 .tshop-pbsm-shop-srch-inshop {color:#4e3c2e;}
@@ -14,7 +14,7 @@
 
 .tshop-pbsm-shop-srch-inshop .skin-box-bd .hot-keys a {color: #4e3c2e}
 
-.tshop-pbsm-shop-srch-inshop .skin-box-hd {max-width: none; background-color: #e2d2c2; }
+.tshop-pbsm-shop-srch-inshop .skin-box-hd {max-width: none; background: url(assets/images/_bg.jpg) 0 0 repeat-y; }
 .tshop-pbsm-shop-srch-inshop .skin-box-hd h3 span {color: #4e3c2e;}
-.tshop-pbsm-shop-srch-inshop .skin-box-bd {background-color: #e2d2c2;  border: 1px solid #e2d2c2!important;}
+.tshop-pbsm-shop-srch-inshop .skin-box-bd {background: url(assets/images/_bg.jpg) 0 0 repeat-y;  border: 1px solid #e2d2c2!important;}
 .tshop-pbsm-shop-srch-inshop .skin-box-bd .price label {color: #4e3c2e;}

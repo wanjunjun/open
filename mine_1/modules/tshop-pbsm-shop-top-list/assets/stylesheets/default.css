@@ -8,6 +8,15 @@
  *		4. CSS URL地址必须是淘宝URL白名单中或者本地（相对或绝对）URL 
  */
 
-.tshop-pbsm-shop-top-list {color:black;}
+.tshop-pbsm-shop-top-list {color:black; background: url(assets/images/_bg.jpg) 0 0 repeat-y; }
 
- 
+.tshop-pbsm-shop-top-list .skin-box-hd {background: none; border-bottom: none;}
+
+.tshop-pbsm-shop-top-list .control-group {background: url(assets/images/_bg.jpg) 0 0 repeat-y; color: #6d5934;}
+.tshop-pbsm-shop-top-list .top-list-tab {border-bottom: 1px solid #6d5934;}
+.tshop-pbsm-shop-top-list .top-list-tab li {background: url(assets/images/_bg.jpg) 0 0 repeat-y; color: #6d5934}
+.tshop-pbsm-shop-top-list .top-list-tab li.selected {
+    background: #6d5934;
+    color: #fff;
+}
+.tshop-pbsm-shop-top-list .skin-box-bd a {color: #6d5934;}
