@@ -13,4 +13,16 @@
             <css>assets/stylesheets/default.css</css>
         </theme>
     </themes>
+    <parameters>
+        <group title="宝贝设置">
+            <section title="选择器部分" folded="false">
+                <param description="描述信息就是要太长！" formType="itemForm" label="宝贝选择器" name="item_1" ptype="item">6,3,2</param>
+                <param description="描述信息就是要太长！" formType="categoryForm" label="分类选择器" name="cate_1" ptype="category">[ {&#xd;
+  "childIds" : "123",&#xd;
+  "rid" : "120"&#xd;
+} ]</param>
+                <param description="描述信息就是要太长！" formType="text" label="关键字" name="key" ptype="text">T</param>
+            </section>
+        </group>
+    </parameters>
 </module>

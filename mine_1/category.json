@@ -3,11 +3,19 @@
   "layouts" : [ {
     "type" : "grid-s5m0",
     "modules" : {
-      "sub" : [ ],
+      "sub" : [ {
+        "moduleID" : "tshop-pbsm-other-customer-service"
+      }, {
+        "moduleID" : "tshop-pbsm-shop-srch-inshop"
+      }, {
+        "moduleID" : "tshop-pbsm-shop-item-cates"
+      }, {
+        "moduleID" : "tshop-pbsm-shop-top-list"
+      } ],
       "main" : [ {
         "moduleID" : "tshop-pbsm-shop-srch-list"
       }, {
-        "moduleID" : "tshop-pbsm-shop-srch-inshop"
+        "moduleID" : "tshop-um-nav_mine"
       } ]
     }
   } ]

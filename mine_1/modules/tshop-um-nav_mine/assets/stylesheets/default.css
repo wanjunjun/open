@@ -8,6 +8,17 @@
  *		4. CSS URL地址必须是淘宝URL白名单中或者本地（相对或绝对）URL 
  */
 
-.tshop-um-nav_mine {color:black;}
+.tshop-um-nav_mine {color:#6d5c31; background: url(../../assets/images/_bg.jpg) 0 0 repeat-y;}
 
- 
+.tshop-um-nav_mine .hot { overflow: auto;}
+.tshop-um-nav_mine .hot .item {float: left; width: 242px; margin-right: 12px; }
+.tshop-um-nav_mine .hot .last {margin-right: 0;}
+.tshop-um-nav_mine .hot .item dt {width: 240px; border: 1px solid #eee; text-align: center; background: #fff;}
+.tshop-um-nav_mine .hot .item dd {height: 100px; }
+.tshop-um-nav_mine .hot .item dd .title{margin-top: 10px; height: 50px;}
+.tshop-um-nav_mine .hot .item dd .price{
+	background: url(assets/images/price.jpg) 0 0 no-repeat; 
+	margin-top: 10px; 
+	padding-left: 20px;
+	font-weight: 700;
+}

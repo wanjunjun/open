@@ -16,6 +16,37 @@
 /**
  * 开始设计PHP页面
  */
+	// echo $_MODULE["key"];
+	// $param = json_decode($_MODULE["cate_1"]);
+	// echo $param[0]->rid;
 ?>
+	<div class="hot">
+		
+		<?php
+			/*$categorys = $shopCategoryManager->queryAll();
+			foreach ($categorys as $cate) {
+				echo $cate->id.":".$cate->name."<br>";
+			}*/
+			
+			// $items = $itemManager->queryByCategory($param[0]->rid, "hotsell", 10);
+			$items = $itemManager->queryByKeyword($_MODULE["key"], "hotsell", 20);
+			$count = 1;
+			foreach ($items as $item) {
+				
+				if($count%3 == 0){
+					echo '<dl class="item last">';	
+				}else{
+					echo '<dl class="item">';	
+				}
+				$count++;
 
+				echo '<dt><a href="#"><img src="'.$item->getPicUrl(230).'"/></a></dt>';
+				echo '<dd><div class="title">'.$item->title.'</div> <div class="price">￥'.$item->price.'</div></dd>';
+				// echo $item->id.":".$item->title."<br>";
+				echo "</dl>";
+			}
+		?>
+		
+	</div>
+</div>
 
