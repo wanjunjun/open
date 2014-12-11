@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtmBox">
+<head>
+	<include file='./Public/common/meta.html' />
+	 <script type="text/javascript" src="__PUBLIC__/js/plugins/Wookmark/jquery.wookmark.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/plugins/Wookmark/jquery.imagesloaded.js"></script>
+</head>
+
+<body>
+
+
+	<div class="xsWrap">
+		<!-- 顶导 -->
+		<include file='./Public/common/header.html' />
+		<!-- /顶导 -->
+		<!-- main -->
+		<div class="mainBox clearfix">
+			<!-- 个人信息 -->
+			<input id="uid" type="hidden" value="{$uid}">
+			{:W('Home/My/getPersonalInfo',array($uid))}
+			<!-- /个人信息 -->
+
+			<div class="showMain clearfix">
+				<div class="showNavBox clearfix">
+					<ul class="showNav">
+						<li><a class="showMod" href="__ROOT__/admin/personal/view.shtml?id={$uid}">{:W('Home/My/userPostFavoritesCount',array($uid,1))} 收藏</a></li>
+						<li><a class="showMod" href="__ROOT__/admin/personal/view.shtml?id={$uid}&type=album">{:W('Home/My/albumCount',array($uid))} 专辑</a></li>
+						<li><a class="showMod cur" href="#">{:W('Home/My/userPostFavoritesCount',array($uid,2))} 赞</a></li>
+					</ul>
+					<div class="showSear">
+						<div class="navSearBox"><input type="text" id="search_keyword" placeholder="请输入关键字" class="navSearInput"><span class="xsIcon icon_search" onclick="_search()"></span></div>
+					</div>
+				</div>
+
+			</div>
+
+
+
+			<!-- 瀑布流 -->
+			<div class="fallMain">
+                <div class=" " id="wmain" style="position: relative;margin-top:10px;">
+                    <ul class="fallList blogfall" id='tiles'>
+                        	<li>
+                            <a class="albumAddBox" href="__ROOT__/post/add">
+                                <span class="albumAdd"></span>
+                                <p class="albumAddTxt">添加文章</p>
+                            </a>
+                        </li>			
+                    </ul>
+
+
+                </div>
+            </div>
+			<!-- /瀑布流 -->
+
+		</div>
+
+		<!-- /main -->
+
+	</div>
+
+	<include file='./Public/common/openWindows.html' />
+
+
+
+<script type="text/javascript">
+	<!--wookmark 瀑布流js-->
+    (function($) {
+    	var page_no = 1;//分页数 从第1页开始
+        var user_id = {$uid};
+        var $tiles = $('#tiles'),
+            $handler = $('li', $tiles),
+            $main = $('#wmain'),
+            $window = $(window),
+            $document = $(document),
+            options = {
+                autoResize: true, // This will auto-update the layout when the browser window is resized.
+                container: $main, // Optional, used for some extra CSS styling
+                offset: 20, // Optional, the distance between grid items
+                itemWidth: 210 // Optional, the width of a grid item
+            };
+
+        /**
+         * 展示
+         */
+        function applyLayout() {
+            $tiles.imagesLoaded(function() {
+                // Destroy the old handler
+                if ($handler.wookmarkInstance) {
+                    $handler.wookmarkInstance.clear();
+                }
+                // Create a new layout handler.
+                $handler = $('li', $tiles);
+                $handler.wookmark(options);
+            });
+        }
+
+        function display(){
+        	$.ajax({
+                    url: "__ROOT__/post/wookmarkPostFavoritesAjax",
+                    dataType: "html",
+                    data:{
+                    	'type':2,
+                    	'page_no':page_no,
+                    	'user_id':user_id
+                    },
+                    success: function(html) {                  	
+                    	if(html!=null&&html!=""){
+                    		page_no++;
+                    		//把新数据追加到对象中
+                       		$tiles.append(html);
+                        	//重新展示
+                        	applyLayout();
+
+                            //重新绑定 赞，收藏，评论事件
+                            bindEvent();
+                    	}
+                        
+                    }
+                });
+        }
+        /**
+         *scroll 事件
+         */
+        function onScroll() {
+            // Check if we're within 100 pixels of the bottom edge of the broser window.
+            var winHeight = window.innerHeight ? window.innerHeight : $window.height(), // iphone fix
+                closeToBottom = ($window.scrollTop() + winHeight > $document.height() - 100);
+            if (closeToBottom) {
+                //AJAX载入的数据
+                display();               
+            }
+        };
+
+        applyLayout();
+        display();
+        bindEvent();
+
+
+        $window.bind('scroll.wookmark', onScroll);
+
+        
+
+       function bindEvent(){
+
+             $(".zan").on('click',function(e){
+                e.preventDefault();
+                <if condition="session('__user__') neq null">
+                $.post("__ROOT__/post/favorites",{
+                    type:2,
+                    post_id:$(this).attr("post_id")
+                },function(data){
+                   if(data=="add"){
+                      
+                        location.reload();
+                    }
+                });
+                <else/>
+                    alert("请先登录或注册!");
+                    return;
+                </if>
+                
+            });
+
+            $(".shoucang").on('click',function(e){
+                e.preventDefault();
+                <if condition="session('__user__') neq null">
+                $.post("__ROOT__/post/favorites",{
+                    type:1,
+                    post_id:$(this).attr("post_id")
+                },function(data){
+                    if(data=="add"){
+                       
+                        location.reload();
+                    }
+                });
+                <else/>
+                    alert("请先登录或注册!");
+                    return;
+                </if>
+            });
+            $(".comment").on('click',function(e){
+                e.preventDefault();
+                location.href="__ROOT__/post/"+$(this).attr("post_id");
+            });
+
+       }
+
+    })(jQuery);
+
+    function _search(){
+            var keyword = $("#search_keyword").val();
+            if(keyword==null||keyword==""||keyword.length<2){
+                        alert("请输入最少2个字符的关键字");
+                        return;
+            }
+            location.href="__ROOT__/cate/search?keyword="+keyword;
+            return false;
+        }   
+</script>
+</body>
+</html>

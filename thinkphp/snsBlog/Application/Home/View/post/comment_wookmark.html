@@ -1,0 +1,21 @@
+<foreach name="comment_list" item="vo">
+    <li class="clearfix">
+        <div class="noUserImg">
+            <a class="userPic" href="#">
+               <img src="__PUBLIC__/{:W('My/getUserVal',array($vo['user_id'],'header_img'))}" alt="" class="userImg" width="60" height="60">
+            </a>
+        </div>
+        <div class="notiDetail">
+            <div class="notiFBox">
+                <p class="notiUser"><a class="notiName" href="#">
+                {:W('My/getUserVal',array($vo['user_id'],'aliasname'))}</a>
+                    <span class="notiDate">{$vo.create_date}</span>
+                </p>
+                <p class="notiR"> <a class="notiRly" onclick="open_reply({$vo.id})">回复</a><a class="notiRly" onclick="_report({$vo.user_id})">举报</a>
+                </p>
+            </div>
+            <p class="notiCon clearfix">{$vo.content}</p>
+        </div>
+
+    </li>
+</foreach>

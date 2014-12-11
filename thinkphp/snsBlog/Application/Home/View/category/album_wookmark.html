@@ -1,0 +1,16 @@
+<foreach name="album_list" item="vo">
+    <li>
+        <div class="albumMain">
+            <a class="albumImgBox" href="__ROOT__/album/{$vo.id}">
+                {:W('My/getImg4Album',array($vo['id']))}
+            </a>
+        </div>
+        <div class="albumACBox clearfix">
+            <p class="albumTit">
+                <a class="albumName" href="__ROOT__/album/{$vo.id}">{$vo.name}</a>
+            </p>
+            <p class="albumAtt"><a class="btnC" href="##" album_id='{$vo.id}'>关注</a>
+            </p>
+        </div>
+    </li>
+</foreach>

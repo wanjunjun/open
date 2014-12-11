@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtmBox">
+<head>
+<include file='./Public/common/meta.html' />
+ <script type="text/javascript" src="__PUBLIC__/js/plugins/Wookmark/jquery.wookmark.js"></script>
+ <script type="text/javascript" src="__PUBLIC__/js/plugins/Wookmark/jquery.imagesloaded.js"></script>
+</head>
+
+<body>
+
+
+	<div class="xsWrap">
+		<!-- 顶导 -->
+		<include file='./Public/common/header.html' />
+		<!-- /顶导 -->
+		<!-- main -->
+		<div class="mainBox clearfix">
+
+			<!-- 搜索nav -->
+			<div class="searchNav">
+				<div class="searchFbox clearfix">
+					<div class="navSearBox"><input id="search_keyword" type="text" placeholder="请输入关键字" class="navSearInput "><span class="xsIcon icon_search" onclick="_search()"></span></div>
+				<!--     <p class="relSearch"><span class="relTit">相关搜索：</span><a class="relWord">UI图标</a><a class="relWord">ICON</a><a class="relWord">图标游戏<a><a class="relWord">app</a><a class="relWord">banner</a><a class="relWord">logo</a><a class="relWord">游戏</a><a class="relWord">UI按钮</a><a class="relWord">icon设计</a></p> -->
+				</div>
+				<div class="showMain clearfix">
+					<div class="showNavBox clearfix">
+						<ul class="showNav">
+							<li><a class="showMod" href="__ROOT__/cate/search?keyword={$keyword}&type=posts">{:W('My/searchPostCount',array($keyword))} 文章</a></li>
+							<li><a class="showMod cur" href="#">{:W('My/searchAlbumCount',array($keyword))} 专辑</a></li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+			<!-- /搜索nav -->
+
+			<!-- 搜索分类 -->
+			<!-- <div class="searchSortBox clearfix">
+				<a class="sortWord cur" href="#">全部 17</a><a class="sortWord" href="#">摄影 5</a><a class="sortWord" href="#">美妆 8</a><a class="sortWord" href="#">其它 9</a>
+			</div> -->
+			<!-- /搜索分类 -->
+
+			<!-- 瀑布流 -->
+			<!-- 瀑布流 -->
+            <div class="fallMain">
+                <div class=" " id="wmain" style="position: relative;margin-top:10px;">
+                    <ul class="fallList blogfall" id='tiles'>
+                        <li>
+                            <a class="albumAddBox" href="__ROOT__/album/add">
+                                <span class="albumAdd"></span>
+                                <p class="albumAddTxt">添加专辑</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /瀑布流 -->
+
+			<!-- /瀑布流 -->
+
+		</div>
+
+		<!-- /main -->
+		 <include file="./Public/common/openWindows.html"/>
+
+	</div>
+
+	<script type="text/javascript">
+	<!--wookmark 瀑布流js-->
+    (function($) {
+    	var page_no = 1;//分页数 从第1页开始
+        var keyword = '{$keyword}';
+        var $tiles = $('#tiles'),
+            $handler = $('li', $tiles),
+            $main = $('#wmain'),
+            $window = $(window),
+            $document = $(document),
+            options = {
+                autoResize: true, // This will auto-update the layout when the browser window is resized.
+                container: $main, // Optional, used for some extra CSS styling
+                offset: 20, // Optional, the distance between grid items
+                itemWidth: 210 // Optional, the width of a grid item
+            };
+
+        /**
+         * 展示
+         */
+        function applyLayout() {
+            $tiles.imagesLoaded(function() {
+                // Destroy the old handler
+                if ($handler.wookmarkInstance) {
+                    $handler.wookmarkInstance.clear();
+                }
+                // Create a new layout handler.
+                $handler = $('li', $tiles);
+                $handler.wookmark(options);
+            });
+        }
+
+        function display(){            
+        	$.ajax({
+                    url: "__ROOT__/cate/wookmarkAlbumBykeywordAjax",
+                    dataType: "html",
+                    data:{
+                    	 
+                    	'page_no':page_no,
+                    	'keyword':keyword
+                    },
+                    success: function(html) {                  	
+                    	if(html!=null&&html!=""){
+                    		page_no++;
+                    		//把新数据追加到对象中
+                       		$tiles.append(html);
+                        	//重新展示
+                        	applyLayout();
+
+                            //重新绑定 赞，收藏，评论事件
+                            bindEvent();
+                    	}
+                        
+                    }
+                });
+        }
+        /**
+         *scroll 事件
+         */
+        function onScroll() {
+            // Check if we're within 100 pixels of the bottom edge of the broser window.
+            var winHeight = window.innerHeight ? window.innerHeight : $window.height(), // iphone fix
+                closeToBottom = ($window.scrollTop() + winHeight > $document.height() - 100);
+            if (closeToBottom) {
+                //AJAX载入的数据
+                display();               
+            }
+        };
+
+        applyLayout();
+        display();
+        bindEvent();
+
+        $window.bind('scroll.wookmark', onScroll);
+
+        
+
+       function bindEvent(){
+
+            
+            $("a[class=btnC]").on("click",function(){
+            var isLogin = ($(".unLogList").length <=0);
+            if (!isLogin) {
+                alert("请先登录，如果没有帐号请注册帐号。");
+                return;
+            };
+            var album_id = $(this).attr("album_id");
+           
+            $.ajax({
+                    url: "__ROOT__/album/favorites",                    
+                    dataType: "json",
+                    data:{
+                        'album_id':album_id                        
+                    },
+                    success: function(data) {
+                        alert(data.success);                                           
+                        if(data.success){
+                            alert("关注成功！");
+                        }
+                    }
+                });
+        });
+       }
+
+    })(jQuery);
+
+    function _search(){
+       var keyword = $("#search_keyword").val();
+        if(keyword==null||keyword==""||keyword.length<2){
+                    alert("请输入最少2个字符的关键字");
+                    return;
+        }
+        location.href="__ROOT__/cate/search?keyword="+keyword;
+        return false;
+    }
+
+</script>
+	
+</body>
+</html>

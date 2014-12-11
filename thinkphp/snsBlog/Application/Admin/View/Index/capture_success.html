@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtmBox">
+<head>
+	<include file='./Public/common/meta.html' />
+	
+<title></title>
+</head>
+
+<body>
+采集成功,<span id="time">5</span>秒后关闭窗口
+</body>
+</html>
+<script type="text/javascript">
+	$(function () {
+		setInterval("cal()",1000); 
+    });
+
+	function cal(){
+		var t = parseInt($("#time").text());
+		if(t == 1){
+			window.close();
+		}
+		$("#time").text(t-1);
+	}
+	
+</script>
